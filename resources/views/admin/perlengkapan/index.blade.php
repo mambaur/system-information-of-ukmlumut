@@ -26,7 +26,7 @@
 <div class="row">
   <div class="col">
     <div class="d-flex justify-content-between">
-      <div iv>
+      <div>
         <a class="text-decoration-none" href="/admin/perlengkapan">
           <button type="button" class="mb-2 btn {{$tipe === 'Semua' ? 'btn-primary' : 'btn-outline-primary' }}">Semua</button>
         </a>

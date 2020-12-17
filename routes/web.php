@@ -13,7 +13,11 @@
 
 Route::get('/admin', 'admin\Home@index');
 
-Route::get('/admin/anggota', 'admin\Anggota@index');
+// Anggota
+Route::get('/admin/anggota', 'admin\AnggotaController@index');
+Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
+Route::post('/admin/anggota/', 'admin\AnggotaController@store');
+Route::get('admin/anggota/{anggota}', 'admin\AnggotaController@show');
 
 // Perlengkapan
 Route::get('/admin/perlengkapan/kategori', 'admin\PerlengkapanController@category');
@@ -23,5 +27,11 @@ Route::get('/admin/perlengkapan', 'admin\PerlengkapanController@index');
 Route::get('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@show');
 Route::post('/admin/perlengkapan/', 'admin\PerlengkapanController@store');
 Route::delete('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@destroy');
-Route::get('admin/perlengkapan/edit/{perlengkapan}', 'admin\PerlengkapanController@edit');
-Route::patch('admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@update');
+Route::get('/admin/perlengkapan/edit/{perlengkapan}', 'admin\PerlengkapanController@edit');
+Route::patch('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@update');
+
+// Artikel
+Route::get('/admin/artikel', 'admin\ArtikelController@index');
+
+// Akun
+Route::get('/admin/akun', 'admin\AkunController@index');

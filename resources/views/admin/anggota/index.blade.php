@@ -13,12 +13,118 @@
   </div>
 </div>
 <!-- End Page Header -->
+{{-- Statistic --}}
+<div class="d-flex justify-content-between">
+  <div>
+    <a class="text-decoration-none" href="/admin/perlengkapan">
+      <button type="button" class="mb-2 btn btn-white">Anggota Lukis (17)</button>
+    </a>
+    <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
+      <button type="button" class="mb-2 btn btn-white">Anggota Musik (23)</button>
+    </a>
+    <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
+      <button type="button" class="mb-2 btn btn-white">Anggota Tari (30)</button>
+    </a>
+  </div>
+  <div>
+    <a href="{{url('/admin/anggota/tambah')}}">
+      <button type="button" class="mb-2 btn btn-success">+ Tambah Anggota</button>
+    </a>
+    <a href="/admin/perlengkapan/cetak/tipe?" target="_blank">
+      <button type="button" class="mb-2 btn btn-secondary">Cetak Presensi</button>
+    </a>
+  </div>
+</div>
+<div class="row">
+  <!-- Top Referrals Component -->
+  <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
+    <div class="card card-small">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">Jenjang Anggota</h6>
+      </div>
+      <div class="card-body p-0">
+        <ul class="list-group list-group-small list-group-flush">
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Anggota Baru</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">
+              {{count($anggotaBaru)}}
+            </span>
+          </li>
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Anggota Muda</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($anggotaMuda)}}</span>
+          </li>
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Anggota Biasa</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($anggotaBiasa)}}</span>
+          </li>
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Anggota Luar Biasa</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($anggotaLuarBiasa)}}</span>
+          </li>
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Alumni</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($alumni)}}</span>
+          </li>
+          <li class="list-group-item d-flex px-3">
+            <span class="text-semibold text-fiord-blue">Calon Anggota</span>
+            <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($calonAnggota)}}</span>
+          </li>
+        </ul>
+      </div>
+      <div class="card-footer border-top">
+        <div class="row">
+          <div class="col">
+            <select class="custom-select custom-select-sm">
+              <option selected>Last Week</option>
+              <option value="1">Today</option>
+              <option value="2">Last Month</option>
+              <option value="3">Last Year</option>
+            </select>
+          </div>
+          <div class="col text-right view-report">
+            <a href="#">Full report &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Top Referrals Component -->
+  <!-- Users By Device Stats -->
+  <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="card card-small h-100">
+      <div class="card-header border-bottom">
+        <h6 class="m-0">Users by device</h6>
+      </div>
+      <div class="card-body d-flex py-0">
+        <canvas height="220" class="blog-users-by-device m-auto"></canvas>
+      </div>
+      <div class="card-footer border-top">
+        <div class="row">
+          <div class="col">
+            <select class="custom-select custom-select-sm" style="max-width: 130px;">
+              <option selected>Last Week</option>
+              <option value="1">Today</option>
+              <option value="2">Last Month</option>
+              <option value="3">Last Year</option>
+            </select>
+          </div>
+          <div class="col text-right view-report">
+            <a href="#">Full report &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End Users By Device Stats -->
+</div>
+{{-- end statistic --}}
 <!-- Default Light Table -->
 <div class="row">
   <div class="col">
     <div class="card card-small mb-4">
       <div class="card-header border-bottom">
-        <h6 class="m-0">Active Users</h6>
+        <h6 class="m-0">Anggota Aktif</h6>
       </div>
       <div class="card-body p-0 pb-3 table-responsive">
         <table class="table mb-0">
@@ -27,42 +133,35 @@
               <th scope="col" class="border-0">Nama Lengkap</th>
               <th scope="col" class="border-0">Bidang</th>
               <th scope="col" class="border-0">Angkatan</th>
-              <th scope="col" class="border-0">Status Keanggotaan</th>
               <th scope="col" class="border-0">Jenjang</th>
+              <th scope="col" class="border-0">NAL</th>
               <th scope="col" class="border-0"></th>
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td><i class="material-icons mr-2">person</i>Ali</td>
-              <td>Kerry</td>
-              <td>Russian Federation</td>
-              <td>Gdańsk</td>
-              <td>107-0339</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">visibility</i></button>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">close</i></button>
-              </td>
-            </tr>
-            <tr>
-              <td> <i class="material-icons mr-2">person</i>Clark</td>
-              <td>Angela</td>
-              <td>Estonia</td>
-              <td>Borghetto di Vara</td>
-              <td>1-660-850-1647</td>
-              <td>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">visibility</i></button>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">edit</i></button>
-                <button type="button" class="btn btn-sm btn-white"><i class="material-icons">close</i></button>
-              </td>
-            </tr>
+            @foreach ($anggota as $item)
+              <tr>
+                <td><i class="material-icons mr-2">person</i>{{$item->nama_anggota}}</td>
+                <td>{{$item->bidang}}</td>
+                <td>{{$item->angkatan}}</td>
+                <td>{{$item->jenjang}}</td>
+                <td>{{$item->nal}}</td>
+                <td>
+                  <a href="/admin/anggota/{{$item->id}}">
+                    <button type="button" class="btn btn-sm btn-white"><i class="material-icons">visibility</i></button>
+                  </a>
+                  <button type="button" class="btn btn-sm btn-white"><i class="material-icons">edit</i></button>
+                  <button type="button" class="btn btn-sm btn-white"><i class="material-icons">close</i></button>
+                </td>
+              </tr>
+            @endforeach
           </tbody>
         </table>
       </div>
     </div>
   </div>
 </div>
+{{ $anggota->links() }}
 <!-- End Default Light Table -->
 </div>
 @endsection

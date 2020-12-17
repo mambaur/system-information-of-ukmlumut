@@ -23,6 +23,7 @@ class CreatePerlengkapansTable extends Migration
             $table->string('sumber');
             $table->boolean('isDipinjam');
             $table->boolean('statusPinjam');
+            $table->string('qrcode');
             $table->string('gambar');
             $table->timestamps();
         });

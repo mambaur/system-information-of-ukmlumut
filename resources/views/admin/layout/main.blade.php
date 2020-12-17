@@ -70,7 +70,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="tables.html">
+                <a class="nav-link " href="{{url('admin/artikel')}}">
                   <i class="material-icons">table_chart</i>
                   <span>Artikel</span>
                 </a>
@@ -82,7 +82,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="user-profile-lite.html">
+                <a class="nav-link " href="{{url('admin/akun')}}">
                   <i class="material-icons">person</i>
                   <span>Akun</span>
                 </a>

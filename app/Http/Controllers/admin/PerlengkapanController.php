@@ -52,10 +52,20 @@ class PerlengkapanController extends Controller
 
         // $perlengkapan->save();
 
+        // QR Code
+        $qrcode = time().'_qrcode.png';
+        $text = [
+            'Nama barang : '.$request->nama_barang,
+            'Kondisi : '. $request->kondisi,
+            'Tipe : ' .$request->tipe,
+            'Tahun : ' . $request->tahun,
+            'Jumlah : '. $request->jumlah,
+            'Sumber : '. $request->sumber,
+        ];
+        $file = public_path('assets/admin/images/perlengkapan/qrcode/'.$qrcode);
+        \QRCode::text(implode("\n",$text))->setOutfile($file)->setSize(10)->setMargin(1)->png();
+
         $imageName = 'default.jpg';
-        // $this->validate($request, [
-        //     'file' => 'required|image|mimes:jpeg,png,jpg,bmp,gif,svg|max:2048',
-        // ]);
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
             $imageName   = time() .'_'.$resource->getClientOriginalName();
@@ -72,6 +82,7 @@ class PerlengkapanController extends Controller
             'sumber' => $request->sumber,
             'isDipinjam' => 0,
             'statusPinjam' => $request->statusPinjam,
+            'qrcode' => $qrcode,
             'gambar' => $imageName,
         ]);
 
@@ -111,18 +122,39 @@ class PerlengkapanController extends Controller
      */
     public function update(Request $request, Perlengkapan $perlengkapan)
     {
+        $path = "/public/assets/admin/images/perlengkapan";
+        $previousPath = "assets/admin/images/perlengkapan/";
         $imageName = $perlengkapan->gambar;
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
             $imageName   = time() .'_'.$resource->getClientOriginalName();
-            $path = "/public/assets/admin/images/perlengkapan";
-            $previousPath = "assets/admin/images/perlengkapan/";
 
             // remove previous image
             if(file_exists(public_path($previousPath.$perlengkapan->gambar)) && $perlengkapan->gambar !== 'default.jpg'){
                 unlink(public_path($previousPath.$perlengkapan->gambar));
             }
 
+            $resource->move(\base_path() .$path, $imageName);
+        }
+
+        unlink(public_path($previousPath.'qrcode/'.$perlengkapan->qrcode));
+        $qrcode = $perlengkapan->qrcode;
+        $text = [
+            'Nama barang : '.$request->nama_barang,
+            'Kondisi : '. $request->kondisi,
+            'Tipe : ' .$request->tipe,
+            'Tahun : ' . $request->tahun,
+            'Jumlah : '. $request->jumlah,
+            'Sumber : '. $request->sumber,
+        ];
+        $file = public_path('assets/admin/images/perlengkapan/qrcode/'.$qrcode);
+        \QRCode::text(implode("\n",$text))->setOutfile($file)->setSize(10)->setMargin(1)->png();
+
+        $imageName = 'default.jpg';
+        if($request->hasFile('upload')){
+            $resource = $request->file('upload');
+            $imageName   = time() .'_'.$resource->getClientOriginalName();
+            $path = "/public/assets/admin/images/perlengkapan";
             $resource->move(\base_path() .$path, $imageName);
         }
 
@@ -135,6 +167,7 @@ class PerlengkapanController extends Controller
             'sumber' => $request->sumber,
             'isDipinjam' => $request->isDipinjam,
             'statusPinjam' => $request->statusPinjam,
+            'qrcode' => $qrcode,
             'gambar' => $imageName
         ]);
 
@@ -154,6 +187,7 @@ class PerlengkapanController extends Controller
         if(file_exists(public_path($path.$perlengkapan->gambar)) && $perlengkapan->gambar !== 'default.jpg'){
             unlink(public_path($path.$perlengkapan->gambar));
         }
+        unlink(public_path($path.'qrcode/'.$perlengkapan->qrcode));
 
         Perlengkapan::destroy($perlengkapan->id);
         return redirect('/admin/perlengkapan')->with('status', 'Data perlengkapan '.$perlengkapan->nama_barang.' berhasil dihapus!');

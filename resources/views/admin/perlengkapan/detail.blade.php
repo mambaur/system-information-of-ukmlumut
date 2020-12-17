@@ -80,7 +80,7 @@
             <h6 class="m-0">QR Code</h6>
           </div>
           <div class="card-body p-0 text-center">
-            <img src="https://lh3.googleusercontent.com/proxy/5sp1lF-aPL7bTe5yZMEwYRJuxrSU7KjLCMhIdLG-B4l-C-Wsu4u3UMMrA6NtjtwdfKTAljLG6zOHmqQllToPDPItH2nh4exclu9QnOnu6w" alt="">
+            <img class="w-75 p-1" src="{{url('/assets/admin/images/perlengkapan/qrcode').'/'.$perlengkapan->qrcode}}" alt="">
           </div>
           <div class="card-footer border-top">
             <div class="row">
