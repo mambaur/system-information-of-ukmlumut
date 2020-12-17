@@ -3,6 +3,15 @@
 @section('title', 'Anggota UKM LUMUT')
 
 @section('container')
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('status')}}
+    </div>
+@endif
 <!-- / .main-navbar -->
 <div class="main-content-container container-fluid px-4">
 <!-- Page Header -->
@@ -17,7 +26,7 @@
 <div class="d-flex justify-content-between">
   <div>
     <a class="text-decoration-none" href="/admin/perlengkapan">
-      <button type="button" class="mb-2 btn btn-white">Anggota Lukis (17)</button>
+      <button type="button" class="mb-2 btn btn-white">Anggota Lukis ({{count($lukis)}})</button>
     </a>
     <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
       <button type="button" class="mb-2 btn btn-white">Anggota Musik (23)</button>
@@ -148,10 +157,23 @@
                 <td>{{$item->nal}}</td>
                 <td>
                   <a href="/admin/anggota/{{$item->id}}">
-                    <button type="button" class="btn btn-sm btn-white"><i class="material-icons">visibility</i></button>
+                    <button type="button" class="btn btn-sm btn-white">
+                      <i class="material-icons">visibility</i>
+                    </button>
                   </a>
-                  <button type="button" class="btn btn-sm btn-white"><i class="material-icons">edit</i></button>
-                  <button type="button" class="btn btn-sm btn-white"><i class="material-icons">close</i></button>
+                  <a href="/admin/anggota/edit/{{$item->id}}">
+                    <button type="button" class="btn btn-sm btn-white">
+                      <i class="material-icons">edit</i>
+                    </button>
+                  </a>
+
+                  <form class="d-inline-block" method="post" action="/admin/anggota/{{$item->id}}">
+                    @method('delete')
+                    @csrf
+                    <button type="submit" class="btn btn-sm btn-white" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$item->nama_anggota}}?');">
+                      <i class="material-icons">close</i>
+                    </button>
+                  </form>
                 </td>
               </tr>
             @endforeach

@@ -29,9 +29,11 @@
                             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary px-4">
                                 {{$anggota->bidang}}
                             </button>
-                            <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary">
-                                <i class="material-icons">edit</i>
-                            </button>
+                            <a href="/admin/anggota/edit/{{$anggota->id}}">
+                              <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary">
+                                  <i class="material-icons">edit</i>
+                              </button>
+                            </a>
                         </div>
                     </div>
                   </div>

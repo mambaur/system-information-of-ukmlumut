@@ -41,17 +41,6 @@ class PerlengkapanController extends Controller
      */
     public function store(Request $request)
     {
-        // $perlengkapan = new Perlengkapan;
-        // $perlengkapan->nama_barang = $request->nama_barang;
-        // $perlengkapan->kondisi = $request->kondisi;
-        // $perlengkapan->tipe = $request->tipe;
-        // $perlengkapan->tahun = $request->tahun;
-        // $perlengkapan->jumlah = $request->jumlah;
-        // $perlengkapan->sumber = $request->sumber;
-        // $perlengkapan->isDipinjam = 0;
-
-        // $perlengkapan->save();
-
         // QR Code
         $qrcode = time().'_qrcode.png';
         $text = [
@@ -149,14 +138,6 @@ class PerlengkapanController extends Controller
         ];
         $file = public_path('assets/admin/images/perlengkapan/qrcode/'.$qrcode);
         \QRCode::text(implode("\n",$text))->setOutfile($file)->setSize(10)->setMargin(1)->png();
-
-        $imageName = 'default.jpg';
-        if($request->hasFile('upload')){
-            $resource = $request->file('upload');
-            $imageName   = time() .'_'.$resource->getClientOriginalName();
-            $path = "/public/assets/admin/images/perlengkapan";
-            $resource->move(\base_path() .$path, $imageName);
-        }
 
         Perlengkapan::where('id', $perlengkapan->id)->update([
             'nama_barang' => $request->nama_barang,

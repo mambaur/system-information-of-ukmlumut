@@ -22,6 +22,7 @@ class AnggotaController extends Controller
         $anggotaLuarBiasa = Anggota::where('jenjang', 'Anggota Luar Biasa')->get();
         $alumni = Anggota::where('jenjang', 'Alumni')->get();
         $calonAnggota = Anggota::where('jenjang', 'Calon Anggota')->get();
+        $lukis = Anggota::where('bidang', 'Lukis')->where('jenjang', !'Alumni')->get();
         return view('admin.anggota.index', [
             'anggota' => $anggota,
             'anggotaBaru' => $anggotaBaru,
@@ -29,7 +30,8 @@ class AnggotaController extends Controller
             'anggotaBiasa' => $anggotaBiasa,
             'anggotaLuarBiasa' => $anggotaLuarBiasa,
             'alumni' => $alumni,
-            'calonAnggota' => $calonAnggota
+            'calonAnggota' => $calonAnggota,
+            'lukis' => $lukis
         ]);
     }
 
@@ -94,7 +96,7 @@ class AnggotaController extends Controller
      */
     public function edit(Anggota $anggota)
     {
-        //
+        return view('admin.anggota.edit', compact('anggota'));
     }
 
     /**
@@ -106,7 +108,34 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, Anggota $anggota)
     {
-        //
+        $path = "/public/assets/admin/images/anggota";
+        $previousPath = "assets/admin/images/anggota/";
+        $imageName = $anggota->foto;
+        if($request->hasFile('upload')){
+            $resource = $request->file('upload');
+            $imageName   = time() .'_'.$resource->getClientOriginalName();
+
+            // remove previous image
+            if(file_exists(public_path($previousPath.$anggota->foto)) && $anggota->foto !== 'default.jpg'){
+                unlink(public_path($previousPath.$anggota->foto));
+            }
+
+            $resource->move(\base_path() .$path, $imageName);
+        }
+
+        Anggota::where('id', $anggota->id)->update([
+            'nal' => $request->nal,
+            'nama_anggota' => $request->nama_anggota,
+            'jurusan' => $request->jurusan,
+            'alamat' => $request->alamat,
+            'bidang' => $request->bidang,
+            'telp' => $request->telp,
+            'jenjang' => $request->jenjang,
+            'angkatan' => $request->angkatan,
+            'foto' => $imageName,
+        ]);
+
+        return redirect('admin/anggota/edit/'.$anggota->id)->with('status', 'Data anggota '.$request->nama_anggota.' berhasil ubah!');
     }
 
     /**
@@ -117,6 +146,13 @@ class AnggotaController extends Controller
      */
     public function destroy(Anggota $anggota)
     {
-        //
+        // remove previous image
+        $path = "assets/admin/images/anggota/";
+        if(file_exists(public_path($path.$anggota->foto)) && $anggota->foto !== 'default.jpg'){
+            unlink(public_path($path.$anggota->foto));
+        }
+
+        Anggota::destroy($anggota->id);
+        return redirect('/admin/anggota')->with('status', 'Data anggota '.$anggota->nama_anggota.' berhasil dihapus!');
     }
 }

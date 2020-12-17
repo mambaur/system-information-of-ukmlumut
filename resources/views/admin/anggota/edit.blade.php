@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 
-@section('title', 'Tambah Anggota UKM LUMUT')
+@section('title', 'Ubah Data Anggota UKM LUMUT')
 
 @section('container')
 @if (session('status'))
@@ -19,7 +19,7 @@
 <div class="page-header row no-gutters py-4">
   <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
     <span class="text-uppercase page-subtitle">Overview</span>
-    <h3 class="page-title">Tambah Data Anggota</h3>
+    <h3 class="page-title">Ubah Data Anggota</h3>
   </div>
 </div>
 <div class="row">
@@ -29,28 +29,29 @@
           <li class="list-group-item p-3">
             <div class="row mx-1 py-2">
               <div class="col-sm-6 col-md">
-                <form method="post" action="{{url('admin/anggota/')}}"  enctype="multipart/form-data">
+                <form method="post" action="/admin/anggota/{{$anggota->id}}"  enctype="multipart/form-data">
                     @csrf
+                    @method('patch')
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Lengkap" required> 
+                        <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Lengkap" value="{{$anggota->nama_anggota}}" required> 
                     </div>
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nal" placeholder="NAL" required> 
+                        <input type="text" class="form-control" name="nal" placeholder="NAL" value="{{$anggota->nal}}" required> 
                     </div>
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nim" placeholder="NIM" required> 
+                        <input type="text" class="form-control" name="nim" placeholder="NIM" value="{{$anggota->nim}}" required> 
                     </div>
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="jurusan" placeholder="Prodi / Jurusan" required> 
+                        <input type="text" class="form-control" name="jurusan" placeholder="Prodi / Jurusan" value="{{$anggota->jurusan}}" required> 
                     </div>
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="alamat" placeholder="Alamat" required> 
+                        <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{$anggota->alamat}}" required> 
                     </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-7">
                         <select name="bidang" class="form-control" required>
-                            <option value="" disabled selected hidden>Bidang kesenian</option>
+                            <option value="{{$anggota->bidang}}" selected hidden>{{$anggota->bidang}}</option>
                             <option value="Lukis">Lukis</option>
                             <option value="Musik">Musik</option>
                             <option value="Tari">Tari</option>
@@ -58,7 +59,7 @@
                         </div>
                         <div class="form-group col-md-5">
                             <select name="jenjang" class="form-control" required>
-                                <option value="" disabled selected hidden>Jenjang Keanggotaan</option>
+                                <option value="{{$anggota->jenjang}}" selected hidden>{{$anggota->jenjang}}</option>
                                 <option value="Calon Anggota">Calon Anggota</option>
                                 <option value="Anggota Baru">Anggota Baru</option>
                                 <option value="Anggota Muda">Anggota Muda</option>
@@ -69,22 +70,22 @@
                         </div>
                     </div>
                     <div class="form-group w-50">
-                        <input type="number" class="form-control" name="telp" placeholder="Nomor Telp / WA aktif" required>
+                        <input type="number" class="form-control" name="telp" placeholder="Nomor Telp / WA aktif" value="{{$anggota->telp}}" required>
                     </div>
                     <div class="form-group w-50">
-                        <input type="number" class="form-control" name="angkatan" placeholder="Angkatan" required>
+                        <input type="number" class="form-control" name="angkatan" placeholder="Angkatan" value="{{$anggota->angkatan}}" required>
                     </div>
                     <div class="form-group">
-                      <label for="upload-foto">Upload foto</label>
+                      <label for="upload-foto">Perbarui foto</label>
                       <input type="file" name="upload" class="form-control-file" id="upload-foto" accept="image/*" onchange="ValidateSize(this)">
                     </div>
                     
-                    <button type="submit" class="mb-2 float-right btn btn btn-success mr-1">Tambah Anggota</button>
+                    <button type="submit" class="mb-2 float-right btn btn btn-success mr-1">Ubah Data Anggota</button>
                 </form>
               </div>
               
               <div class="col-sm-6 col-md">
-                <img class="w-100" src="{{url('assets/admin/images/anggota/flat-design/Social.png')}}" alt="">
+                <img class="w-100" src="{{url('assets/admin/images/anggota/flat-design/Edit.png')}}" alt="">
               </div>
             </div>
           </li>

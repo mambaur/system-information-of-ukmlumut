@@ -17,7 +17,10 @@ Route::get('/admin', 'admin\Home@index');
 Route::get('/admin/anggota', 'admin\AnggotaController@index');
 Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
 Route::post('/admin/anggota/', 'admin\AnggotaController@store');
-Route::get('admin/anggota/{anggota}', 'admin\AnggotaController@show');
+Route::get('/admin/anggota/{anggota}', 'admin\AnggotaController@show');
+Route::get('/admin/anggota/edit/{anggota}', 'admin\AnggotaController@edit');
+Route::patch('/admin/anggota/{anggota}', 'admin\AnggotaController@update');
+Route::delete('/admin/anggota/{anggota}', 'admin\AnggotaController@destroy');
 
 // Perlengkapan
 Route::get('/admin/perlengkapan/kategori', 'admin\PerlengkapanController@category');
