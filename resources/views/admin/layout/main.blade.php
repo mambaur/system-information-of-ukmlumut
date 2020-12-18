@@ -25,7 +25,7 @@
             <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
               <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
                 <div class="d-table m-auto">
-                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 30px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard">
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard">
                   <span class="d-none d-md-inline ml-1">SI UKM LUMUT</span>
                 </div>
               </a>
@@ -59,7 +59,7 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="{{url('admin/perlengkapan')}}">
-                  <i class="material-icons">note_add</i>
+                  <i class="material-icons">work_outline</i>
                   <span>Perlengkapan</span>
                 </a>
               </li>
@@ -71,16 +71,24 @@
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="{{url('admin/artikel')}}">
-                  <i class="material-icons">table_chart</i>
+                  <i class="material-icons">library_books</i>
                   <span>Artikel</span>
                 </a>
               </li>
               <li class="nav-item">
                 <a class="nav-link " href="errors.html">
-                  <i class="material-icons">error</i>
+                  <i class="material-icons">addchart</i>
                   <span>Recruitmen</span>
                 </a>
               </li>
+              @if (\Auth::user()->role === 'master')
+              <li class="nav-item">
+                <a class="nav-link " href="{{url('admin/akun')}}">
+                  <i class="material-icons">supervisor_account</i>
+                  <span>Kelola admin</span>
+                </a>
+              </li>
+              @endif
               <li class="nav-item">
                 <a class="nav-link " href="{{url('admin/akun')}}">
                   <i class="material-icons">person</i>
@@ -143,7 +151,7 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="{{asset('assets/admin/images/avatars/0.jpg')}}" alt="User Avatar">
-                    <span class="d-none d-md-inline-block">Sierra Brooks</span>
+                    <span class="d-none d-md-inline-block">{{\Auth::user()->name}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
                     <a class="dropdown-item" href="user-profile-lite.html">
@@ -153,7 +161,7 @@
                     <a class="dropdown-item" href="add-new-post.html">
                       <i class="material-icons">note_add</i> Add New Post</a>
                     <div class="dropdown-divider"></div>
-                    <a class="dropdown-item text-danger" href="#">
+                    <a class="dropdown-item text-danger" href="{{url('admin/logout')}}">
                       <i class="material-icons text-danger">&#xE879;</i> Logout </a>
                   </div>
                 </li>

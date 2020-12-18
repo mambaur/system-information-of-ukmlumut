@@ -21,7 +21,7 @@ class CreateAnggotasTable extends Migration
             $table->string('jurusan');
             $table->string('alamat');
             $table->string('bidang');
-            $table->integer('telp', 15);
+            $table->integer('telp')->length(15)->unsigned();
             $table->string('jenjang');
             $table->integer('angkatan');
             $table->string('foto');

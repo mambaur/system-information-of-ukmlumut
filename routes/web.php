@@ -11,30 +11,41 @@
 |
 */
 
-Route::get('/admin', 'admin\Home@index');
+// Auth
+Route::get('/admin/auth/login', 'admin\AuthController@index')->middleware('guest')->name('login');
+Route::post('/admin/auth/login', 'admin\AuthController@postLogin')->middleware('guest');
+Route::get('/admin/logout', 'admin\AuthController@logout')->middleware('auth');
 
-// Anggota
-Route::get('/admin/anggota', 'admin\AnggotaController@index');
-Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
-Route::post('/admin/anggota/', 'admin\AnggotaController@store');
-Route::get('/admin/anggota/{anggota}', 'admin\AnggotaController@show');
-Route::get('/admin/anggota/edit/{anggota}', 'admin\AnggotaController@edit');
-Route::patch('/admin/anggota/{anggota}', 'admin\AnggotaController@update');
-Route::delete('/admin/anggota/{anggota}', 'admin\AnggotaController@destroy');
+// Authenticate user
+Route::group(['middleware' => 'auth'], function () {
 
-// Perlengkapan
-Route::get('/admin/perlengkapan/kategori', 'admin\PerlengkapanController@category');
-Route::get('admin/perlengkapan/cetak/tipe', 'admin\PerlengkapanController@cetak');
-Route::get('/admin/perlengkapan/tambah', 'admin\PerlengkapanController@create');
-Route::get('/admin/perlengkapan', 'admin\PerlengkapanController@index');
-Route::get('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@show');
-Route::post('/admin/perlengkapan/', 'admin\PerlengkapanController@store');
-Route::delete('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@destroy');
-Route::get('/admin/perlengkapan/edit/{perlengkapan}', 'admin\PerlengkapanController@edit');
-Route::patch('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@update');
+    // Home
+    Route::get('/admin', 'admin\Home@index');
 
-// Artikel
-Route::get('/admin/artikel', 'admin\ArtikelController@index');
+    // Anggota
+    Route::get('/admin/anggota', 'admin\AnggotaController@index');
+    Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
+    Route::post('/admin/anggota/', 'admin\AnggotaController@store');
+    Route::get('/admin/anggota/{anggota}', 'admin\AnggotaController@show');
+    Route::get('/admin/anggota/edit/{anggota}', 'admin\AnggotaController@edit');
+    Route::patch('/admin/anggota/{anggota}', 'admin\AnggotaController@update');
+    Route::delete('/admin/anggota/{anggota}', 'admin\AnggotaController@destroy');
 
-// Akun
-Route::get('/admin/akun', 'admin\AkunController@index');
+    // Perlengkapan
+    Route::get('/admin/perlengkapan/kategori', 'admin\PerlengkapanController@category');
+    Route::get('admin/perlengkapan/cetak/tipe', 'admin\PerlengkapanController@cetak');
+    Route::get('/admin/perlengkapan/tambah', 'admin\PerlengkapanController@create');
+    Route::get('/admin/perlengkapan', 'admin\PerlengkapanController@index');
+    Route::get('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@show');
+    Route::post('/admin/perlengkapan/', 'admin\PerlengkapanController@store');
+    Route::delete('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@destroy');
+    Route::get('/admin/perlengkapan/edit/{perlengkapan}', 'admin\PerlengkapanController@edit');
+    Route::patch('/admin/perlengkapan/{perlengkapan}', 'admin\PerlengkapanController@update');
+
+    // Artikel
+    Route::get('/admin/artikel', 'admin\ArtikelController@index');
+
+    // Akun
+    Route::get('/admin/akun', 'admin\AkunController@index');
+
+});
