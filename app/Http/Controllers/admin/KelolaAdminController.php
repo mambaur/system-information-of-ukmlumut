@@ -4,8 +4,11 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 
-class AuthController extends Controller
+// bcrypt = $2y$10$XaTX32Lh81lwActCAOvDceHTStlcsJ05FqQ9ru6P/qupZKeaH0Vbe
+
+class KelolaAdminController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -14,7 +17,8 @@ class AuthController extends Controller
      */
     public function index()
     {
-        return view('admin.auth.login');
+        $user = User::paginate(10);
+        return view('admin.akun.master.index', compact('user'));
     }
 
     /**
@@ -24,27 +28,36 @@ class AuthController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.akun.master.tambah');
     }
 
     /**
-     * Post data user to login
+     * Store a newly created resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function postLogin(Request $request)
+    public function store(Request $request)
     {
-        
-        // return bcrypt('admin');
-        if(\Auth::attempt([
-            'email' => $request->username, 
-            'password' => $request->password,
-        ])){
-            return redirect('/admin');
-        }else{
-            return redirect('/admin/auth/login')->with('status', 'Mohon periksa kembali email atau password anda!');
+        $imageName = 'default.jpg';
+        if($request->hasFile('upload')){
+            $resource = $request->file('upload');
+            $imageName   = time() .'_'.$resource->getClientOriginalName();
+            $path = "/public/assets/admin/images/akun";
+            $resource->move(\base_path() .$path, $imageName);
         }
+
+        User::create([
+            'name' => $request->nama,
+            'nama_belakang' => $request->nama_belakang,
+            'jabatan' => $request->jabatan,
+            'email' => $request->email,
+            'role' => $request->role,
+            'image' => $imageName,
+            'password' => bcrypt($request->password)
+        ]);
+
+        return redirect('/admin/kelola-admin/tambah')->with('status', 'Data admin '.$request->nama_anggota.' berhasil ditambahkan!');
     }
 
     /**
@@ -87,9 +100,8 @@ class AuthController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function logout()
+    public function destroy($id)
     {
-        \Auth::logout();
-        return redirect('/admin/auth/login')->with('success', 'Terima kasih, Anda berhasil keluar.');
+        //
     }
 }

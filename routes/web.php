@@ -48,4 +48,9 @@ Route::group(['middleware' => 'auth'], function () {
     // Akun
     Route::get('/admin/akun', 'admin\AkunController@index');
 
+    // Kelola Admin
+    Route::get('/admin/kelola-admin', 'admin\KelolaAdminController@index');
+    Route::get('/admin/kelola-admin/tambah', 'admin\KelolaAdminController@create');
+    Route::post('/admin/kelola-admin', 'admin\KelolaAdminController@store');
+
 });

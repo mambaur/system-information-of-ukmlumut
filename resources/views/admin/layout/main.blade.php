@@ -25,7 +25,7 @@
             <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
               <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
                 <div class="d-table m-auto">
-                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard">
+                  {{-- <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard"> --}}
                   <span class="d-none d-md-inline ml-1">SI UKM LUMUT</span>
                 </div>
               </a>
@@ -83,7 +83,7 @@
               </li>
               @if (\Auth::user()->role === 'master')
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/akun')}}">
+                <a class="nav-link " href="{{url('admin/kelola-admin')}}">
                   <i class="material-icons">supervisor_account</i>
                   <span>Kelola admin</span>
                 </a>
@@ -150,7 +150,7 @@
                 </li>
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img class="user-avatar rounded-circle mr-2" src="{{asset('assets/admin/images/avatars/0.jpg')}}" alt="User Avatar">
+                    <img class="user-avatar rounded-circle mr-2" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar">
                     <span class="d-none d-md-inline-block">{{\Auth::user()->name}}</span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">

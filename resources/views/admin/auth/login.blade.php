@@ -20,6 +20,15 @@
         <strong>Maaf!</strong> {{session('status')}}
     </div>
     @endif
+    @if (session('success'))
+    <div class="alert alert-success alert-dismissible fade show mt-1 mb-0 mx-1" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('success')}}
+    </div>
+    @endif
     <div class="form-body">
         <div class="website-logo">
             <a href="index.html">
@@ -32,7 +41,7 @@
             <div class="img-holder">
                 <div class="bg"></div>
                 <div class="info-holder">
-                    <img src="https://brandio.io/envato/iofrm/html/images/graphic1.svg" alt="">
+                    <img src="{{url('assets/admin/images/login/login-flat-design.svg')}}" alt="">
                 </div>
             </div>
             <div class="form-holder">
