@@ -47,10 +47,13 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Akun
     Route::get('/admin/akun', 'admin\AkunController@index');
+    Route::patch('/admin/akun/{user}', 'admin\AkunController@update');
 
     // Kelola Admin
     Route::get('/admin/kelola-admin', 'admin\KelolaAdminController@index');
     Route::get('/admin/kelola-admin/tambah', 'admin\KelolaAdminController@create');
     Route::post('/admin/kelola-admin', 'admin\KelolaAdminController@store');
-
+    Route::get('/admin/kelola-admin/edit/{user}', 'admin\KelolaAdminController@edit');
+    Route::patch('/admin/kelola-admin/{user}', 'admin\KelolaAdminController@update');
+    Route::delete('/admin/kelola-admin/{user}', 'admin\KelolaAdminController@destroy');
 });

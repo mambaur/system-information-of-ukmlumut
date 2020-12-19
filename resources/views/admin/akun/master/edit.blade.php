@@ -1,6 +1,6 @@
 @extends('admin.layout.main')
 
-@section('title', 'Tambah hak akses Admin')
+@section('title', 'Edit data Admin')
 
 @section('container')
 @if (session('status'))
@@ -19,7 +19,7 @@
     <div class="page-header row no-gutters py-4">
         <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
             <span class="text-uppercase page-subtitle">Overview</span>
-            <h3 class="page-title">Tambah Akun Admin</h3>
+            <h3 class="page-title">Edit Akun Admin</h3>
         </div>
     </div>
     <div class="row">
@@ -29,25 +29,26 @@
                 <li class="list-group-item p-3">
                   <div class="row mx-1 py-2">
                     <div class="col-sm-8 col-md-7">
-                      <img class="w-100" src="{{url('assets/admin/images/akun/tambah-akun.png')}}" alt="">
+                      <img class="w-100" src="{{url('assets/admin/images/akun/edit-akun.png')}}" alt="">
                     </div>
 
                     <div class="col-sm-4 col-md-5">
-                      <form method="post" action="{{url('admin/kelola-admin/')}}"  enctype="multipart/form-data">
+                      <form method="post" action="/admin/kelola-admin/{{$user->id}}"  enctype="multipart/form-data">
                           @csrf
+                          @method('patch')
                           <div class="form-group mt-2">
                             <div class="form-row">
                                 <div class="col-md-7">
-                                    <input type="text" class="form-control" name="nama" placeholder="Nama Depan" required>
+                                    <input type="text" class="form-control" name="nama" placeholder="Nama Depan" value="{{$user->name}}" required>
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="nama_belakang" placeholder="Nama belakang" required>
+                                    <input type="text" class="form-control" name="nama_belakang" placeholder="Nama belakang" value="{{$user->nama_belakang}}" required>
                                 </div>
                               </div>
                           </div>
                           <div class="form-group w-50">
                             <select name="jabatan" class="form-control" required>
-                                <option value="" disabled selected hidden>Jabatan</option>
+                                <option value="{{$user->jabatan}}" selected hidden>{{$user->jabatan}}</option>
                                 <option value="Ketua Umum">Ketua Umum</option>
                                 <option value="Sekretaris">Sekretaris</option>
                                 <option value="Bendahara">Bendahara</option>
@@ -67,23 +68,23 @@
                           </div>
                           <div class="form-group w-50">
                             <select name="role" class="form-control" required>
-                                <option value="" disabled selected hidden>Hak Akses</option>
+                                <option value="{{$user->role}}" selected hidden>{{$user->role}}</option>
                                 <option value="Master">Master</option>
                                 <option value="Admin">Admin</option>
                             </select>
                           </div>
                           <div class="form-group mt-2">
-                              <input type="email" class="form-control" name="email" placeholder="Email" required> 
+                              <input type="email" class="form-control" name="email" placeholder="Email" value="{{$user->email}}" required> 
                           </div>
                           <div class="form-group mt-2">
-                              <input type="password" class="form-control" name="password" placeholder="Password" required> 
+                              <input type="password" class="form-control" name="password" placeholder="Ubah Password"> 
                           </div>
                           <div class="form-group">
-                            <label for="upload-foto">Upload foto</label>
+                            <label for="upload-foto">Perbarui foto</label>
                             <input type="file" name="upload" class="form-control-file" id="upload-foto" accept="image/*" onchange="ValidateSize(this)">
                           </div>
                           
-                          <button type="submit" class="mb-2 float-right btn btn btn-success mr-1">Tambah Admin</button>
+                          <button type="submit" class="mb-2 float-right btn btn btn-success mr-1">Ubah Data Admin</button>
                       </form>
                     </div>
                   </div>

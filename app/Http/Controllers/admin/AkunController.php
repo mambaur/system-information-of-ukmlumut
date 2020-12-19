@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
 
 class AkunController extends Controller
 {
@@ -67,9 +68,31 @@ class AkunController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, User $user)
     {
-        //
+        $path = "/public/assets/admin/images/akun";
+        $previousPath = "assets/admin/images/akun/";
+        $imageName = $user->image;
+        if($request->hasFile('upload')){
+            $resource = $request->file('upload');
+            $imageName   = time() .'_'.$resource->getClientOriginalName();
+
+            // remove previous image
+            if(file_exists(public_path($previousPath.$user->image)) && $user->image !== 'default.jpg'){
+                unlink(public_path($previousPath.$user->image));
+            }
+
+            $resource->move(\base_path() .$path, $imageName);
+        }
+
+        User::where('id', $user->id)->update([
+            'name' => $request->nama,
+            'nama_belakang' => $request->nama_belakang,
+            'image' => $imageName,
+            'password' => ($request->password ? bcrypt($request->password) : $user->password)
+        ]);
+
+        return redirect('admin/akun')->with('status', 'Data '.$request->nama.' berhasil ubah!');
     }
 
     /**

@@ -3,6 +3,16 @@
 @section('title', 'Daftar Admin Sistem Informasi UKM LUMUT')
 
 @section('container')
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('status')}}
+    </div>
+@endif
+
 <!-- / .main-navbar -->
 <div class="main-content-container container-fluid px-4">
     <!-- Page Header -->
@@ -29,23 +39,36 @@
                             <div class="blog-comments__meta text-muted">
                                 <a class="text-secondary" href="#">{{$item->name.' '.$item->nama_belakang}}</a> -
                                 <a class="text-secondary" href="#">{{$item->jabatan}}</a>
-                                <span class="text-muted">– 3 days ago</span>
+                                <span class="text-muted">– Updated at {{$item->updated_at}}</span>
                             </div>
-                            <p class="m-0 my-1 mb-2 text-muted">Well, the way they make shows is, they make one show ...</p>
+                            <p class="m-0 my-1 mb-2 text-muted">{{$item->email}}</p>
                             <div class="blog-comments__actions">
                                 <div class="btn-group btn-group-sm">
-                                <button type="button" class="btn btn-white">
-                                    <span class="text-success">
-                                    <i class="material-icons">visibility</i>
-                                    </span> Lihat </button>
-                                <button type="button" class="btn btn-white">
-                                    <span class="text-danger">
-                                    <i class="material-icons">clear</i>
-                                    </span> Hapus </button>
-                                <button type="button" class="btn btn-white">
-                                    <span class="text-light">
-                                    <i class="material-icons">edit</i>
-                                    </span> Edit </button>
+                                <a href="/admin/kelola-admin/edit/{{$item->id}}">
+                                    <button type="button" class="btn btn-white">
+                                        <span class="text-success">
+                                        <i class="material-icons">edit</i>
+                                        </span> Edit 
+                                    </button>
+                                </a>
+                                <form class="d-inline-block" method="post" action="/admin/kelola-admin/{{$item->id}}">
+                                    @method('delete')
+                                    @csrf
+                                    @if ($item->role === 'Master' && $item->email === 'admin@gmail.com')
+                                        <button type="button" class="btn btn-white">
+                                            <span class="text-secondary">
+                                            <i class="material-icons">clear</i>
+                                            </span> Hapus 
+                                        </button>
+                                    @else
+                                        <button type="submit" class="btn btn-white" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$item->name}}?');">
+                                            <span class="text-danger">
+                                            <i class="material-icons">clear</i>
+                                            </span> Hapus 
+                                        </button>
+                                    @endif
+                                    
+                                </form>
                                 </div>
                             </div>
                             </div>
@@ -54,8 +77,8 @@
                 </div>
                 <div class="card-footer border-top">
                 <div class="row">
-                    <div class="col text-center view-report">
-                    <button type="submit" class="btn btn-white">View All Comments</button>
+                    <div class="col text-center view-report d-flex justify-content-center">
+                        {{ $user->links() }}
                     </div>
                 </div>
                 </div>
@@ -64,6 +87,5 @@
         <!-- End Discussions Component -->
     </div>
     
-    {{ $user->links() }}
 </div>
 @endsection

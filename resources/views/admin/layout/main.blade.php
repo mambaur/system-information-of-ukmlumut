@@ -81,7 +81,7 @@
                   <span>Recruitmen</span>
                 </a>
               </li>
-              @if (\Auth::user()->role === 'master')
+              @if (\Auth::user()->role === 'Master')
               <li class="nav-item">
                 <a class="nav-link " href="{{url('admin/kelola-admin')}}">
                   <i class="material-icons">supervisor_account</i>
@@ -151,11 +151,13 @@
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                     <img class="user-avatar rounded-circle mr-2" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar">
-                    <span class="d-none d-md-inline-block">{{\Auth::user()->name}}</span>
+                    <span class="d-none d-md-inline-block">
+                      {{\Auth::user()->name .' '. \Auth::user()->nama_belakang}}
+                    </span>
                   </a>
                   <div class="dropdown-menu dropdown-menu-small">
-                    <a class="dropdown-item" href="user-profile-lite.html">
-                      <i class="material-icons">&#xE7FD;</i> Profile</a>
+                    <a class="dropdown-item" href="{{url('admin/akun')}}">
+                      <i class="material-icons">&#xE7FD;</i> Profil</a>
                     <a class="dropdown-item" href="components-blog-posts.html">
                       <i class="material-icons">vertical_split</i> Blog Posts</a>
                     <a class="dropdown-item" href="add-new-post.html">
