@@ -24,6 +24,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Anggota
     Route::get('/admin/anggota', 'admin\AnggotaController@index');
+    Route::get('/admin/anggota/cetak', 'admin\AnggotaController@cetak');
     Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
     Route::post('/admin/anggota/', 'admin\AnggotaController@store');
     Route::get('/admin/anggota/{anggota}', 'admin\AnggotaController@show');
@@ -44,6 +45,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Artikel
     Route::get('/admin/artikel', 'admin\ArtikelController@index');
+    Route::get('/admin/artikel/tambah', 'admin\ArtikelController@create');
+    Route::post('/admin/artikel/', 'admin\ArtikelController@store');
 
     // Akun
     Route::get('/admin/akun', 'admin\AkunController@index');

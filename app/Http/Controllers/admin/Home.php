@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Anggota;
 
 class Home extends Controller
 {
@@ -14,7 +15,18 @@ class Home extends Controller
      */
     public function index()
     {
-        return view('admin.home.index');
+        $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
+        $alumni = Anggota::where('jenjang', 'Alumni')->get();
+        $lukis = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Lukis')->get();
+        $musik = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Musik')->get();
+        $tari = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Tari')->get();
+        return view('admin.home.index', [
+            'anggota' => $anggota,
+            'alumni' => $alumni,
+            'lukis' => $lukis,
+            'musik' => $musik,
+            'tari' => $tari
+        ]);
     }
 
     /**

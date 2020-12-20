@@ -29,17 +29,20 @@
       <button type="button" class="mb-2 btn btn-white">Anggota Lukis ({{count($lukis)}})</button>
     </a>
     <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
-      <button type="button" class="mb-2 btn btn-white">Anggota Musik (23)</button>
+      <button type="button" class="mb-2 btn btn-white">Anggota Musik ({{count($musik)}})</button>
     </a>
     <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
-      <button type="button" class="mb-2 btn btn-white">Anggota Tari (30)</button>
+      <button type="button" class="mb-2 btn btn-white">Anggota Tari ({{count($tari)}})</button>
+    </a>
+    <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Dapur">
+      <button type="button" class="mb-2 btn btn-white">Total Anggota ({{count($anggota)}})</button>
     </a>
   </div>
   <div>
     <a href="{{url('/admin/anggota/tambah')}}">
       <button type="button" class="mb-2 btn btn-success">+ Tambah Anggota</button>
     </a>
-    <a href="/admin/perlengkapan/cetak/tipe?" target="_blank">
+    <a href="/admin/anggota/cetak/" target="_blank">
       <button type="button" class="mb-2 btn btn-secondary">Cetak Presensi</button>
     </a>
   </div>

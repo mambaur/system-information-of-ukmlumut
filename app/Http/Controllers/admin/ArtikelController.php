@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\admin;
 
+use App\Artikel;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -24,7 +25,7 @@ class ArtikelController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.artikel.tambah');
     }
 
     /**
@@ -35,16 +36,16 @@ class ArtikelController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Artikel $artikel)
     {
         //
     }
@@ -52,10 +53,10 @@ class ArtikelController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Artikel $artikel)
     {
         //
     }
@@ -64,10 +65,10 @@ class ArtikelController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Artikel $artikel)
     {
         //
     }
@@ -75,10 +76,10 @@ class ArtikelController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Artikel  $artikel
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Artikel $artikel)
     {
         //
     }

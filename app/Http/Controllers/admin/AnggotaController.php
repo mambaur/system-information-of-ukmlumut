@@ -15,14 +15,19 @@ class AnggotaController extends Controller
      */
     public function index()
     {
-        $anggota = Anggota::paginate(10);
+        $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->orderBy('nama_anggota', 'ASC')->paginate(10);
         $anggotaBaru = Anggota::where('jenjang', 'Anggota Baru')->get();
         $anggotaMuda = Anggota::where('jenjang', 'Anggota Muda')->get();
         $anggotaBiasa = Anggota::where('jenjang', 'Anggota Biasa')->get();
         $anggotaLuarBiasa = Anggota::where('jenjang', 'Anggota Luar Biasa')->get();
         $alumni = Anggota::where('jenjang', 'Alumni')->get();
         $calonAnggota = Anggota::where('jenjang', 'Calon Anggota')->get();
-        $lukis = Anggota::where('bidang', 'Lukis')->where('jenjang', !'Alumni')->get();
+
+        // Bidang
+        $lukis = Anggota::where('bidang', 'Lukis')->whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
+        $musik = Anggota::where('bidang', 'Musik')->whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
+        $tari = Anggota::where('bidang', 'Tari')->whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
+
         return view('admin.anggota.index', [
             'anggota' => $anggota,
             'anggotaBaru' => $anggotaBaru,
@@ -31,7 +36,9 @@ class AnggotaController extends Controller
             'anggotaLuarBiasa' => $anggotaLuarBiasa,
             'alumni' => $alumni,
             'calonAnggota' => $calonAnggota,
-            'lukis' => $lukis
+            'lukis' => $lukis,
+            'musik' => $musik,
+            'tari' => $tari
         ]);
     }
 
@@ -154,5 +161,16 @@ class AnggotaController extends Controller
 
         Anggota::destroy($anggota->id);
         return redirect('/admin/anggota')->with('status', 'Data anggota '.$anggota->nama_anggota.' berhasil dihapus!');
+    }
+
+    /**
+     * Print data from Anggota table
+     *
+     * @param  \App\Anggota  $anggota
+     */
+    public function cetak()
+    {
+        $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->orderBy('nama_anggota', 'ASC')->get();
+        return view('admin.anggota.cetak-presensi', compact('anggota'));
     }
 }

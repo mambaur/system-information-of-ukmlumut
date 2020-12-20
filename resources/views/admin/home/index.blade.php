@@ -11,7 +11,7 @@
   <div class="page-header row no-gutters py-4">
     <div class="col-12 col-sm-4 text-center text-sm-left mb-0">
       <span class="text-uppercase page-subtitle">Dashboard</span>
-      <h3 class="page-title">Blog Overview</h3>
+      <h3 class="page-title">Dashboard Overview</h3>
     </div>
   </div>
   <!-- End Page Header -->
@@ -22,11 +22,11 @@
         <div class="card-body p-0 d-flex">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
-              <span class="stats-small__label text-uppercase">Posts</span>
-              <h6 class="stats-small__value count my-3">2,390</h6>
+              <span class="stats-small__label text-uppercase">Total Anggota</span>
+              <h6 class="stats-small__value count my-3">{{count($anggota)}}</h6>
             </div>
             <div class="stats-small__data">
-              <span class="stats-small__percentage stats-small__percentage--increase">4.7%</span>
+              <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
           <canvas height="120" class="blog-overview-stats-small-1"></canvas>
@@ -38,11 +38,11 @@
         <div class="card-body p-0 d-flex">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
-              <span class="stats-small__label text-uppercase">Pages</span>
-              <h6 class="stats-small__value count my-3">182</h6>
+              <span class="stats-small__label text-uppercase">Total Alumni</span>
+              <h6 class="stats-small__value count my-3">{{count($alumni)}}</h6>
             </div>
             <div class="stats-small__data">
-              <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
+              <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
           <canvas height="120" class="blog-overview-stats-small-2"></canvas>
@@ -54,11 +54,11 @@
         <div class="card-body p-0 d-flex">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
-              <span class="stats-small__label text-uppercase">Comments</span>
-              <h6 class="stats-small__value count my-3">8,147</h6>
+              <span class="stats-small__label text-uppercase">Bidang Lukis</span>
+              <h6 class="stats-small__value count my-3">{{count($lukis)}}</h6>
             </div>
             <div class="stats-small__data">
-              <span class="stats-small__percentage stats-small__percentage--decrease">3.8%</span>
+              <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
           <canvas height="120" class="blog-overview-stats-small-3"></canvas>
@@ -70,11 +70,11 @@
         <div class="card-body p-0 d-flex">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
-              <span class="stats-small__label text-uppercase">Users</span>
-              <h6 class="stats-small__value count my-3">2,413</h6>
+              <span class="stats-small__label text-uppercase">Bidang Musik</span>
+              <h6 class="stats-small__value count my-3">{{count($musik)}}</h6>
             </div>
             <div class="stats-small__data">
-              <span class="stats-small__percentage stats-small__percentage--increase">12.4%</span>
+              <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
           <canvas height="120" class="blog-overview-stats-small-4"></canvas>
@@ -86,11 +86,11 @@
         <div class="card-body p-0 d-flex">
           <div class="d-flex flex-column m-auto">
             <div class="stats-small__data text-center">
-              <span class="stats-small__label text-uppercase">Subscribers</span>
-              <h6 class="stats-small__value count my-3">17,281</h6>
+              <span class="stats-small__label text-uppercase">Bidang Tari</span>
+              <h6 class="stats-small__value count my-3">{{count($tari)}}</h6>
             </div>
             <div class="stats-small__data">
-              <span class="stats-small__percentage stats-small__percentage--decrease">2.4%</span>
+              <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
           <canvas height="120" class="blog-overview-stats-small-5"></canvas>
@@ -132,7 +132,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div class="card card-small h-100">
         <div class="card-header border-bottom">
-          <h6 class="m-0">Users by device</h6>
+          <h6 class="m-0">Persentase Per-Bidang</h6>
         </div>
         <div class="card-body d-flex py-0">
           <canvas height="220" class="blog-users-by-device m-auto"></canvas>
@@ -343,4 +343,56 @@
   </div>
 </div>
 </div>
+
+{{-- // Data untuk pie chart --}}
+<input type="hidden" id="lukis-total" value="{{count($lukis)}}">
+<input type="hidden" id="musik-total" value="{{count($musik)}}">
+<input type="hidden" id="tari-total" value="{{count($tari)}}">
+@endsection
+
+@section('script')
+    <script>
+      var lukis = document.getElementById('lukis-total').value;
+      var musik = document.getElementById('musik-total').value;
+      var tari = document.getElementById('tari-total').value;
+
+      // Pie chart
+      var ubdCtx = document.getElementsByClassName('blog-users-by-device')[0];
+      var ubdData = {
+        datasets: [{
+          hoverBorderColor: '#ffffff',
+          data: [lukis, musik, tari],
+          backgroundColor: [
+            'rgba(0,123,255,0.9)',
+            'rgba(0,123,255,0.5)',
+            'rgba(0,123,255,0.3)'
+          ]
+        }],
+        labels: ["Lukis", "Musik", "Tari"]
+      };
+
+      var ubdOptions = {
+        legend: {
+          position: 'bottom',
+          labels: {
+            padding: 25,
+            boxWidth: 20
+          }
+        },
+        cutoutPercentage: 0,
+        // Uncomment the following line in order to disable the animations.
+        // animation: false,
+        tooltips: {
+          custom: false,
+          mode: 'index',
+          position: 'nearest'
+        }
+      };
+
+      window.ubdChart = new Chart(ubdCtx, {
+        type: 'pie',
+        data: ubdData,
+        options: ubdOptions
+      });
+    </script>
 @endsection

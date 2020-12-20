@@ -11,6 +11,12 @@
         <h3 class="page-title">Blog Posts</h3>
       </div>
     </div>
+    <div class="mb-2">
+      <a href="{{url('/admin/artikel/tambah')}}"><button class="btn btn-white">+ Tambah</button></a>
+      <button class="btn btn-white">Lukis</button>
+      <button class="btn btn-white">Musik</button>
+      <button class="btn btn-white">Tari</button>
+    </div>
     <!-- End Page Header -->
     <div class="row">
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">

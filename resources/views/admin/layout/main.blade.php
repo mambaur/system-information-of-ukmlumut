@@ -12,6 +12,7 @@
     <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="{{ asset('assets/admin/styles/shards-dashboards.1.1.0.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/admin/styles/extras.1.1.0.min.css') }}">
     <script async defer src="https://buttons.github.io/buttons.js"></script>
+    @yield('head')
   </head>
   <body class="h-100">
     <div class="color-switcher-toggle animated pulse infinite">
@@ -230,5 +231,6 @@
     <script src="{{asset('assets/admin/scripts/extras.1.1.0.min.js')}}"></script>
     <script src="{{asset('assets/admin/scripts/shards-dashboards.1.1.0.min.js')}}"></script>
     <script src="{{asset('assets/admin/scripts/app/app-blog-overview.1.1.0.js')}}"></script>
+    @yield('script')
   </body>
 </html>
