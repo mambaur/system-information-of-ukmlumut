@@ -47,6 +47,9 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/artikel', 'admin\ArtikelController@index');
     Route::get('/admin/artikel/tambah', 'admin\ArtikelController@create');
     Route::post('/admin/artikel/', 'admin\ArtikelController@store');
+    Route::get('/admin/artikel/edit/{artikel}', 'admin\ArtikelController@edit');
+    Route::patch('/admin/artikel/{artikel}', 'admin\ArtikelController@update');
+    Route::delete('/admin/artikel/{artikel}', 'admin\ArtikelController@destroy');
 
     // Akun
     Route::get('/admin/akun', 'admin\AkunController@index');

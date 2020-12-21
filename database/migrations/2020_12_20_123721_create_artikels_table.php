@@ -20,6 +20,7 @@ class CreateArtikelsTable extends Migration
             $table->string('konten', 2000);
             $table->string('bidang');
             $table->boolean('status');
+            $table->string('penulis');
             $table->timestamps();
         });
     }

@@ -3,6 +3,16 @@
 @section('title', 'Informasi Artikel UKM LUMUT')
 
 @section('container')
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('status')}}
+    </div>
+@endif
+
 <div class="main-content-container container-fluid px-4">
     <!-- Page Header -->
     <div class="page-header row no-gutters py-4">
@@ -19,75 +29,47 @@
     </div>
     <!-- End Page Header -->
     <div class="row">
+      @foreach ($artikel as $item)
       <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
         <div class="card card-small card-post card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/1.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-dark">Business</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/0.jpg');">Written by Anna Kunis</a>
-            </div>
+          <div class="card-post__image" style="background-image: url('/assets/admin/images/artikel/{{$item->image}}');">
+              <a href="#" class="card-post__category badge badge-pill badge-{{($item->bidang === 'Lukis' ? 'success' : ($item->bidang === 'Musik' ? 'primary' : 'warning'))}}">{{$item->bidang}}</a>
+              <div class="card-post__author d-flex">
+                <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('/assets/admin/images/artikel/user.jpg');"></a>
+                <span class="mt-3 ml-2 text-muted">{{$item->penulis}}</span>
+              </div>
           </div>
           <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">Conduct at an replied removal an amongst</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">However venture pursuit he am mr cordial. Forming musical am hearing studied be luckily. But in for determine what would see...</p>
-            <span class="text-muted">28 February 2019</span>
+              <h5 class="card-title">
+                <a class="text-fiord-blue" href="#">
+                  <span class="text-warning">{{!$item->status ? '[DRAFT]' : ''}}</span> 
+                  {{$item->judul}}
+                </a>
+              </h5>
+              <span class="card-text d-inline-block">
+                {!! \Illuminate\Support\Str::words($item->konten, 10,'....') !!}
+              </span>
+              <span class="text-muted m-0 p-0"><p>{{$item->created_at}}</span>
+              <hr />
+              <div class="float-right">
+                <a href="/admin/artikel/edit/{{$item->id}}">
+                  <button class="btn btn-white"><i class="material-icons">edit</i>Edit</button>
+                </a>
+
+                <form class="d-inline-block" method="post" action="/admin/artikel/{{$item->id}}">
+                  @method('delete')
+                  @csrf
+                  <button type="submit" class="btn btn-white" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$item->judul}}?');"><i class="material-icons">delete</i>Hapus</button>
+                </form>
+              </div>
           </div>
         </div>
       </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-        <div class="card card-small card-post card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/2.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/1.jpg');">Written by James Jamerson</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">Off tears are day blind smile alone had ready</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">Is at purse tried jokes china ready decay an. Small its shy way had woody downs power. To denoting admitted speaking learning my...</p>
-            <span class="text-muted">29 February 2019</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-        <div class="card card-small card-post card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/3.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-primary">Technology</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/2.jpg');">Written by Jimmy Jackson</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">Difficult in delivered extensive at direction</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">Is at purse tried jokes china ready decay an. Small its shy way had woody downs power. To denoting admitted speaking learning my...</p>
-            <span class="text-muted">29 February 2019</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-3 col-md-6 col-sm-12 mb-4">
-        <div class="card card-small card-post card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/4.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-warning">Technology</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/3.jpg');">Written by John James</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">It so numerous if he may outlived disposal</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">How but sons mrs lady when. Her especially are unpleasant out alteration continuing unreserved ready road market resolution...</p>
-            <span class="text-muted">29 February 2019</span>
-          </div>
-        </div>
-      </div>
+      @endforeach
     </div>
+    {{ $artikel->links() }}
+
+
     <div class="row">
       <div class="col-lg-6 col-sm-12 mb-4">
         <div class="card card-small card-post card-post--aside card-post--1">
