@@ -45,6 +45,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Artikel
     Route::get('/admin/artikel', 'admin\ArtikelController@index');
+    Route::get('/admin/artikel/tipe', 'admin\ArtikelController@bidang');
     Route::get('/admin/artikel/tambah', 'admin\ArtikelController@create');
     Route::post('/admin/artikel/', 'admin\ArtikelController@store');
     Route::get('/admin/artikel/edit/{artikel}', 'admin\ArtikelController@edit');
@@ -62,4 +63,8 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/kelola-admin/edit/{user}', 'admin\KelolaAdminController@edit');
     Route::patch('/admin/kelola-admin/{user}', 'admin\KelolaAdminController@update');
     Route::delete('/admin/kelola-admin/{user}', 'admin\KelolaAdminController@destroy');
+
+    // Alumni
+    Route::get('/admin/alumni/', 'admin\AlumniController@index');
+    Route::get('/admin/alumni/cetak', 'admin\AlumniController@cetak');
 });

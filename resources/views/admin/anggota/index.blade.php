@@ -146,7 +146,7 @@
               <th scope="col" class="border-0">Bidang</th>
               <th scope="col" class="border-0">Angkatan</th>
               <th scope="col" class="border-0">Jenjang</th>
-              <th scope="col" class="border-0">NAL</th>
+              <th scope="col" class="border-0">Asal</th>
               <th scope="col" class="border-0"></th>
             </tr>
           </thead>
@@ -157,7 +157,7 @@
                 <td>{{$item->bidang}}</td>
                 <td>{{$item->angkatan}}</td>
                 <td>{{$item->jenjang}}</td>
-                <td>{{$item->nal}}</td>
+                <td>{{$item->kota}}</td>
                 <td>
                   <a href="/admin/anggota/{{$item->id}}">
                     <button type="button" class="btn btn-sm btn-white">

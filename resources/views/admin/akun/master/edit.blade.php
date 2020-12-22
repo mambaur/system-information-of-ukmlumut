@@ -67,7 +67,7 @@
                             </select>
                           </div>
                           <div class="form-group w-50">
-                            <select name="role" class="form-control" required>
+                            <select name="role" class="form-control" {{$user->email === 'ukm.lumut@polije.ac.id' ? 'readonly' : ''}} required>
                                 <option value="{{$user->role}}" selected hidden>{{$user->role}}</option>
                                 <option value="Master">Master</option>
                                 <option value="Admin">Admin</option>

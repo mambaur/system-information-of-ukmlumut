@@ -39,7 +39,7 @@
                             <div class="blog-comments__meta text-muted">
                                 <a class="text-secondary" href="#">{{$item->name.' '.$item->nama_belakang}}</a> -
                                 <a class="text-secondary" href="#">{{$item->jabatan}}</a>
-                                <span class="text-muted">– Updated at {{$item->updated_at}}</span>
+                                <span class="text-muted">{{$item->updated_at ? '– Updated at '.$item->updated_at : ''}}</span>
                             </div>
                             <p class="m-0 my-1 mb-2 text-muted">{{$item->email}}</p>
                             <div class="blog-comments__actions">
@@ -54,7 +54,7 @@
                                 <form class="d-inline-block" method="post" action="/admin/kelola-admin/{{$item->id}}">
                                     @method('delete')
                                     @csrf
-                                    @if ($item->role === 'Master' && $item->email === 'admin@gmail.com')
+                                    @if ($item->role === 'Master' && $item->email === 'ukm.lumut@polije.ac.id')
                                         <button type="button" class="btn btn-white">
                                             <span class="text-secondary">
                                             <i class="material-icons">clear</i>

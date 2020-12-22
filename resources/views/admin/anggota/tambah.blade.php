@@ -46,6 +46,9 @@
                     <div class="form-group mt-2">
                         <input type="text" class="form-control" name="alamat" placeholder="Alamat" required> 
                     </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" name="kota" placeholder="Kota atau Kabupaten" required> 
+                    </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-7">

@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cetak presensi anggota</title>
+    <title>Cetak data Alumni</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -21,33 +21,25 @@
             <i class="material-icons mr-1">print</i> Cetak</button>
         <div class="cetak" id="cetak">
             <div class="text-center font-weight-bold mb-5">
-                <h3 class="text-dark">PRESENSI ANGGOTA</h3>
+                <h3 class="text-dark">DATA ALUMNI</h3>
                 <h5 class="text-dark">UKM LUMUT - POLITEKNIK NEGERI JEMBER</h5>
-            </div>
-            <div class="d-inline-block mb-2">
-                <div class="d-inline-block">
-                    <span class="text-dark">Tanggal : </span> <u>__________________</u>
-                </div>
-                <div class="d-inline-block">
-                    <span class="text-dark">Kegiatan : </span> <u>_________________ </u>
-                </div>
             </div>
             <table class="table text-dark">
                 <thead>
                   <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Anggota</th>
-                    <th scope="col">Bidang</th>
-                    <th scope="col">Tanda Tangan</th>
+                    <th scope="col">No Telp</th>
+                    <th scope="col">Nama Alumni</th>
+                    <th scope="col">Angkatan</th>
+                    <th scope="col">Alamat</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($anggota as $item)
                         <tr>
-                            <th scope="row" style="width:5%">{{$loop->iteration}}</th>
+                            <th scope="row" style="width:5%">{{$item->telp}}</th>
                             <td>{{$item->nama_anggota}}</td>
-                            <td style="width:15%">{{$item->bidang}}</td>
-                            <td style="width:15%"></td>
+                            <td style="width:15%">{{$item->angkatan}}</td>
+                            <td style="width:15%">{{$item->kota}}</td>
                         </tr>
                     @endforeach
                 </tbody>

@@ -65,7 +65,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="form-components.html">
+                <a class="nav-link " href="{{url('admin/alumni')}}">
                   <i class="material-icons">view_module</i>
                   <span>Data Alumni</span>
                 </a>

@@ -47,6 +47,9 @@
                     <div class="form-group mt-2">
                         <input type="text" class="form-control" name="alamat" placeholder="Alamat" value="{{$anggota->alamat}}" required> 
                     </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control" name="kota" placeholder="Kota atau Kabupaten" value="{{$anggota->kota}}" required> 
+                    </div>
                     
                     <div class="form-row">
                         <div class="form-group col-md-7">

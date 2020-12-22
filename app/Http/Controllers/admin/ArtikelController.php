@@ -50,7 +50,8 @@ class ArtikelController extends Controller
             'image' => $imageName,
             'konten' => $request->konten,
             'bidang' => $request->bidang,
-            'status' => (isset($request->draft)? 0 : 1)
+            'status' => (isset($request->draft)? 0 : 1),
+            'penulis' => \Auth::user()->name
         ]);
 
         return redirect('/admin/artikel/tambah')->with('status', 'Artikel '.$request->judul.' berhasil ditambahkan!');
@@ -107,7 +108,8 @@ class ArtikelController extends Controller
             'image' => $imageName,
             'konten' => $request->konten,
             'bidang' => $request->bidang,
-            'status' => (isset($request->draft)? 0 : 1)
+            'status' => (isset($request->draft)? 0 : 1),
+            'penulis' => \Auth::user()->name
         ]);
 
         return redirect('admin/artikel/edit/'.$artikel->id)->with('status', 'Data '.$request->judul.' berhasil ubah!');
@@ -129,5 +131,17 @@ class ArtikelController extends Controller
 
         Artikel::destroy($artikel->id);
         return redirect('/admin/artikel')->with('status', 'Data '.$artikel->judul.' berhasil dihapus!');
+    }
+
+     /**
+     * Showing data by bidang.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function bidang(Request $request)
+    {
+        $artikel = Artikel::where('bidang', $request->bidang)->paginate(8);
+        return view('admin.artikel.index', compact('artikel'));
     }
 }

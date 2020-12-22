@@ -23,9 +23,9 @@
     </div>
     <div class="mb-2">
       <a href="{{url('/admin/artikel/tambah')}}"><button class="btn btn-white">+ Tambah</button></a>
-      <button class="btn btn-white">Lukis</button>
-      <button class="btn btn-white">Musik</button>
-      <button class="btn btn-white">Tari</button>
+      <a href="/admin/artikel/tipe?bidang=Lukis"><button class="btn btn-white">Lukis</button></a>
+      <a href="/admin/artikel/tipe?bidang=Musik"><button class="btn btn-white">Musik</button></a>
+      <a href="/admin/artikel/tipe?bidang=Tari"><button class="btn btn-white">Tari</button></a>
     </div>
     <!-- End Page Header -->
     <div class="row">
@@ -69,43 +69,6 @@
     </div>
     {{ $artikel->links() }}
 
-
-    <div class="row">
-      <div class="col-lg-6 col-sm-12 mb-4">
-        <div class="card card-small card-post card-post--aside card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/5.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-info">Travel</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/0.jpg');">Written by Anna Ken</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">Attention he extremity unwilling on otherwise cars backwards yet</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">Conviction up partiality as delightful is discovered. Yet jennings resolved disposed exertion you off. Left did fond drew fat head poor jet pan flying over...</p>
-            <span class="text-muted">29 February 2019</span>
-          </div>
-        </div>
-      </div>
-      <div class="col-lg-6 col-sm-12 mb-4">
-        <div class="card card-small card-post card-post--aside card-post--1">
-          <div class="card-post__image" style="background-image: url('images/content-management/6.jpeg');">
-            <a href="#" class="card-post__category badge badge-pill badge-dark">Business</a>
-            <div class="card-post__author d-flex">
-              <a href="#" class="card-post__author-avatar card-post__author-avatar--small" style="background-image: url('images/avatars/1.jpg');">Written by Jamie James</a>
-            </div>
-          </div>
-          <div class="card-body">
-            <h5 class="card-title">
-              <a class="text-fiord-blue" href="#">Totally words widow one downs few age every seven if miss part by fact</a>
-            </h5>
-            <p class="card-text d-inline-block mb-3">Discovered had get considered projection who favourable. Necessary up knowledge it tolerably. Unwilling departure education to admitted speaking...</p>
-            <span class="text-muted">29 February 2019</span>
-          </div>
-        </div>
-      </div>
-    </div>
     <div class="row">
       <div class="col-lg-4">
         <div class="card card-small card-post mb-4">

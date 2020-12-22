@@ -72,7 +72,7 @@
                             </li>
                             <li class="list-group-item p-4">
                                 <strong class="text-muted d-block mb-2">Alamat</strong>
-                                <span>{{$anggota->alamat}}</span>
+                                <span>{{$anggota->alamat}}, {{$anggota->kota}}</span>
                             </li>
                           </ul>
                         </div>

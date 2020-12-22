@@ -20,8 +20,10 @@ class CreateAnggotasTable extends Migration
             $table->string('nama_anggota');
             $table->string('jurusan');
             $table->string('alamat');
+            $table->string('kota');
             $table->string('bidang');
-            $table->integer('telp')->length(15)->unsigned();
+            $table->string('telp');
+            // $table->integer('telp')->length(20)->unsigned();
             $table->string('jenjang');
             $table->integer('angkatan');
             $table->string('foto');
