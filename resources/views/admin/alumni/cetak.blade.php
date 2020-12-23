@@ -29,6 +29,7 @@
                   <tr>
                     <th scope="col">No Telp</th>
                     <th scope="col">Nama Alumni</th>
+                    <th scope="col">Email</th>
                     <th scope="col">Angkatan</th>
                     <th scope="col">Alamat</th>
                   </tr>
@@ -38,6 +39,7 @@
                         <tr>
                             <th scope="row" style="width:5%">{{$item->telp}}</th>
                             <td>{{$item->nama_anggota}}</td>
+                            <td style="width:15%">{{$item->email}}</td>
                             <td style="width:15%">{{$item->angkatan}}</td>
                             <td style="width:15%">{{$item->kota}}</td>
                         </tr>

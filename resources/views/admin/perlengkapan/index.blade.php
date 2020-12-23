@@ -102,6 +102,10 @@
             @endforeach
           </tbody>
         </table>
+        
+        @if (!count($perlengkapan))
+              <p class="text-center text-muted mt-2">Data perlengkapan tidak ditemukan.</p>
+        @endif
       </div>
     </div>
   </div>

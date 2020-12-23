@@ -31,6 +31,9 @@
               <div class="col-sm-6 col-md">
                 <form method="post" action="{{url('admin/anggota/')}}"  enctype="multipart/form-data">
                     @csrf
+                    <div class="form-group mt-2 w-50">
+                        <input type="email" class="form-control" name="email" placeholder="Email" required> 
+                    </div>
                     <div class="form-group mt-2">
                         <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Lengkap" required> 
                     </div>

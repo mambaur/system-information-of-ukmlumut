@@ -17,13 +17,13 @@ class CreateAnggotasTable extends Migration
             $table->bigIncrements('id');
             $table->string('nal');
             $table->string('nim');
+            $table->string('email');
             $table->string('nama_anggota');
             $table->string('jurusan');
             $table->string('alamat');
             $table->string('kota');
             $table->string('bidang');
             $table->string('telp');
-            // $table->integer('telp')->length(20)->unsigned();
             $table->string('jenjang');
             $table->integer('angkatan');
             $table->string('foto');

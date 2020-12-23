@@ -22,9 +22,32 @@
       </div>
     </div>
 
-    <a href="/admin/alumni/cetak" target="_blank">
-      <button class="btn btn-white mb-2"><i class="material-icons">print</i> Cetak</button>
-    </a>
+    <div class="d-flex justify-content-between">
+      <a href="/admin/alumni/cetak" target="_blank">
+        <button class="btn btn-white mb-2"><i class="material-icons">print</i> Cetak semua data alumni</button>
+      </a>
+      <div>
+        <a href="/admin/alumni/kategori?bidang=Lukis">
+          <button class="btn btn-white mb-2">Lukis</button>
+        </a>
+        <a href="/admin/alumni/kategori?bidang=Musik">
+          <button class="btn btn-white mb-2">Musik</button>
+        </a>
+        <a href="/admin/alumni/kategori?bidang=Tari">
+          <button class="btn btn-white mb-2">Tari</button>
+        </a>
+
+        <div class="d-inline-block">
+          <span class="text-muted ml-3">Filter by year</span>
+          <select name="year" id="year" class="form-control">
+            <option value="" hidden selected>Pilih tahun</option>
+            @for ($i = 0; $i < 35; $i++)
+                <option name="{{1996+$i}}">{{1996+$i}}</option>
+            @endfor
+          </select>
+        </div>
+      </div>
+    </div>
 
     <div class="row">
         @foreach ($alumni as $item)
@@ -56,8 +79,25 @@
           </div>
         </div>
         @endforeach
-    </div>
+      </div>
+      @if (!count($alumni))
+      <div class="row mx-auto d-flex justify-content-center">
+        <p class="text-center text-muted mt-5">Data alumni tidak ditemukan.</p>
+      </div>
+      @endif
     
     {{ $alumni->links() }}
 </div>
+@endsection
+
+@section('script')
+    <script>
+      var url = '/admin/alumni/kategori';
+      var select = document.getElementById('year');
+      select.addEventListener('change', function(){
+        var year = select.options[select.selectedIndex].text;
+        url = url + '?year='+year;
+        window.location = url;
+      });
+    </script>
 @endsection

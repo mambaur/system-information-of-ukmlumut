@@ -182,6 +182,11 @@
             @endforeach
           </tbody>
         </table>
+        @if (!count($anggota))
+            {{-- <tr> --}}
+              <p class="text-center text-muted mt-2">Data anggota tidak ditemukan.</p>
+            {{-- </tr> --}}
+        @endif
       </div>
     </div>
   </div>

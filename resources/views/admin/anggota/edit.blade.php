@@ -32,6 +32,9 @@
                 <form method="post" action="/admin/anggota/{{$anggota->id}}"  enctype="multipart/form-data">
                     @csrf
                     @method('patch')
+                    <div class="form-group mt-2 w-50">
+                        <input type="email" class="form-control" name="email" placeholder="Email" value="{{$anggota->email}}" required> 
+                    </div>
                     <div class="form-group mt-2">
                         <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Lengkap" value="{{$anggota->nama_anggota}}" required> 
                     </div>

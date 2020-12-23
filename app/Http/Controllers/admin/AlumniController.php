@@ -95,4 +95,15 @@ class AlumniController extends Controller
         $anggota = Anggota::where('jenjang', 'Alumni')->orderBy('nama_anggota', 'ASC')->get();
         return view('admin.alumni.cetak', compact('anggota'));
     }
+
+    public function category(Request $request)
+    {
+        $alumni = null;
+        if ($request->year) {
+            $alumni = Anggota::where('angkatan', $request->year)->where('jenjang', 'Alumni')->paginate(10);
+        }else{
+            $alumni = Anggota::where('bidang', $request->bidang)->where('jenjang', 'Alumni')->paginate(10);
+        }
+        return view('admin.alumni.index', compact('alumni'));
+    }
 }

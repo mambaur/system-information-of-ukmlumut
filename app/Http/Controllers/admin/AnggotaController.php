@@ -71,6 +71,7 @@ class AnggotaController extends Controller
         Anggota::create([
             'nal' => $request->nal,
             'nim' => $request->nim,
+            'email' => $request->email,
             'nama_anggota' => $request->nama_anggota,
             'jurusan' => $request->jurusan,
             'alamat' => $request->alamat,
@@ -133,6 +134,8 @@ class AnggotaController extends Controller
 
         Anggota::where('id', $anggota->id)->update([
             'nal' => $request->nal,
+            'nim' => $request->nim,
+            'email' => $request->email,
             'nama_anggota' => $request->nama_anggota,
             'jurusan' => $request->jurusan,
             'alamat' => $request->alamat,

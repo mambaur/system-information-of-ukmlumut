@@ -67,4 +67,5 @@ Route::group(['middleware' => 'auth'], function () {
     // Alumni
     Route::get('/admin/alumni/', 'admin\AlumniController@index');
     Route::get('/admin/alumni/cetak', 'admin\AlumniController@cetak');
+    Route::get('/admin/alumni/kategori', 'admin\AlumniController@category');
 });
