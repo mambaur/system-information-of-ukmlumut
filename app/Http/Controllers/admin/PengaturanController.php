@@ -1,10 +1,12 @@
 <?php
 
-namespace App\Http\Controllers;
+namespace App\Http\Controllers\admin;
 
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Anggota;
 
-class Recruitmen extends Controller
+class PengaturanController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +15,7 @@ class Recruitmen extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.pengaturan.index');
     }
 
     /**

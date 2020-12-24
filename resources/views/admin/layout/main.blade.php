@@ -48,7 +48,7 @@
             <ul class="nav flex-column">
               <li class="nav-item">
                 <a class="nav-link active" href="{{url('/admin')}}">
-                  <i class="material-icons">edit</i>
+                  <i class="material-icons">dashboard</i>
                   <span>LMT Dashboard</span>
                 </a>
               </li>
@@ -77,7 +77,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="errors.html">
+                <a class="nav-link " href="{{url('admin/recruitmen')}}">
                   <i class="material-icons">addchart</i>
                   <span>Recruitmen</span>
                 </a>
@@ -94,6 +94,12 @@
                 <a class="nav-link " href="{{url('admin/akun')}}">
                   <i class="material-icons">person</i>
                   <span>Akun</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{url('admin/pengaturan')}}">
+                  <i class="material-icons">settings</i>
+                  <span>Pengaturan</span>
                 </a>
               </li>
             </ul>

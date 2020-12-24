@@ -5,9 +5,8 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Anggota;
-use App\Artikel;
 
-class Home extends Controller
+class RecruitmenController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,23 +15,21 @@ class Home extends Controller
      */
     public function index()
     {
-        // Data anggota
-        $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
-        $alumni = Anggota::where('jenjang', 'Alumni')->get();
-        $lukis = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Lukis')->get();
-        $musik = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Musik')->get();
-        $tari = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Tari')->get();
-
-        // Data artikel
-        $artikel = Artikel::where('status', 1)->orderBy('id', 'DESC')->paginate(3);
-
-        return view('admin.home.index', [
+        $anggota = Anggota::where('jenjang', 'Calon Anggota')->orderBy('nama_anggota', 'ASC')->paginate(25);
+        $all = Anggota::where('jenjang', 'Calon Anggota')->get();
+        $asal = null;
+        foreach ($all as $value) {
+            $asal[] = $value->kota;
+        }
+        
+        // Get count dupllicate kota
+        $vals = array_count_values($asal);
+        $keyAsal = collect($vals)->keys();
+        // dd($vals);
+        return view('admin.recruitmen.index', [
             'anggota' => $anggota,
-            'alumni' => $alumni,
-            'lukis' => $lukis,
-            'musik' => $musik,
-            'tari' => $tari,
-            'artikel' => $artikel
+            'asal' => $vals,
+            'keyAsal' => $keyAsal
         ]);
     }
 

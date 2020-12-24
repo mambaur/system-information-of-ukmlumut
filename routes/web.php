@@ -68,4 +68,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/alumni/', 'admin\AlumniController@index');
     Route::get('/admin/alumni/cetak', 'admin\AlumniController@cetak');
     Route::get('/admin/alumni/kategori', 'admin\AlumniController@category');
+
+    // Recruitmen
+    Route::get('/admin/recruitmen', 'admin\RecruitmenController@index');
+
+    // Pengaturan
+    Route::get('/admin/pengaturan', 'admin\PengaturanController@index');
 });
