@@ -15,9 +15,9 @@
     @yield('head')
   </head>
   <body class="h-100">
-    <div class="color-switcher-toggle animated pulse infinite">
+    {{-- <div class="color-switcher-toggle animated pulse infinite">
       <i class="material-icons">settings</i>
-    </div>
+    </div> --}}
     <div class="container-fluid">
       <div class="row">
         <!-- Main Sidebar -->
@@ -82,6 +82,18 @@
                   <span>Recruitmen</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{url('admin/pesan')}}">
+                  <i class="material-icons">question_answer</i>
+                  <span>Kritik & saran</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link " href="{{url('admin/akun')}}">
+                  <i class="material-icons">person</i>
+                  <span>Akun</span>
+                </a>
+              </li>
               @if (\Auth::user()->role === 'Master')
               <li class="nav-item">
                 <a class="nav-link " href="{{url('admin/kelola-admin')}}">
@@ -89,11 +101,10 @@
                   <span>Kelola admin</span>
                 </a>
               </li>
-              @endif
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/akun')}}">
-                  <i class="material-icons">person</i>
-                  <span>Akun</span>
+                <a class="nav-link " href="{{url('admin/log-login')}}">
+                  <i class="material-icons">hourglass_full</i>
+                  <span>Log user</span>
                 </a>
               </li>
               <li class="nav-item">
@@ -102,6 +113,7 @@
                   <span>Pengaturan</span>
                 </a>
               </li>
+              @endif
             </ul>
           </div>
         </aside>

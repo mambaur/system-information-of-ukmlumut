@@ -18,14 +18,18 @@ class RecruitmenController extends Controller
         $anggota = Anggota::where('jenjang', 'Calon Anggota')->orderBy('nama_anggota', 'ASC')->paginate(25);
         $all = Anggota::where('jenjang', 'Calon Anggota')->get();
         $asal = null;
+        $vals = null;
+        $keyAsal = null;
         foreach ($all as $value) {
             $asal[] = $value->kota;
         }
         
         // Get count dupllicate kota
-        $vals = array_count_values($asal);
-        $keyAsal = collect($vals)->keys();
-        // dd($vals);
+        if ($asal) {
+            $vals = array_count_values($asal);
+            $keyAsal = collect($vals)->keys();
+        }
+
         return view('admin.recruitmen.index', [
             'anggota' => $anggota,
             'asal' => $vals,
@@ -94,8 +98,15 @@ class RecruitmenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Anggota $anggota)
     {
-        //
+        // remove previous image
+        $path = "assets/admin/images/anggota/";
+        if(file_exists(public_path($path.$anggota->foto)) && $anggota->foto !== 'default.jpg'){
+            unlink(public_path($path.$anggota->foto));
+        }
+
+        Anggota::destroy($anggota->id);
+        return redirect('/admin/recruitmen')->with('status', 'Data anggota '.$anggota->nama_anggota.' berhasil dihapus!');
     }
 }

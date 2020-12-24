@@ -71,7 +71,15 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Recruitmen
     Route::get('/admin/recruitmen', 'admin\RecruitmenController@index');
+    Route::delete('/admin/recruitmen/{anggota}', 'admin\RecruitmenController@destroy');
 
     // Pengaturan
     Route::get('/admin/pengaturan', 'admin\PengaturanController@index');
+
+    // Pesan
+    Route::get('/admin/pesan', 'admin\PesanController@index');
+    Route::get('/admin/pesan/hapus', 'admin\PesanController@destroy');
+
+    // log
+    Route::get('/admin/log-login', 'admin\logLoginController@index');
 });

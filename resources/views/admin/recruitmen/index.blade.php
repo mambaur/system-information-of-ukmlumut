@@ -35,7 +35,13 @@
                     </a>
                     <span class="ml-auto text-right text-semibold text-reagent-gray">
                         <button class="btn btn-sm btn-success">Terima</button>
-                        <button class="btn btn-sm btn-white">Tolak</button>
+                        <form class="d-inline-block" method="post" action="/admin/recruitmen/{{$item->id}}">
+                          @method('delete')
+                          @csrf
+                          <button type="submit" class="btn btn-sm btn-white" onclick="return confirm('Apakah anda yakin ingin menghapus data {{$item->nama_anggota}}?');">
+                            Tolak
+                          </button>
+                        </form>
                     </span>
                 </li>
                 @endforeach
@@ -44,6 +50,7 @@
         </div>
         {{$anggota->links()}}
     </div>
+    @if ($asal)
     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
         <div class="mb-2">
             <a href="" target="_blank"><button class="btn btn-white">Cetak presensi</button></a>
@@ -64,6 +71,10 @@
           </div>
         </div>
     </div>
+    @endif
 </div>
+@if (!count($anggota))
+    <div class="text-center">Belum ada anggota yang mendaftar.</div>
+@endif
 </div>
 @endsection
