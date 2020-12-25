@@ -21,26 +21,26 @@
             <i class="material-icons mr-1">print</i> Cetak</button>
         <div class="cetak" id="cetak">
             <div class="text-center font-weight-bold mb-5">
-                <h3 class="text-dark">DATA ALUMNI</h3>
+                <h3 class="text-dark">CALON ANGOTA</h3>
                 <h5 class="text-dark">UKM LUMUT - POLITEKNIK NEGERI JEMBER {{date('Y')}}</h5>
             </div>
             <table class="table text-dark">
                 <thead>
                   <tr>
-                    <th scope="col">No Telp</th>
-                    <th scope="col">Nama Alumni</th>
+                    <th scope="col">No</th>
+                    <th scope="col">Nama Calon Anggota</th>
                     <th scope="col">Email</th>
-                    <th scope="col">Angkatan</th>
-                    <th scope="col">Alamat</th>
+                    <th scope="col">Bidang</th>
+                    <th scope="col">Asal</th>
                   </tr>
                 </thead>
                 <tbody>
                     @foreach ($anggota as $item)
                         <tr>
-                            <th scope="row" style="width:5%">{{$item->telp}}</th>
+                            <th scope="row" style="width:5%">{{$loop->iteration}}</th>
                             <td>{{$item->nama_anggota}}</td>
                             <td style="width:15%">{{$item->email}}</td>
-                            <td style="width:15%">{{$item->angkatan}}</td>
+                            <td style="width:15%">{{$item->bidang}}</td>
                             <td style="width:15%">{{$item->kota}}</td>
                         </tr>
                     @endforeach

@@ -4,6 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Log_login;
 
 class AuthController extends Controller
 {
@@ -41,6 +42,11 @@ class AuthController extends Controller
             'email' => $request->username, 
             'password' => $request->password,
         ])){
+            Log_login::create([
+                'nama_user' => \Auth::user()->name,
+                'email' => \Auth::user()->email
+            ]);
+
             return redirect('/admin');
         }else{
             return redirect('/admin/auth/login')->with('status', 'Mohon periksa kembali email atau password anda!');

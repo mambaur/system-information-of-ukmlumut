@@ -30,10 +30,18 @@ class RecruitmenController extends Controller
             $keyAsal = collect($vals)->keys();
         }
 
+        // Data Anggota
+        $lukis = Anggota::where('jenjang', 'Calon Anggota')->where('bidang', 'Lukis')->get()->count();
+        $musik = Anggota::where('jenjang', 'Calon Anggota')->where('bidang', 'Musik')->get()->count();
+        $tari = Anggota::where('jenjang', 'Calon Anggota')->where('bidang', 'Tari')->get()->count();
+
         return view('admin.recruitmen.index', [
             'anggota' => $anggota,
             'asal' => $vals,
-            'keyAsal' => $keyAsal
+            'keyAsal' => $keyAsal,
+            'lukis' => $lukis,
+            'musik' => $musik,
+            'tari' => $tari,
         ]);
     }
 
@@ -87,9 +95,13 @@ class RecruitmenController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Anggota $anggota)
     {
-        //
+        Anggota::where('id', $anggota->id)->update([
+            'jenjang' => 'Anggota Baru'
+        ]);
+
+        return redirect('admin/recruitmen/')->with('status', $anggota->nama_anggota.' berhasil diterima sebagai Anggota Baru!');
     }
 
     /**
@@ -108,5 +120,52 @@ class RecruitmenController extends Controller
 
         Anggota::destroy($anggota->id);
         return redirect('/admin/recruitmen')->with('status', 'Data anggota '.$anggota->nama_anggota.' berhasil dihapus!');
+    }
+
+    /**
+     * Print data from Anggota table
+     *
+     * @param  \App\Anggota  $anggota
+     */
+    public function cetak_presensi()
+    {
+        $anggota = Anggota::where('jenjang', 'Calon Anggota')->orderBy('bidang', 'ASC')->get();
+        return view('admin.recruitmen.cetak-presensi', compact('anggota'));
+    }
+
+    /**
+     * Print data from Anggota table
+     *
+     * @param  \App\Anggota  $anggota
+     */
+    public function cetak_semua()
+    {
+        $anggota = Anggota::where('jenjang', 'Calon Anggota')->orderBy('bidang', 'ASC')->get();
+        return view('admin.recruitmen.cetak-semua', compact('anggota'));
+    }
+
+    /**
+     * Print data from Anggota table
+     *
+     * @param  \App\Anggota  $anggota
+     */
+    public function cetak_lukis()
+    {
+        $anggota = Anggota::where('jenjang', 'Calon Anggota')->where('bidang', 'Lukis')->orderBy('bidang', 'ASC')->get();
+        return view('admin.recruitmen.cetak-lukis', compact('anggota'));
+    }
+
+    /**
+     * Print data from Anggota table
+     *
+     * @param  \App\Anggota  $anggota
+     */
+    public function cetak_bidang(Request $request)
+    {
+        $anggota = Anggota::where('jenjang', 'Calon Anggota')->where('bidang', $request->nama)->orderBy('bidang', 'ASC')->get();
+        return view('admin.recruitmen.cetak-bidang', [
+            'anggota' => $anggota,
+            'bidang' => strtoupper($request->nama)
+        ]);
     }
 }

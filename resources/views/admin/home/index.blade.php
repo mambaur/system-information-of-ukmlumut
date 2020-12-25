@@ -171,17 +171,35 @@
     </div>
     <!-- End Users By Device Stats -->
     <!-- New Draft Component -->
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
       <!-- Quick Post -->
       <div class="card card-small">
         <div class="card-header border-bottom">
           <h6 class="m-0">Kritik dan saran</h6>
         </div>
         <div class="card-body d-flex flex-column">
-          Seni adalah hidupku, hidupku adalah seni!
+          @foreach ($pesan as $item)
+          <div class="blog-comments__item d-flex p-1">
+            <div class="blog-comments__content">
+              <p class="m-0 my-1 text-muted"><span class="badge badge-success mr-1">Pesan!</span>{{$item->isi_pesan}}</p>
+            </div>
+          </div>
+          @endforeach
+          @if (!count($pesan))
+          <div class="blog-comments__item d-flex justify-content-center p-1">
+            <div class="blog-comments__content">
+              <p class="m-0 my-1 text-muted">
+                Belum ada pesan.</p>
+            </div>
+          </div>
+          @endif
+          <div class="row">
+            <div class="col text-center view-report mt-3">
+              <a href="/admin/pesan"><button type="button" class="btn btn-white">Lihat semua pesan</button></a>
+            </div>
+          </div>
         </div>
       </div>
-      <!-- End Quick Post -->
     </div>
     <!-- End New Draft Component -->
     <!-- Artikel Component -->
@@ -229,7 +247,7 @@
             </li>
             <li class="list-group-item d-flex px-3">
               <span class="text-semibold text-fiord-blue">Total CA</span>
-              <span class="ml-auto text-right text-semibold text-reagent-gray">8</span>
+              <span class="ml-auto text-right text-semibold text-reagent-gray">{{count($ca)}}</span>
             </li>
           </ul>
         </div>

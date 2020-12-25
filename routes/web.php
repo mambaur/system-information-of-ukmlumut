@@ -71,6 +71,10 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Recruitmen
     Route::get('/admin/recruitmen', 'admin\RecruitmenController@index');
+    Route::get('/admin/recruitmen/cetak-presensi', 'admin\RecruitmenController@cetak_presensi');
+    Route::get('/admin/recruitmen/cetak-semua', 'admin\RecruitmenController@cetak_semua');
+    Route::get('/admin/recruitmen/cetak-bidang', 'admin\RecruitmenController@cetak_bidang');
+    Route::patch('/admin/recruitmen/{anggota}', 'admin\RecruitmenController@update');
     Route::delete('/admin/recruitmen/{anggota}', 'admin\RecruitmenController@destroy');
 
     // Pengaturan

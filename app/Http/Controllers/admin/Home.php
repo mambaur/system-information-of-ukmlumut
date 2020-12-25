@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Anggota;
 use App\Artikel;
+use App\Pesan;
 
 class Home extends Controller
 {
@@ -18,6 +19,7 @@ class Home extends Controller
     {
         // Data anggota
         $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->get();
+        $calon_anggota = Anggota::where('jenjang', 'Calon Anggota')->get();
         $alumni = Anggota::where('jenjang', 'Alumni')->get();
         $lukis = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Lukis')->get();
         $musik = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Musik')->get();
@@ -26,13 +28,18 @@ class Home extends Controller
         // Data artikel
         $artikel = Artikel::where('status', 1)->orderBy('id', 'DESC')->paginate(3);
 
+        // Data message
+        $pesan = Pesan::orderBy('id', 'DESC')->paginate(3);
+
         return view('admin.home.index', [
             'anggota' => $anggota,
+            'ca' => $calon_anggota,
             'alumni' => $alumni,
             'lukis' => $lukis,
             'musik' => $musik,
             'tari' => $tari,
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'pesan' => $pesan
         ]);
     }
 

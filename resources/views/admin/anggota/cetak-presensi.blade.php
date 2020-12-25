@@ -22,7 +22,7 @@
         <div class="cetak" id="cetak">
             <div class="text-center font-weight-bold mb-5">
                 <h3 class="text-dark">PRESENSI ANGGOTA</h3>
-                <h5 class="text-dark">UKM LUMUT - POLITEKNIK NEGERI JEMBER</h5>
+                <h5 class="text-dark">UKM LUMUT - POLITEKNIK NEGERI JEMBER {{date('Y')}}</h5>
             </div>
             <div class="d-inline-block mb-2">
                 <div class="d-inline-block">

@@ -21,5 +21,28 @@
             <h3 class="page-title">Log user login</h3>
         </div>
     </div>
+    <div class="row">
+        <div class="col-lg">
+            <table class="table table-dark">
+                {{-- <thead>
+                  <tr>
+                    <th scope="col" class="w-25">Akses</th>
+                    <th scope="col" class="w-50">Nama</th>
+                    <th scope="col" class="w-25">Email</th>
+                  </tr> --}}
+                </thead>
+                <tbody>
+                    @foreach ($user as $item)
+                    <tr class="d-flex">
+                      <th class="col-2">{{$item->created_at}}</th>
+                      <td class="col-7">{{$item->nama_user}}</td>
+                      <td class="col-1">{{$item->email}}</td>
+                    </tr>
+                    @endforeach
+                </tbody>
+            </table>
+            {{$user->links()}}
+        </div>
+    </div>
 </div>
 @endsection
