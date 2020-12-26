@@ -87,3 +87,10 @@ Route::group(['middleware' => 'auth'], function () {
     // log
     Route::get('/admin/log-login', 'admin\logLoginController@index');
 });
+
+
+// Route for user
+
+// Home
+Route::get('/', 'user\HomeController@index');
+Route::get('/tentang', 'user\TentangController@index');
