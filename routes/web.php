@@ -94,3 +94,12 @@ Route::group(['middleware' => 'auth'], function () {
 // Home
 Route::get('/', 'user\HomeController@index');
 Route::get('/tentang', 'user\TentangController@index');
+
+// Peminjaman Alat
+Route::get('/peminjaman-alat', 'user\PeminjamanController@index');
+
+// Pendaftaran Calon Anggota
+Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');
+
+// Kritik dan saran
+Route::get('/kritik-dan-saran', 'user\PesanController@index');

@@ -110,10 +110,10 @@
                                 Lainnya
                             </a>
                             <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                 <a class="dropdown-item " href="index.html">
+                                 <a class="dropdown-item " href="/peminjaman-alat">
                                     Peminjaman Alat
                                 </a>
-                                <a class="dropdown-item " href="index-2.html">
+                                <a class="dropdown-item " href="/kritik-dan-saran">
                                     Kritik & saran
                                 </a> 
                             </div>
@@ -121,7 +121,7 @@
                     </ul>
 
                 <ul class="ml-lg-auto list-unstyled m-0 nav-btn">
-                    <li><a href="#" class="btn btn-trans-white btn-circled">Daftar</a></li>
+                    <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled">Daftar</a></li>
                 </ul>
             </div> <!-- / .navbar-collapse -->
         </div> <!-- / .Container -->

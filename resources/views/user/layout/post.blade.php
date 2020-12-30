@@ -116,8 +116,8 @@
         <div class="row justify-content-center">
             <div class="col-lg-9 col-md-12 col-12 text-center">
                 <div class="page-banner-content">
-                    <h1 class="display-4 font-weight-bold">Got a question?</h1>
-                    <p>We'd love to talk about how we can help you.</p>
+                    <h1 class="display-4 font-weight-bold">@yield('sub-title')</h1>
+                    <p>@yield('description')</p>
                 </div>
             </div>
         </div> <!-- / .row -->
