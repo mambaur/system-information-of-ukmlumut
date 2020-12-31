@@ -103,3 +103,4 @@ Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');
 
 // Kritik dan saran
 Route::get('/kritik-dan-saran', 'user\PesanController@index');
+Route::post('/kritik-dan-saran', 'user\PesanController@store');

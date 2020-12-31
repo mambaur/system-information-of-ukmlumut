@@ -273,6 +273,7 @@
 
     <script src="/assets/user/js/form/contact.js"></script>
     <script src="/assets/user/js/theme.js"></script>
+    @yield('script')
 
   </body>
   </html>

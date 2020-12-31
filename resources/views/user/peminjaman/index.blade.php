@@ -45,7 +45,7 @@
                             <input type="date" class="form-control" id="tanggal_kembali">
                         </div>
                         <div class="form-group">
-                            <span>Pilih barang yang ingin dipinjam <span class="text-danger">*</span>/span>
+                            <span>Pilih barang yang ingin dipinjam <span class="text-danger">*</span></span>
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1">
                                 <label class="form-check-label" for="exampleCheck1">Geber</label>

@@ -7,21 +7,55 @@
 @section('description', 'Isikan kritik dan saran kamu untuk UKM LUMUT menjadi lebih baik, identitas anda 100% akan dirahasiakan')
 
 @section('content')
+
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('status')}}
+    </div>
+@endif
 <!-- SECTIONS
     ================================================== -->
     <section id="contact-info">
-        <div class="container mb-5">
-            <form action="/admin" method="post">
+        <div class="container mb-5" id="container-section">
+            <form action="/kritik-dan-saran" method="post">
+                @csrf
                 <div class="row justify-content-center">
                     <div class="col-lg col-sm-6 col-md-6">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Kritik dan Saran Anda!</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="6" placeholder="Masukkan kritik dan saran anda disini..."></textarea>
+                            <label for="exampleFormControlTextarea1"><h2>Kritik & Saran Anda!</h2></label>
+                            <textarea class="form-control" name="pesan" id="exampleFormControlTextarea1" rows="6" placeholder="Masukkan kritik dan saran anda disini..." required></textarea>
                         </div>
                         <button type="submit" class="btn btn-primary mb-5">Kirim</button>
                     </div>
                 </div>
             </form>
+            <button class="btn btn-white" onclick="genPDF()">Coba</button>
         </div>
     </section>
+    <div id="editor"></div>
+@endsection
+
+@section('script')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
+{{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.2.0/jspdf.umd.min.js"></script> --}}
+<script>
+    // var source = document.getElementById('container');
+    function genPDF() {
+        var doc = new jsPDF();
+        var specialElementHandlers = {
+            '#editor': function (element, renderer) {
+                return true;
+            }
+        };
+        doc.fromHTML($('#container-section').html(), 15, 15, {
+            'width': 170,
+                'elementHandlers': specialElementHandlers
+        });
+        doc.save('sample-file.pdf');
+        }
+</script>
 @endsection

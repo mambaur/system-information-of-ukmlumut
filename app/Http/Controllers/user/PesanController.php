@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Pesan;
 
 class PesanController extends Controller
 {
@@ -35,7 +36,11 @@ class PesanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Pesan::create([
+            'isi_pesan' => $request->pesan
+        ]);
+
+        return redirect('/kritik-dan-saran')->with('status', 'Terimakasih, pesan kamu berhasil dikirimkan.');
     }
 
     /**
