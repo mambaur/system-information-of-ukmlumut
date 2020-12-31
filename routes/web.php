@@ -97,9 +97,11 @@ Route::get('/tentang', 'user\TentangController@index');
 
 // Peminjaman Alat
 Route::get('/peminjaman-alat', 'user\PeminjamanController@index');
+Route::post('/peminjaman-alat', 'user\PeminjamanController@store');
 
 // Pendaftaran Calon Anggota
 Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');
+Route::post('/pendaftaran-anggota', 'user\PendaftaranController@store');
 
 // Kritik dan saran
 Route::get('/kritik-dan-saran', 'user\PesanController@index');

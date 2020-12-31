@@ -4,6 +4,9 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Perlengkapan;
+use App\Peminjaman;
+use App\Detail_peminjaman;
 
 class PeminjamanController extends Controller
 {
@@ -14,7 +17,10 @@ class PeminjamanController extends Controller
      */
     public function index()
     {
-        return view('user.peminjaman.index');
+        $perlengkapan = Perlengkapan::where('statusPinjam', 1)->where('isDipinjam', 0)->get();
+        return view('user.peminjaman.index', [
+            'perlengkapan' => $perlengkapan
+        ]);
     }
 
     /**
@@ -35,7 +41,25 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // Insert data to Peminjaman
+        Peminjaman::create([
+            'nama_peminjam' => $request->nama_peminjam,
+            'email' => $request->email,
+            'instansi' => $request->instansi,
+            'acara' => $request->acara,
+            'keterangan' => $request->keterangan,
+            'tanggal_pinjam' => $request->tanggal_pinjam,
+            'tanggal_kembali' => $request->tanggal_kembali,
+            'status' => 'request'
+        ]);
+
+        // Insert data to detail_peminjaman
+        Detail_peminjaman::create([
+            'peminjamans_id' => 1,
+            'perlengkapans_id' => 2
+        ]);
+
+        return redirect('peminjaman-alat')->with('status', 'Peminjaman berhasil dikirimkan.');
     }
 
     /**

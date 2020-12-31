@@ -4,6 +4,7 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Anggota;
 
 class PendaftaranController extends Controller
 {
@@ -35,7 +36,31 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+
+        $imageName = 'default.jpg';
+        if($request->hasFile('upload')){
+            $resource = $request->file('upload');
+            $imageName   = time() .'_'.$resource->getClientOriginalName();
+            $path = "/public/assets/admin/images/anggota";
+            $resource->move(\base_path() .$path, $imageName);
+        }
+
+        Anggota::create([
+            'nal' => $request->nal,
+            'nim' => $request->nim,
+            'email' => $request->email,
+            'nama_anggota' => $request->nama_anggota,
+            'jurusan' => $request->jurusan,
+            'alamat' => $request->alamat,
+            'kota' => $request->kota,
+            'bidang' => $request->bidang,
+            'telp' => $request->telp,
+            'angkatan' => date("Y"),
+            'foto' => $imageName,
+        ]);
+
+        return redirect('/pendaftaran-anggota')->width('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar ya :D, SALAM BUDAYA!');
     }
 
     /**

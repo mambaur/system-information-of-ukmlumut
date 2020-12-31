@@ -1,0 +1,26 @@
+{
+    "result" : "ok",
+    "bidang" : [
+        {
+            "id" : 1,
+            "nama_bidang" : "Lukis",
+            "kategori" : [
+                "Grafity", "Realisme", "Surealisme", "Abstrak", "Kartun", "Komik", "Mural"
+            ]
+        },
+        {
+            "id" : 2,
+            "nama_bidang" : "Musik",
+            "kategori" : [
+                "Gitar", "Bass", "Drum", "Keyboard", "Singer", "Gamelan"
+            ]
+        },
+        {
+            "id" : 3,
+            "nama_bidang" : "Tari",
+            "kategori" : [
+                "Tradisional", "Modern", "Kontemporer"
+            ]
+        }
+    ]
+}
