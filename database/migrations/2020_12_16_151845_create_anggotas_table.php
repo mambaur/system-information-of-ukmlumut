@@ -20,17 +20,19 @@ class CreateAnggotasTable extends Migration
             $table->string('email');
             $table->string('nama_anggota');
             $table->string('jurusan');
+            $table->string('prodi');
             $table->string('alamat');
             $table->string('kota');
             $table->string('bidang');
+            $table->string('kategori_bidang');
             $table->string('telp');
             $table->string('jenjang');
             $table->integer('angkatan');
             $table->string('foto');
-            $table->string('ttl');
-            $table->string('kategori_bidang');
+            $table->string('tempat_lahir');
+            $table->string('tanggal_lahir');
             $table->string('semester');
-            $table->string('sertifikat');
+            $table->string('sertifikat', 512);
             $table->timestamps();
         });
     }

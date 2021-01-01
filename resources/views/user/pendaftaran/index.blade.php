@@ -7,6 +7,17 @@
 @section('description', 'Form pendaftaran calon anggota UKM LUMUT')
 
 @section('content')
+
+@if (session('status'))
+    <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+        <span aria-hidden="true">×</span>
+        </button>
+        <i class="fa fa-check mx-2"></i>
+        <strong>Sukses!</strong> {{session('status')}}
+    </div>
+@endif
+
 <!-- SECTIONS
     ================================================== -->
     <section id="contact-info">
@@ -20,21 +31,31 @@
                             <label for="nama">Nama lengkap<span class="text-danger">*</span></label>
                             <input type="text" class="form-control" name="nama_anggota" id="nama">
                         </div>
-                        <div class="form-group">
-                            <label for="nama">NIM<span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" name="nim" id="nama">
+                        <div class="row">
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="nim">NIM<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="nim" id="nim">
+                                </div>
+                            </div>
+                            <div class="col-sm-6">
+                                <div class="form-group">
+                                    <label for="email">Email<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="email" id="email">
+                                </div>
+                            </div>
                         </div>
                         <div class="row">
                             <div class="col-sm-5">
                                 <div class="form-group">
-                                    <label for="nama">Tempat lahir<span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" name="tempat_lahir" id="nama">
+                                    <label for="tempat_lahir">Tempat lahir<span class="text-danger">*</span></label>
+                                    <input type="text" class="form-control" name="tempat_lahir" id="tempat_lahir">
                                 </div>
                             </div>
                             <div class="col-sm-7">
                                 <div class="form-group">
-                                    <label for="nama">Tanggal lahir<span class="text-danger">*</span></label>
-                                    <input type="date" class="form-control" name="tanggal_lahir" id="nama">
+                                    <label for="tanggal_lahir">Tanggal lahir<span class="text-danger">*</span></label>
+                                    <input type="date" class="form-control" name="tanggal_lahir" id="tanggal_lahir">
                                 </div>
                             </div>
                         </div>
@@ -51,8 +72,8 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="nama">Semester<span class="text-danger">*</span></label>
-                            <select class="form-control form-control-lg" name="semester">
+                            <label for="semester">Semester<span class="text-danger">*</span></label>
+                            <select class="form-control form-control-lg" name="semester" id="semester">
                                 <option value="" hidden selected>-- Semester --</option>
                                 <option value="Semester 1">Semester 1</option>
                                 <option value="Semester 2">Semester 2</option>
@@ -64,13 +85,13 @@
                         </div>
                         
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Sertifikat (jika ada)</label>
-                            <textarea name="sertifikat" class="form-control" id="exampleFormControlTextarea1" placeholder="1. Sertifikat lomba ... &#13;&#10;2. Sertifikat pelatihan ... &#13;&#10;3. ..." rows="3"></textarea>
+                            <label for="sertifikat">Sertifikat (jika ada)</label>
+                            <textarea name="sertifikat" class="form-control" id="sertifikat" placeholder="1. Sertifikat lomba ... &#13;&#10;2. Sertifikat pelatihan ... &#13;&#10;3. ..." rows="3"></textarea>
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <label for="nama">Bidang yang diminati<span class="text-danger">*</span></label>
+                            <label for="bidang">Bidang yang diminati<span class="text-danger">*</span></label>
                             <select class="form-control form-control-lg" id="bidang" name="bidang">
                                 <option value="" hidden selected>-- Bidang --</option>
                                 <option value="Lukis">Lukis</option>
@@ -79,28 +100,28 @@
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="nama">Kategori bidang yang diminati<span class="text-danger">*</span></label>
+                            <label for="kategori_bidang">Kategori bidang yang diminati<span class="text-danger">*</span></label>
                             <select class="form-control form-control-lg" id="kategori_bidang" name="kategori_bidang" disabled>
                                 <option value="" hidden selected>-- Kategori bidang--</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label for="nama">Alamat<span class="text-danger">*</span></label>
-                            <input type="text" name="alamat" class="form-control" id="nama">
+                            <label for="alamat">Alamat<span class="text-danger">*</span></label>
+                            <input type="text" name="alamat" class="form-control" id="alamat">
                         </div>
                         <div class="form-group">
-                            <label for="nama">Kota atau Kabupaten<span class="text-danger">*</span></label>
-                            <input type="text" name="kota" class="form-control" id="nama">
+                            <label for="kota">Kota atau Kabupaten<span class="text-danger">*</span></label>
+                            <input type="text" name="kota" class="form-control" id="kota">
                         </div>
                         <div class="form-group">
-                            <label for="nama">No Telp (WA)<span class="text-danger">*</span></label>
-                            <input type="number" name="telp" class="form-control" id="nama">
+                            <label for="telp">No Telp (WA)<span class="text-danger">*</span></label>
+                            <input type="number" name="telp" class="form-control" id="telp">
                         </div>
                         <div class="form-group">
                             <div class="row">
                                 <div class="col-sm-8">
-                                    <label for="nama">Upload foto 3x4 (background warna hijau tua)<span class="text-danger">*</span></label>
-                                    <input type="file" name="upload" class="form-control" id="nama">
+                                    <label for="upload">Upload foto 3x4 (background warna hijau tua)<span class="text-danger">*</span></label>
+                                    <input type="file" name="upload" class="form-control" id="upload">
                                 </div>
                                 <div class="col-sm-4">
                                     <img src="/assets/user/images/pendaftaran/contoh-foto-pendaftaran-ca.jpg" class="w-50 mt-1" alt="">
@@ -111,8 +132,8 @@
                         <hr />
                             
                         <div class="form-check">
-                            <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                            <label class="form-check-label" for="exampleCheck1">Dengan ini saya menyatakan bersedia menjadi calon anggota dan sanggup mematuhi segala ketentuan yang ada di UKM LUMUT.</label>
+                            <input type="checkbox" class="form-check-input" id="check" required>
+                            <label class="form-check-label" for="check">Dengan ini saya menyatakan bersedia menjadi calon anggota dan sanggup mematuhi segala ketentuan yang ada di UKM LUMUT.</label>
                         </div>
 
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>

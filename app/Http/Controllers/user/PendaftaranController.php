@@ -36,8 +36,6 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
-        dd($request);
-
         $imageName = 'default.jpg';
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
@@ -46,21 +44,31 @@ class PendaftaranController extends Controller
             $resource->move(\base_path() .$path, $imageName);
         }
 
+        $lastJenjang = Anggota::whereNotIn('jenjang', ['Calon Anggota', 'Alumni'])->max('angkatan')+1;
+        $noUrut = Anggota::where('jenjang', 'Calon Anggota')->count()+1;
+
         Anggota::create([
-            'nal' => $request->nal,
+            'nal' => $noUrut.'/'.($request->bidang === "Lukis"?"L":($request->bidang === "Musik" ? "M" : "T")).'/LMT'.'/'.$this->toRoman(($lastJenjang ? $lastJenjang : 1996) - 1996).'/'.date('Y'),
             'nim' => $request->nim,
             'email' => $request->email,
             'nama_anggota' => $request->nama_anggota,
             'jurusan' => $request->jurusan,
+            'prodi' => $request->prodi,
             'alamat' => $request->alamat,
-            'kota' => $request->kota,
+            'kota' => strtoupper($request->kota),
             'bidang' => $request->bidang,
+            'kategori_bidang' => $request->bidang,
             'telp' => $request->telp,
-            'angkatan' => date("Y"),
+            'jenjang' => 'Calon Anggota',
+            'angkatan' => date('Y'),
             'foto' => $imageName,
+            'tempat_lahir' => $request->tempat_lahir, 
+            'tanggal_lahir' => $request->tanggal_lahir, 
+            'semester' => $request->semester, 
+            'sertifikat' => $request->sertifikat
         ]);
 
-        return redirect('/pendaftaran-anggota')->width('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar ya :D, SALAM BUDAYA!');
+        return redirect('/pendaftaran-anggota')->with('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar ya :D, SALAM BUDAYA!');
     }
 
     /**
@@ -106,5 +114,24 @@ class PendaftaranController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param int $number
+     * @return string
+     */
+    public function toRoman($number) {
+        $map = array('M' => 1000, 'CM' => 900, 'D' => 500, 'CD' => 400, 'C' => 100, 'XC' => 90, 'L' => 50, 'XL' => 40, 'X' => 10, 'IX' => 9, 'V' => 5, 'IV' => 4, 'I' => 1);
+        $returnValue = '';
+        while ($number > 0) {
+            foreach ($map as $roman => $int) {
+                if($number >= $int) {
+                    $number -= $int;
+                    $returnValue .= $roman;
+                    break;
+                }
+            }
+        }
+        return $returnValue;
     }
 }

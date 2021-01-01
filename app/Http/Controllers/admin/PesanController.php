@@ -15,7 +15,7 @@ class PesanController extends Controller
      */
     public function index()
     {
-        $pesan = Pesan::paginate(15);
+        $pesan = Pesan::orderBy('id', 'DESC')->paginate(15);
         return view('admin.pesan.index', compact('pesan'));
     }
 
