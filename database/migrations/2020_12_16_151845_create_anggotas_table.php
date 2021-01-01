@@ -27,6 +27,10 @@ class CreateAnggotasTable extends Migration
             $table->string('jenjang');
             $table->integer('angkatan');
             $table->string('foto');
+            $table->string('ttl');
+            $table->string('kategori_bidang');
+            $table->string('semester');
+            $table->string('sertifikat');
             $table->timestamps();
         });
     }
