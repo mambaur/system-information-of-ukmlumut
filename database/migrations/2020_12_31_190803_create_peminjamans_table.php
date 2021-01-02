@@ -19,10 +19,11 @@ class CreatePeminjamansTable extends Migration
             $table->string('email');
             $table->string('instansi');
             $table->string('acara');
-            $table->string('keterangan');
+            $table->string('keterangan')->nullable();
             $table->string('tanggal_pinjam');
             $table->string('tanggal_kembali');
             $table->string('status');
+            $table->string('kode_pinjam');
             $table->timestamps();
         });
     }

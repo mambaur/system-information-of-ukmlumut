@@ -18,43 +18,65 @@
     </div>
 @endif
 
-<!-- SECTIONS
-    ================================================== -->
+<!-- SECTIONS ===================== -->
     <section id="contact-info">
         <div class="container mb-5">
+            @if (count($perlengkapan) && $peminjaman_setting)
+            <h2>Form Peminjaman Barang</h2><hr/>
             <form action="/peminjaman-alat" enctype="multipart/form-data" method="post">
                 @csrf
                 <div class="row justify-content-center">
                     <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="form-group">
-                            <label for="nama">Nama peminjam <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="nama" name="nama_peminjam">
+                            <label for="nama_peminjam">Nama peminjam <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('nama_peminjam') is-invalid @enderror" id="nama_peminjam" name="nama_peminjam" value="{{old('nama_peminjam')}}">
+                            @error('nama_peminjam')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleInputEmail1">Email <span class="text-danger">*</span></label>
-                            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" name="email">
+                            <label for="email">Email <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" value="{{old('email')}}" id="email" aria-describedby="emailHelp" name="email">
+                            @error('email')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="instansi">Instansi atau organisasi peminjam <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="instansi" name="instansi">
+                            <input type="text" class="form-control @error('instansi') is-invalid @enderror" value="{{old('instansi')}}" id="instansi" name="instansi">
+                            @error('instansi')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="instansi">Digunakan untuk (acara) <span class="text-danger">*</span></label>
-                            <input type="text" class="form-control" id="instansi" name="acara">
+                            <label for="acara">Digunakan untuk (acara) <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('acara') is-invalid @enderror" value="{{old('acara')}}" id="acara" name="acara">
+                            @error('acara')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1">Keterangan</label>
-                            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="keterangan"></textarea>
+                            <label for="keterangan">Keterangan</label>
+                            <textarea class="form-control @error('keterangan') is-invalid @enderror" value="{{old('keterangan')}}" id="keterangan" rows="3" name="keterangan">{{old('keterangan')}}</textarea>
+                            @error('keterangan')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                     </div>
                     <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="form-group">
                             <label for="tanggal_pinjam">Tanggal peminjaman <span class="text-danger">*</span></label>
-                            <input type="date" name="tanggal_pinjam" class="form-control" id="tanggal_pinjam" value="<?= date('Y-m-d', time()); ?>">
+                            <input type="date" name="tanggal_pinjam" class="form-control @error('tanggal_pinjam') is-invalid @enderror" id="tanggal_pinjam" value="<?= date('Y-m-d', time()); ?>">
+                            @error('tanggal_pinjam')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <label for="tanggal_kembali">Tanggal pengembalian <span class="text-danger">*</span></label>
-                            <input type="date" name="tanggal_kembali" class="form-control" id="tanggal_kembali">
+                            <input type="date" name="tanggal_kembali" class="form-control @error('tanggal_kembali') is-invalid @enderror" value="{{old('tanggal_kembali')}}" id="tanggal_kembali">
+                            @error('tanggal_kembali')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <div class="form-group">
                             <span>Pilih barang yang ingin dipinjam <span class="text-danger">*</span></span>
@@ -67,7 +89,7 @@
                             <hr />
                             
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                                <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
                                 <label class="form-check-label" for="exampleCheck1">Saya setuju dengan ketentuan peminjaman alat di UKM LUMUT</label>
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
@@ -76,6 +98,15 @@
 
                 </div>
             </form>
+            @else
+            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+                <i class="far fa-dizzy mx-2"></i>
+                Mohon maaf, untuk saat ini UKM LUMUT tidak membuka peminjaman barang untuk sementara.
+            </div>
+            @endif
         </div>
     </section>
 @endsection

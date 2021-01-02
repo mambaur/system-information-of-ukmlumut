@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Perlengkapan;
 use App\Peminjaman;
 use App\Detail_peminjaman;
+use App\Pengaturan;
 
 class PeminjamanController extends Controller
 {
@@ -18,8 +19,10 @@ class PeminjamanController extends Controller
     public function index()
     {
         $perlengkapan = Perlengkapan::where('statusPinjam', 1)->where('isDipinjam', 0)->get();
+        $peminjaman_setting = Pengaturan::where('name', 'peminjaman')->first();
         return view('user.peminjaman.index', [
-            'perlengkapan' => $perlengkapan
+            'perlengkapan' => $perlengkapan,
+            'peminjaman_setting' => $peminjaman_setting->value
         ]);
     }
 
@@ -41,6 +44,17 @@ class PeminjamanController extends Controller
      */
     public function store(Request $request)
     {
+        $kode_pinjam = time().date('dmY');
+
+        $request->validate([
+            'nama_peminjam' => 'required',
+            'email' => 'required|email',
+            'instansi' => 'required',
+            'acara' => 'required',
+            'tanggal_pinjam' => 'required',
+            'tanggal_kembali' => 'required',
+        ]);
+
         // Insert data to Peminjaman
         Peminjaman::create([
             'nama_peminjam' => $request->nama_peminjam,
@@ -50,16 +64,17 @@ class PeminjamanController extends Controller
             'keterangan' => $request->keterangan,
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_kembali' => $request->tanggal_kembali,
-            'status' => 'request'
+            'status' => 'request',
+            'kode_pinjam' => $kode_pinjam
         ]);
 
         // Insert data to detail_peminjaman
         Detail_peminjaman::create([
-            'peminjamans_id' => 1,
+            'peminjamans_kode_pinjam' => $kode_pinjam,
             'perlengkapans_id' => 2
         ]);
 
-        return redirect('peminjaman-alat')->with('status', 'Peminjaman berhasil dikirimkan.');
+        return redirect('/success')->with('status', 'Permintaan peminjaman berhasil dikirim. Mohon tunggu tim perlengkapan mengkonfirmasi permintaan anda.')->with('id', $kode_pinjam)->with('cetak', 'Cetak bukti peminjaman');
     }
 
     /**

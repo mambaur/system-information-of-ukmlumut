@@ -22,6 +22,7 @@
     ================================================== -->
     <section id="contact-info">
         <div class="container mb-5">
+            @if ($pendaftaran_setting)
             <h2>Form Pendaftaran</h2><hr/>
             <form action="/pendaftaran-anggota" method="post" enctype="multipart/form-data">
                 @csrf
@@ -181,9 +182,17 @@
 
                         <button type="submit" class="btn btn-primary mt-3">Submit</button>
                     </div>
-
                 </div>
             </form>
+            @else
+            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+                <i class="far fa-dizzy mx-2"></i>
+                Mohon maaf, untuk saat ini UKM LUMUT belum membuka pendaftaran calon anggota.
+            </div>
+            @endif
         </div>
     </section>
 @endsection

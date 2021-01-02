@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Anggota;
+use App\Pengaturan;
 
 class PendaftaranController extends Controller
 {
@@ -15,7 +16,10 @@ class PendaftaranController extends Controller
      */
     public function index()
     {
-        return view('user.pendaftaran.index');
+        $pendaftaran_setting = Pengaturan::where('name', 'pendaftaran')->first();
+        return view('user.pendaftaran.index', [
+            'pendaftaran_setting' => $pendaftaran_setting->value
+        ]);
     }
 
     /**
@@ -60,7 +64,7 @@ class PendaftaranController extends Controller
             $resource->move(\base_path() .$path, $imageName);
         }
 
-        $lastJenjang = Anggota::whereNotIn('jenjang', ['Calon Anggota', 'Alumni'])->max('angkatan')+1;
+        $lastJenjang = Anggota::whereNotIn('jenjang', ['Calon Anggota', 'Alumni'])->max('angkatan');
         $noUrut = Anggota::where('jenjang', 'Calon Anggota')->count()+1;
 
         Anggota::create([
@@ -84,7 +88,7 @@ class PendaftaranController extends Controller
             'sertifikat' => $request->sertifikat
         ]);
 
-        return redirect('/pendaftaran-anggota')->with('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar ya :D, SALAM BUDAYA!');
+        return redirect('/success')->with('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar, SALAM BUDAYA!')->with('id', $request->email)->with('cetak', 'Cetak bukti pendaftaran');
     }
 
     /**
@@ -136,7 +140,10 @@ class PendaftaranController extends Controller
      * @param int $number
      * @return string
      */
-    public function toRoman($number) {
+    public function toRoman($number=1) {
+        if (!$number) {
+            $number = 1;
+        }
         $map = array('M' => 1000, 'CM' => 900, 'D' => 500, 'CD' => 400, 'C' => 100, 'XC' => 90, 'L' => 50, 'XL' => 40, 'X' => 10, 'IX' => 9, 'V' => 5, 'IV' => 4, 'I' => 1);
         $returnValue = '';
         while ($number > 0) {

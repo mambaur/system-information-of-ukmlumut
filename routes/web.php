@@ -79,6 +79,8 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Pengaturan
     Route::get('/admin/pengaturan', 'admin\PengaturanController@index');
+    Route::patch('/admin/pengaturan/peminjaman/{pengaturan}', 'admin\PengaturanController@updatePeminjaman');
+    Route::patch('/admin/pengaturan/pendaftaran/{pengaturan}', 'admin\PengaturanController@updatePendaftaran');
 
     // Pesan
     Route::get('/admin/pesan', 'admin\PesanController@index');
@@ -98,6 +100,7 @@ Route::get('/tentang', 'user\TentangController@index');
 // Peminjaman Alat
 Route::get('/peminjaman-alat', 'user\PeminjamanController@index');
 Route::post('/peminjaman-alat', 'user\PeminjamanController@store');
+Route::get('/success', function(){return view('user.success.index');});
 
 // Pendaftaran Calon Anggota
 Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');

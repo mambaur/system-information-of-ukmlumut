@@ -16,7 +16,7 @@ class CreateDetailPeminjamansTable extends Migration
         Schema::create('detail_peminjamans', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('perlengkapans_id');
-            $table->string('peminjamans_id');
+            $table->string('peminjamans_kode_pinjam');
             $table->timestamps();
         });
     }

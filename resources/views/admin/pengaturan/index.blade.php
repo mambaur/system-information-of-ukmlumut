@@ -31,8 +31,15 @@
                 <span class="text-semibold text-fiord-blue">Peminjaman Alat</span>
                 <span class="ml-auto text-right text-semibold text-reagent-gray">
                     <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                        <input type="checkbox" id="customToggle2" name="customToggle2" class="custom-control-input" checked="checked">
-                        <label class="custom-control-label" for="customToggle2"></label>
+
+                      <form action="/admin/pengaturan/peminjaman/{{$peminjaman->id}}" id="peminjaman-form" method="post">
+                        @csrf
+                        @method('patch')
+                        <input type="checkbox" id="peminjaman" name="peminjaman" class="custom-control-input" {{$peminjaman->value ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="peminjaman"></label>
+                      </form>
+
+
                     </div>
                 </span>
               </li>
@@ -40,8 +47,14 @@
                 <span class="text-semibold text-fiord-blue">Pendaftaran CA</span>
                 <span class="ml-auto text-right text-semibold text-reagent-gray">
                     <div class="custom-control custom-toggle custom-toggle-sm mb-1">
-                        <input type="checkbox" id="customToggle3" name="customToggle3" class="custom-control-input">
-                        <label class="custom-control-label" for="customToggle3"></label>
+
+                      <form action="/admin/pengaturan/pendaftaran/{{$pendaftaran->id}}" method="post" id="pendaftaran-form">
+                        @csrf
+                        @method('patch')
+                        <input type="checkbox" id="pendaftaran" name="pendaftaran" class="custom-control-input" {{$pendaftaran->value ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="pendaftaran"></label>
+                      </form>
+
                     </div>
                 </span>
               </li>
@@ -51,4 +64,18 @@
     </div>
 </div>
 </div>
+@endsection
+
+@section('script')
+<script>
+  var peminjamanCheck = document.getElementById('peminjaman');
+  peminjamanCheck.addEventListener('change', (event)=>{
+    document.getElementById('peminjaman-form').submit();
+  });
+  
+  var pendaftaranCheck = document.getElementById('pendaftaran');
+  pendaftaranCheck.addEventListener('change', (event)=>{
+    document.getElementById('pendaftaran-form').submit();
+  });
+</script>    
 @endsection

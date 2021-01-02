@@ -5,6 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Anggota;
+use App\Pengaturan;
 
 class PengaturanController extends Controller
 {
@@ -15,7 +16,12 @@ class PengaturanController extends Controller
      */
     public function index()
     {
-        return view('admin.pengaturan.index');
+        $pendaftaran = Pengaturan::where('name', 'pendaftaran')->first();
+        $peminjaman = Pengaturan::where('name', 'peminjaman')->first();
+        return view('admin.pengaturan.index', [
+            'pendaftaran' => $pendaftaran,
+            'peminjaman' => $peminjaman
+        ]);
     }
 
     /**
@@ -82,5 +88,23 @@ class PengaturanController extends Controller
     public function destroy($id)
     {
         //
+    }
+
+    public function updatePeminjaman(Request $request, Pengaturan $pengaturan)
+    {
+        Pengaturan::where('id', $pengaturan->id)->update([
+            'value' => !$pengaturan->value
+        ]);
+
+        return redirect('admin/pengaturan')->with('status', 'Pengaturan '.$pengaturan->name.' berhasil diubah.');
+    }
+    
+    public function updatePendaftaran(Request $request, Pengaturan $pengaturan)
+    {
+        Pengaturan::where('id', $pengaturan->id)->update([
+            'value' => !$pengaturan->value
+        ]);
+
+        return redirect('admin/pengaturan')->with('status', 'Pengaturan '.$pengaturan->name.' berhasil diubah.');
     }
 }
