@@ -31,39 +31,137 @@
               <div class="col-sm-6 col-md">
                 <form method="post" action="{{url('admin/anggota/')}}"  enctype="multipart/form-data">
                     @csrf
-                    <div class="form-group mt-2 w-50">
-                        <input type="email" class="form-control" name="email" placeholder="Email" required> 
-                    </div>
                     <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nama_anggota" placeholder="Nama Lengkap" required> 
+                      <input type="text" id="nama_anggota" class="form-control @error('nama_anggota') is-invalid @enderror" name="nama_anggota" placeholder="Nama lengkap" value="{{old('nama_anggota')}}">
+                        @error('nama_anggota')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror 
                     </div>
-                    <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nal" placeholder="NAL" required> 
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="nim" placeholder="NIM" required> 
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="jurusan" placeholder="Prodi / Jurusan" required> 
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="alamat" placeholder="Alamat" required> 
-                    </div>
-                    <div class="form-group mt-2">
-                        <input type="text" class="form-control" name="kota" placeholder="Kota atau Kabupaten" required> 
+                    <div class="form-row">
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="text" id="nal" placeholder="NAL" class="form-control @error('nal') is-invalid @enderror" name="nal" value="{{old('nal')}}">
+                          @error('nal')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror 
+                        </div>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group">
+                          <input type="number" placeholder="Angkatan" value="{{date('Y')}}" id="angkatan" class="form-control @error('angkatan') is-invalid @enderror" name="angkatan">
+                          @error('angkatan')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror 
+                        </div>
+                      </div>
                     </div>
                     
                     <div class="form-row">
-                        <div class="form-group col-md-7">
-                        <select name="bidang" class="form-control" required>
-                            <option value="" disabled selected hidden>Bidang kesenian</option>
-                            <option value="Lukis">Lukis</option>
-                            <option value="Musik">Musik</option>
-                            <option value="Tari">Tari</option>
-                        </select>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                              <input type="text" placeholder="Tempat lahir" class="form-control @error('tempat_lahir') is-invalid @enderror" name="tempat_lahir" id="tempat_lahir" value="{{old('tempat_lahir')}}">
+                              @error('tempat_lahir')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                              @enderror 
+                          </div>
+                      </div>
+                      <div class="col-sm-6">
+                          <div class="form-group">
+                              <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Tanggal lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" id="tanggal_lahir">
+                              @error('tanggal_lahir')
+                                <div class="invalid-feedback">{{ $message }}</div>
+                              @enderror 
+                          </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-sm-6">
+                        <div class="form-group mt-2">
+                          <input type="text" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" value="{{old('email')}}">
+                          @error('email')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
                         </div>
-                        <div class="form-group col-md-5">
-                            <select name="jenjang" class="form-control" required>
+                      </div>
+                      <div class="col-sm-6">
+                        <div class="form-group mt-2">
+                          <input type="text" class="form-control @error('nim') is-invalid @enderror" name="nim" placeholder="NIM" value="{{old('nim')}}"> 
+                          @error('nim')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                      </div>
+                    </div>
+                    <div class="form-row">
+                      <div class="col-sm-4">
+                        <div class="form-group mt-2">
+                          <input type="text" class="form-control @error('jurusan') is-invalid @enderror" name="jurusan" placeholder="Jurusan" value="{{old('jurusan')}}"> 
+                          @error('jurusan')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group mt-2">
+                          <input type="text" class="form-control @error('prodi') is-invalid @enderror" name="prodi" placeholder="Prodi" value="{{old('prodi')}}"> 
+                          @error('prodi')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                      </div>
+                      <div class="col-sm-4">
+                        <div class="form-group mt-2">
+                          <select name="semester" class="form-control @error('semester') is-invalid @enderror">
+                            <option value="" hidden selected>-Semester-</option>
+                            <option value="Semester 1">Semester 1</option>
+                            <option value="Semester 2">Semester 2</option>
+                            <option value="Semester 3">Semester 3</option>
+                            <option value="Semester 4">Semester 4</option>
+                            <option value="Semester 5">Semester 5</option>
+                            <option value="Semester 6">Semester 6</option>
+                            <option value="Semester 7">Semester 7</option>
+                            <option value="Semester 8">Semester 8</option>
+                          </select> 
+                          @error('semester')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                      </div>
+                    </div>
+                    
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat" placeholder="Alamat" value="{{old('alamat')}}"> 
+                        @error('alamat')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror  
+                    </div>
+                    <div class="form-group mt-2">
+                        <input type="text" class="form-control @error('kota') is-invalid @enderror" name="kota" placeholder="Kota atau Kabupaten" value="{{old('kota')}}"> 
+                        @error('kota')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror  
+                    </div>
+                    
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                          <select name="bidang" class="form-control @error('bidang') is-invalid @enderror">
+                              <option value="" disabled selected hidden>Bidang kesenian</option>
+                              <option value="Lukis">Lukis</option>
+                              <option value="Musik">Musik</option>
+                              <option value="Tari">Tari</option>
+                          </select>
+                          @error('bidang')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                        <div class="form-group col-md-4">
+                          <input type="text" class="form-control @error('kategori_bidang') is-invalid @enderror" name="kategori_bidang" placeholder="Kategori bidang" value="{{old('kategori_bidang')}}"> 
+                          @error('kategori_bidang')
+                            <div class="invalid-feedback">{{ $message }}</div>
+                          @enderror  
+                        </div>
+                        <div class="form-group col-md-4">
+                            <select name="jenjang" class="form-control @error('jenjang') is-invalid @enderror">
                                 <option value="" disabled selected hidden>Jenjang Keanggotaan</option>
                                 <option value="Calon Anggota">Calon Anggota</option>
                                 <option value="Anggota Baru">Anggota Baru</option>
@@ -72,13 +170,24 @@
                                 <option value="Anggota Luar Biasa">Anggota Luar Biasa</option>
                                 <option value="Alumni">Alumni</option>
                             </select>
+                            @error('jenjang')
+                              <div class="invalid-feedback">{{ $message }}</div>
+                            @enderror  
                         </div>
                     </div>
                     <div class="form-group w-50">
-                        <input type="number" class="form-control" name="telp" placeholder="Nomor Telp / WA aktif" required>
+                        <input type="number" class="form-control @error('telp') is-invalid @enderror" name="telp" placeholder="Nomor Telp / WA aktif" value="{{old('telp')}}">
+                        @error('telp')
+                          <div class="invalid-feedback">{{ $message }}</div>
+                        @enderror  
                     </div>
-                    <div class="form-group w-50">
-                        <input type="number" class="form-control" name="angkatan" placeholder="Angkatan" required>
+                    
+                    <div class="form-group">
+                      <label for="sertifikat">Sertifikat (jika ada)</label>
+                      <textarea name="sertifikat" class="form-control @error('sertifikat') is-invalid @enderror" id="sertifikat" placeholder="1. Sertifikat lomba ... &#13;&#10;2. Sertifikat pelatihan ... &#13;&#10;3. ..." rows="3">{{old('sertifikat')}}</textarea>
+                      @error('sertifikat')
+                        <div class="invalid-feedback">{{ $message }}</div>
+                      @enderror  
                     </div>
                     <div class="form-group">
                       <label for="upload-foto">Upload foto</label>

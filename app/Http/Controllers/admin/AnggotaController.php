@@ -60,6 +60,25 @@ class AnggotaController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nal' => 'required',
+            'nim' => 'required|unique:anggotas',
+            'email' => 'required|email:rfc,dns|unique:anggotas',
+            'nama_anggota' => 'required',
+            'jurusan' => 'required',
+            'prodi' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'bidang' => 'required',
+            'kategori_bidang' => 'required',
+            'telp' => 'required|numeric',
+            'jenjang' => 'required',
+            'angkatan' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'semester' => 'required'
+        ]);
+
         $imageName = 'default.jpg';
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
@@ -74,13 +93,19 @@ class AnggotaController extends Controller
             'email' => $request->email,
             'nama_anggota' => $request->nama_anggota,
             'jurusan' => $request->jurusan,
+            'prodi' => $request->prodi,
             'alamat' => $request->alamat,
             'kota' => strtoupper($request->kota),
             'bidang' => $request->bidang,
+            'kategori_bidang' => $request->kategori_bidang,
             'telp' => $request->telp,
             'jenjang' => $request->jenjang,
             'angkatan' => $request->angkatan,
             'foto' => $imageName,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'semester' => $request->semester,
+            'sertifikat' => $request->sertifikat
         ]);
 
         return redirect('/admin/anggota/tambah')->with('status', 'Data anggota '.$request->nama_anggota.' berhasil ditambahkan!');
@@ -117,6 +142,25 @@ class AnggotaController extends Controller
      */
     public function update(Request $request, Anggota $anggota)
     {
+        $request->validate([
+            'nal' => 'required',
+            'nim' => 'required|unique:anggotas,nim,'.$anggota->id,
+            'email' => 'required|email:rfc,dns|unique:anggotas,email,'.$anggota->id,
+            'nama_anggota' => 'required',
+            'jurusan' => 'required',
+            'prodi' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'bidang' => 'required',
+            'kategori_bidang' => 'required',
+            'telp' => 'required|numeric',
+            'jenjang' => 'required',
+            'angkatan' => 'required',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'semester' => 'required',
+        ]);
+
         $path = "/public/assets/admin/images/anggota";
         $previousPath = "assets/admin/images/anggota/";
         $imageName = $anggota->foto;
@@ -138,13 +182,19 @@ class AnggotaController extends Controller
             'email' => $request->email,
             'nama_anggota' => $request->nama_anggota,
             'jurusan' => $request->jurusan,
+            'prodi' => $request->prodi,
             'alamat' => $request->alamat,
             'kota' => strtoupper($request->kota),
             'bidang' => $request->bidang,
+            'kategori_bidang' => $request->kategori_bidang,
             'telp' => $request->telp,
             'jenjang' => $request->jenjang,
             'angkatan' => $request->angkatan,
             'foto' => $imageName,
+            'tempat_lahir' => $request->tempat_lahir,
+            'tanggal_lahir' => $request->tanggal_lahir,
+            'semester' => $request->semester,
+            'sertifikat' => $request->sertifikat
         ]);
 
         return redirect('admin/anggota/edit/'.$anggota->id)->with('status', 'Data anggota '.$request->nama_anggota.' berhasil ubah!');

@@ -36,6 +36,22 @@ class PendaftaranController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nim' => 'required|unique:anggotas',
+            'email' => 'required|email:rfc,dns|unique:anggotas',
+            'nama_anggota' => 'required',
+            'jurusan' => 'required',
+            'prodi' => 'required',
+            'alamat' => 'required',
+            'kota' => 'required',
+            'bidang' => 'required',
+            'kategori_bidang' => 'required',
+            'telp' => 'required|numeric',
+            'tempat_lahir' => 'required',
+            'tanggal_lahir' => 'required',
+            'semester' => 'required',
+        ]);
+
         $imageName = 'default.jpg';
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
@@ -57,7 +73,7 @@ class PendaftaranController extends Controller
             'alamat' => $request->alamat,
             'kota' => strtoupper($request->kota),
             'bidang' => $request->bidang,
-            'kategori_bidang' => $request->bidang,
+            'kategori_bidang' => $request->kategori_bidang,
             'telp' => $request->telp,
             'jenjang' => 'Calon Anggota',
             'angkatan' => date('Y'),

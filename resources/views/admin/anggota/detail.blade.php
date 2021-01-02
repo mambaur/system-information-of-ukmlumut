@@ -27,7 +27,7 @@
                             <h4 class="mb-0">{{$anggota->nama_anggota}}</h4>
                             <span class="text-muted d-block mb-2">{{$anggota->jenjang}}</span>
                             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary px-4">
-                                {{$anggota->bidang}}
+                                {{$anggota->bidang.' | '.$anggota->kategori_bidang}}
                             </button>
                             <a href="/admin/anggota/edit/{{$anggota->id}}">
                               <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary">
@@ -41,39 +41,50 @@
                   <div class="col-sm-7">
                     <div class='my-auto'>
                         <div class="card-header border-bottom">
-                          <h6 class="m-0">Informasi Data Anggota</h6>
+                          <h4 class="m-0">Informasi Data Anggota</h4>
                         </div>
                         <div class='card-body p-0'>
                           <ul class="list-group list-group-flush">
                             <li class="list-group-item p-3">
                               <span class="d-flex mb-2">
-                                <i class="material-icons mr-1">flag</i>
+                                <i class="material-icons mr-1">assignment_ind</i>
                                 <strong class="mr-1">Nal:</strong> {{$anggota->nal}}
                               </span>
                               <span class="d-flex mb-2">
-                                <i class="material-icons mr-1">visibility</i>
-                                <strong class="mr-1">NIM:</strong>
-                                <strong class="text-success">{{$anggota->nim}}</strong>
+                                <i class="material-icons mr-1">email</i>
+                                <strong class="mr-1">Email:</strong> {{$anggota->email}}
                               </span>
                               <span class="d-flex mb-2">
-                                <i class="material-icons mr-1">calendar_today</i>
-                                <strong class="mr-1">Jurusan:</strong> {{$anggota->jurusan}}
+                                <i class="material-icons mr-1">card_membership</i>
+                                <strong class="mr-1">NIM:</strong>{{$anggota->nim}}
+                              </span>
+                              <span class="d-flex mb-2">
+                                <i class="material-icons mr-1">store</i>
+                                <strong class="mr-1">Tempat, tanggal lahir:</strong>{{$anggota->tempat_lahir.', '.$anggota->tanggal_lahir}}
+                              </span>
+                              <span class="d-flex mb-2">
+                                <i class="material-icons mr-1">account_balance</i>
+                                <strong class="mr-1">Jurusan:</strong> {{$anggota->jurusan}}, {{$anggota->prodi}}
                               </span>
                               <span class="d-flex">
-                                <i class="material-icons mr-1">score</i>
-                                <strong class="mr-1">Telp:</strong>
-                                <strong class="text-warning">{{$anggota->telp}}</strong>
+                                <i class="material-icons mr-1">phone</i>
+                                <strong class="mr-1">Telp:</strong> {{$anggota->telp}}
                               </span>
                               <span class="d-flex">
-                                <i class="material-icons mr-1">score</i>
-                                <strong class="mr-1">Angkatan:</strong>
-                                <strong class="text-warning">{{$anggota->angkatan}}</strong>
+                                <i class="material-icons mr-1">group</i>
+                                <strong class="mr-1">Angkatan:</strong> {{$anggota->angkatan}}
                               </span>
                             </li>
                             <li class="list-group-item p-4">
                                 <strong class="text-muted d-block mb-2">Alamat</strong>
                                 <span>{{$anggota->alamat}}, {{$anggota->kota}}</span>
                             </li>
+                            @if($anggota->sertifikat)
+                            <li class="list-group-item p-4">
+                              <strong class="text-muted d-block mb-2">Sertifikat</strong>
+                              <span>{{$anggota->sertifikat}}</span>
+                            </li>
+                            @endif
                           </ul>
                         </div>
                     </div>

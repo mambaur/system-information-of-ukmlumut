@@ -32,7 +32,7 @@ class CreateAnggotasTable extends Migration
             $table->string('tempat_lahir');
             $table->string('tanggal_lahir');
             $table->string('semester');
-            $table->string('sertifikat', 512);
+            $table->string('sertifikat', 512)->nullable();
             $table->timestamps();
         });
     }
