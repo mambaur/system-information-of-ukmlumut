@@ -36,6 +36,10 @@ class PesanController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'pesan' => 'required'
+        ]);
+
         Pesan::create([
             'isi_pesan' => $request->pesan
         ]);

@@ -26,14 +26,17 @@
                 <div class="row justify-content-center">
                     <div class="col-lg col-sm-6 col-md-6">
                         <div class="form-group">
-                            <label for="exampleFormControlTextarea1"><h2>Kritik & Saran Anda!</h2></label>
-                            <textarea class="form-control" name="pesan" id="exampleFormControlTextarea1" rows="6" placeholder="Masukkan kritik dan saran anda disini..." required></textarea>
+                            <label for="pesan"><h2>Kritik & Saran Anda!</h2></label>
+                            <textarea class="form-control @error('pesan') is-invalid @enderror" name="pesan" id="pesan" rows="6" placeholder="Masukkan kritik dan saran anda disini...">{{old('pesan')}}</textarea>
+                            @error('pesan')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
                         </div>
                         <button type="submit" class="btn btn-primary mb-5">Kirim</button>
                     </div>
                 </div>
             </form>
-            <button class="btn btn-white" onclick="genPDF()">Coba</button>
+            <button class="btn btn-white" onclick="genPDF()">Save PDF</button>
         </div>
     </section>
     <div id="editor"></div>
