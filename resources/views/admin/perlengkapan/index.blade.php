@@ -22,6 +22,25 @@
   </div>
 </div>
 <!-- End Page Header -->
+
+<div class="form-row">
+  <a href="/admin/perlengkapan/peminjaman?tipe=request" class="col mb-4 nav-link">
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">notification_important</i> Request Peminjaman ({{$totalRequest}})</div>
+  </a>
+  <a href="/admin/perlengkapan/peminjaman?tipe=terlambat" class="col mb-4 nav-link">
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">watch_later</i> Pengembalian Terlambat ({{$totalTerlambat}})</div>
+  </a>
+  <a href="/admin/perlengkapan/peminjaman?tipe=dipinjam" class="col mb-4 nav-link">
+    <div class="bg-warning rounded text-white text-center p-3"><i class="material-icons">hourglass_full</i> Barang Dipinjam ({{$totalDipinjam}})</div>
+  </a>
+  <a href="/admin/perlengkapan/peminjaman?tipe=selesai" class="col mb-4 nav-link">
+    <div class="bg-success rounded text-white text-center p-3"><i class="material-icons">check_circle</i> Peminjaman Selesai ({{$totalSelesai}})</div>
+  </a>
+  <a href="/admin/perlengkapan/peminjaman?tipe=semua" class="col mb-4 nav-link">
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">find_in_page</i> Riwayat ({{$riwayat}})<i class="material-icons">keyboard_arrow_right</i></div>
+  </a>
+</div>
+
 <!-- Default Light Table -->
 <div class="row">
   <div class="col">

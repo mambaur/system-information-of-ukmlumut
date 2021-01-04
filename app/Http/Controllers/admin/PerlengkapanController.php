@@ -5,6 +5,9 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use App\Perlengkapan;
 use Illuminate\Http\Request;
+use App\Peminjaman;
+use App\Detail_peminjaman;
+use Illuminate\Support\Facades\DB;
 
 class PerlengkapanController extends Controller
 {
@@ -15,11 +18,20 @@ class PerlengkapanController extends Controller
      */
     public function index()
     {
-        $perlengkapan = Perlengkapan::paginate(10);
-        // return view('admin.perlengkapan.index', ['perlengkapan' => $perlengkapan]);
+        $totalRequest = Peminjaman::where('status', 'request')->count();
+        $totalTerlambat = Peminjaman::where('status', 'terlambat')->count();
+        $totalDipinjam = Peminjaman::where('status', 'dipinjam')->count();
+        $totalSelesai = Peminjaman::where('status', 'selesai')->count();
+        $riwayat = Peminjaman::where('status', 'selesai')->orWhere('status', 'ditolak')->count();
+        $perlengkapan = Perlengkapan::orderBy('id', 'DESC')->paginate(10);
         return view('admin.perlengkapan.index', [
             'perlengkapan' => $perlengkapan,
-            'tipe' => 'Semua'
+            'tipe' => 'Semua',
+            'totalRequest' => $totalRequest,
+            'totalDipinjam' => $totalDipinjam,
+            'totalTerlambat' => $totalTerlambat,
+            'totalSelesai' => $totalSelesai,
+            'riwayat' => $riwayat
         ]);
     }
 
@@ -182,10 +194,20 @@ class PerlengkapanController extends Controller
      */
     public function category(Request $request)
     {
+        $totalRequest = Peminjaman::where('status', 'request')->count();
+        $totalTerlambat = Peminjaman::where('status', 'terlambat')->count();
+        $totalDipinjam = Peminjaman::where('status', 'dipinjam')->count();
+        $totalSelesai = Peminjaman::where('status', 'selesai')->count();
+        $riwayat = Peminjaman::where('status', 'selesai')->orWhere('status', 'ditolak')->count();
         $perlengkapan = Perlengkapan::where('tipe', $request->tipe)->paginate(10);
         return view('admin.perlengkapan.index', [
             'perlengkapan' => $perlengkapan, 
-            'tipe' => $request->tipe
+            'tipe' => $request->tipe,
+            'totalRequest' => $totalRequest,
+            'totalDipinjam' => $totalDipinjam,
+            'totalTerlambat' => $totalTerlambat,
+            'totalSelesai' => $totalSelesai,
+            'riwayat' => $riwayat
         ]);
     }
 
@@ -206,5 +228,68 @@ class PerlengkapanController extends Controller
             'perlengkapan' => $perlengkapan,
             'tipe' => $request->tipe
         ]);
+    }
+
+    public function peminjaman(Request $request)
+    {
+        if($request->tipe === "semua"){
+            $detail_peminjaman = DB::table('detail_peminjamans')
+                                ->join('perlengkapans', 'perlengkapans.id', '=', 'detail_peminjamans.perlengkapans_id')->get();
+            $peminjaman = Peminjaman::where('status', 'selesai')->orWhere('status', 'ditolak')->orderBy('id', 'DESC')->paginate(20);
+            return view('admin.perlengkapan.peminjaman', [
+                'peminjaman' => $peminjaman,
+                'detail_peminjaman' => $detail_peminjaman
+            ]);
+        }else{
+            $detail_peminjaman = DB::table('detail_peminjamans')
+                                ->join('perlengkapans', 'perlengkapans.id', '=', 'detail_peminjamans.perlengkapans_id')->get();
+            $peminjaman = Peminjaman::where('status', $request->tipe)->orderBy('id', 'DESC')->paginate(20);
+            return view('admin.perlengkapan.peminjaman', [
+                'peminjaman' => $peminjaman,
+                'detail_peminjaman' => $detail_peminjaman
+            ]);
+        }
+    }
+
+    public function konfirmasiPeminjaman(Request $request, Peminjaman $peminjaman)
+    {
+        $message = '';
+        $detail_peminjaman = Detail_peminjaman::where('peminjamans_kode_pinjam', $request->kode_pinjam)->get();
+        if($request->submit === "konfirmasi"){
+            Peminjaman::where('id', $peminjaman->id)->update([
+                'status' => 'dipinjam'
+            ]);
+            
+            foreach ($detail_peminjaman as $key => $item) {
+                Perlengkapan::where('id', $item->perlengkapans_id)->update([
+                    'isDipinjam' => 1
+                ]);
+            }
+            $message = 'Permintaan peminjaman barang berhasil dikonfirmasi.';
+            return redirect('admin/perlengkapan/peminjaman?tipe=request')->with('status', $message);
+
+        }else if($request->submit === "tolak"){
+            Peminjaman::where('id', $peminjaman->id)->update([
+                'status' => 'ditolak'
+            ]);
+            $message = 'Peminjaman barang telah ditolak.';
+            return redirect('admin/perlengkapan/peminjaman?tipe=request')->with('status', $message);
+
+        }else if($request->submit === "pengembalian"){
+            Peminjaman::where('id', $peminjaman->id)->update([
+                'status' => 'selesai'
+            ]);
+            foreach ($detail_peminjaman as $key => $item) {
+                Perlengkapan::where('id', $item->perlengkapans_id)->update([
+                    'isDipinjam' => 0
+                ]);
+            }
+            $message = 'Peminjaman barang berhasil dikembalikan.';
+            return redirect('admin/perlengkapan/peminjaman?tipe=dipinjam')->with('status', $message);
+        }else if($request->submit === "hapus"){
+            Peminjaman::destroy($peminjaman->id);
+            $message = 'Peminjaman berhasil dihapus';
+            return redirect('admin/perlengkapan/peminjaman?tipe=semua')->with('status', $message);
+        }
     }
 }

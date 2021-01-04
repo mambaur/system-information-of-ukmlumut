@@ -243,7 +243,7 @@
           <ul class="list-group list-group-small list-group-flush">
             <li class="list-group-item d-flex px-3">
               <span class="text-semibold text-fiord-blue">Permohonan peminjaman</span>
-              <span class="ml-auto text-right text-semibold text-reagent-gray">10</span>
+              <span class="ml-auto text-right text-semibold text-reagent-gray">{{$peminjaman}}</span>
             </li>
             <li class="list-group-item d-flex px-3">
               <span class="text-semibold text-fiord-blue">Total CA</span>

@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Anggota;
 use App\Artikel;
 use App\Pesan;
+use App\Peminjaman;
 
 class Home extends Controller
 {
@@ -31,6 +32,9 @@ class Home extends Controller
         // Data message
         $pesan = Pesan::orderBy('id', 'DESC')->paginate(3);
 
+        // Data peminjaman
+        $peminjaman = Peminjaman::where('status', 'request')->count();
+
         return view('admin.home.index', [
             'anggota' => $anggota,
             'ca' => $calon_anggota,
@@ -39,7 +43,8 @@ class Home extends Controller
             'musik' => $musik,
             'tari' => $tari,
             'artikel' => $artikel,
-            'pesan' => $pesan
+            'pesan' => $pesan,
+            'peminjaman' => $peminjaman
         ]);
     }
 

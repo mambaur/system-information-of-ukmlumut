@@ -24,6 +24,8 @@ class CreatePeminjamansTable extends Migration
             $table->string('tanggal_kembali');
             $table->string('status');
             $table->string('kode_pinjam');
+            $table->string('telp');
+            $table->string('dikembalikan');
             $table->timestamps();
         });
     }
