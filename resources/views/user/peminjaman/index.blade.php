@@ -16,6 +16,14 @@
         <i class="fa fa-check mx-2"></i>
         <strong>Sukses!</strong> {{session('status')}}
     </div>
+@elseif(session('error'))
+<div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">×</span>
+    </button>
+    <i class="fa fa-info mx-2"></i>
+    <strong>Mohon maaf!</strong> {{session('error')}}
+</div>
 @endif
 
 <!-- SECTIONS ===================== -->
@@ -82,7 +90,7 @@
                             <span>Pilih barang yang ingin dipinjam <span class="text-danger">*</span></span>
                             @foreach ($perlengkapan as $item)    
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="{{$item->id}}" name="{{$item->id}}">
+                                <input type="checkbox" id="{{$item->id}}" class="form-check-input" value="{{$item->id}}" name="barang[]">
                                 <label class="form-check-label" for="{{$item->id}}">{{$item->nama_barang}}</label>
                             </div>
                             @endforeach
@@ -98,8 +106,16 @@
 
                 </div>
             </form>
+            @elseif(!count($perlengkapan))
+            <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+                <i class="far fa-dizzy mx-2"></i>
+                Mohon maaf, barang UKM LUMUT untuk saat ini belum tersedia untuk dipinjamkan.
+            </div>
             @else
-            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+            <div class="alert alert-warning alert-dismissible fade show mb-0" role="alert">
                 <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                 <span aria-hidden="true">×</span>
                 </button>

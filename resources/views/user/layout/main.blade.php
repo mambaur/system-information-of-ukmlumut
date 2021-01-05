@@ -138,40 +138,25 @@
                     <div class="footer-widget">
                         <!-- Brand -->
                         <a href="#" class="footer-brand text-white">
-                            Rapoo
+                            UKM LUMUT
                         </a>
-                        <p>Each theme featured at the Bootstrap marketplace has been reviewed by Bootstrap's creators.Lorem ipsum dolor sit amet, consectetur adipisicing elit.</p>
+                        <p>UKM LUMUT adalah organsisasi kesenian yang bergerak di bidang Lukis, Musik, dan Tari yang berada dibawah naungan <a href="https://www.polije.ac.id/" target="_blank">Politeknik Negeri Jember</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 ml-lg-auto col-sm-12">
                     <div class="footer-widget">
-                        <h3>Account</h3>
+                        <h3>Menu</h3>
                         <!-- Links -->
                         <ul class="footer-links ">
                             <li>
                                 <a href="#">
-                                    Terms and conditions
+                                    Peminjaman alat
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    Privacy policy
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Affiliate services
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Help and support
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Frequently Asked Question
+                                    Pendaftaran Anggota
                                 </a>
                             </li>
                         </ul>
@@ -181,33 +166,22 @@
 
                 <div class="col-lg-2 col-sm-6">
                     <div class="footer-widget">
-                        <h3>About</h3>
+                        <h3>Informasi</h3>
                         <!-- Links -->
                         <ul class="footer-links ">
                             <li>
                                 <a href="#">
-                                    Services
+                                    Tentang
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    About Us
+                                    Ketentuan Peminjaman
                                 </a>
                             </li>
                             <li>
                                 <a href="#">
-                                    Pricing
-                                </a>
-                            </li>
-                            <li>
-                                <a href="#">
-                                    Products Shop
-                                </a>
-                            </li>
-
-                            <li>
-                                <a href="#">
-                                    Contact
+                                    Kritik & Saran
                                 </a>
                             </li>
                         </ul>
@@ -216,18 +190,16 @@
 
                 <div class="col-lg-2 col-sm-6">
                     <div class="footer-widget">
-                        <h3>Socials</h3>
+                        <h3>Sosial Media</h3>
                         <!-- Links -->
                         <ul class="list-unstyled footer-links">
-                            <li><a href="#"><i class="fab fa-facebook-f"></i>Facebook</a></li>
+                            <li><a href="https://www.facebook.com/ukm.lumut" target="_blank"><i class="fab fa-facebook-f"></i>Facebook</a></li>
                             <li>
-                            <a href="#"><i class="fab fa-twitter"></i>Twitter
+                            <a href="https://twitter.com/ukmlumut" target="_blank"><i class="fab fa-twitter"></i>Twitter
+                            </a>
+                            <li><a href="https://www.instagram.com/ukmlumut/" target="_blank"><i class="fab fa-instagram"></i>Instagram
                             </a></li>
-                            <li><a href="#"><i class="fab fa-pinterest-p"></i>Pinterest
-                            </a></li>
-                            <li><a href="#"><i class="fab fa-linkedin"></i>linkedin
-                            </a></li>
-                            <li><a href="#"><i class="fab fa-youtube"></i>YouTube
+                            <li><a href="https://www.youtube.com/channel/UC2UnCnKe2qZsuEivuOhkorw" target="_blank"><i class="fab fa-youtube"></i>YouTube
                             </a></li>
                         </ul>
                     </div>
@@ -239,7 +211,7 @@
                 <div class="col-lg-12">
                     <!-- Copyright -->
                     <p class="footer-copy ">
-                        &copy; Copyright <span class="current-year">Themefisher</span> All rights reserved.
+                        &copy; Copyright <span class="current-year">UKM LUMUT</span> All rights reserved.
                     </p>
                 </div>
             </div> <!-- / .row -->

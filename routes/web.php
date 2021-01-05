@@ -103,6 +103,7 @@ Route::get('/tentang', 'user\TentangController@index');
 Route::get('/peminjaman-alat', 'user\PeminjamanController@index');
 Route::post('/peminjaman-alat', 'user\PeminjamanController@store');
 Route::get('/success', function(){return view('user.success.index');});
+Route::post('/user/peminjaman/coba', 'user\PeminjamanController@coba');
 
 // Pendaftaran Calon Anggota
 Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');

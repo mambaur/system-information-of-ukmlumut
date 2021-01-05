@@ -52,8 +52,21 @@ class PeminjamanController extends Controller
             'instansi' => 'required',
             'acara' => 'required',
             'tanggal_pinjam' => 'required',
-            'tanggal_kembali' => 'required',
+            'tanggal_kembali' => 'required'
         ]);
+
+        if ($request->barang) {
+            foreach ($request->barang as $key => $item) {
+               // Insert data to detail_peminjaman
+                Detail_peminjaman::create([
+                    'peminjamans_kode_pinjam' => $kode_pinjam,
+                    'perlengkapans_id' => $item
+                ]);
+            }
+        }else{
+            return redirect('/peminjaman-alat')->with('error', 'Isikan data dengan benar dan lengkap');
+            die;
+        }
 
         // Insert data to Peminjaman
         Peminjaman::create([
@@ -66,12 +79,6 @@ class PeminjamanController extends Controller
             'tanggal_kembali' => $request->tanggal_kembali,
             'status' => 'request',
             'kode_pinjam' => $kode_pinjam
-        ]);
-
-        // Insert data to detail_peminjaman
-        Detail_peminjaman::create([
-            'peminjamans_kode_pinjam' => $kode_pinjam,
-            'perlengkapans_id' => 2
         ]);
 
         return redirect('/success')->with('status', 'Permintaan peminjaman berhasil dikirim. Mohon tunggu tim perlengkapan mengkonfirmasi permintaan anda.')->with('id', $kode_pinjam)->with('cetak', 'Cetak bukti peminjaman');
