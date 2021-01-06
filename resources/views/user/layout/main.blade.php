@@ -77,7 +77,7 @@
                             </div>
                         </li> --}}
                         <li class="nav-item ">
-                            <a href="about.html" class="nav-link js-scroll-trigger">
+                            <a href="/" class="nav-link js-scroll-trigger">
                                 Beranda
                             </a>
                         </li>
@@ -88,13 +88,13 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="service.html" class="nav-link js-scroll-trigger">
+                            <a href="/bidang/musik" class="nav-link js-scroll-trigger">
                                 Musik
                             </a>
                         </li>
 
                         <li class="nav-item ">
-                            <a href="service.html" class="nav-link js-scroll-trigger">
+                            <a href="/bidang/tari" class="nav-link js-scroll-trigger">
                                 Tari
                             </a>
                         </li>

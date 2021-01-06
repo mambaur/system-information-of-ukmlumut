@@ -1,10 +1,10 @@
 @extends('user.layout.post')
 
-@section('title', 'Bidang Lukis UKM LUMUT')
+@section('title', 'Bidang Musik UKM LUMUT')
 
-@section('sub-title', 'Bidang Lukis UKM LUMUT')
+@section('sub-title', 'Bidang Musik UKM LUMUT')
 
-@section('description', 'Informasi seputar bidang Lukis UKM LUMUT')
+@section('description', 'Informasi seputar bidang Musik UKM LUMUT')
 
 @section('content')
 
@@ -32,13 +32,13 @@
                     <div class="single-blog">
                         <div class="blog-content">
                             <h6> {{$item->created_at}}</h6>
-                            <a href="/bidang/lukis/detail/{{$item->id}}">
+                            <a href="/bidang/musik/detail/{{$item->id}}">
                                 <h3 class="card-title">{{$item->judul}}</h3>
                             </a>
                             <p>
                                 {!! \Illuminate\Support\Str::words($item->konten, 10,'....') !!}
                             </p>
-                            <a href="/bidang/lukis/detail/{{$item->id}}" class="read-more">Read More</a>
+                            <a href="/bidang/musik/detail/{{$item->id}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 </div>

@@ -28,6 +28,32 @@ class BidangController extends Controller
 
     public function lukisDetail(Artikel $artikel)
     {
-        return view('user.lukis.detail', compact('artikel'));
+        return view('user.musik.detail', compact('artikel'));
+    }
+
+    public function musik()
+    {
+        $artikel = Artikel::where('bidang', 'Musik')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.musik.index',[
+            'artikel' => $artikel
+        ]);
+    }
+
+    public function musikDetail(Artikel $artikel)
+    {
+        return view('user.musik.detail', compact('artikel'));
+    }
+    
+    public function tari()
+    {
+        $artikel = Artikel::where('bidang', 'Tari')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        return view('user.tari.index',[
+            'artikel' => $artikel
+        ]);
+    }
+
+    public function tariDetail(Artikel $artikel)
+    {
+        return view('user.tari.detail', compact('artikel'));
     }
 }
