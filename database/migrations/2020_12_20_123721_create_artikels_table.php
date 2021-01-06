@@ -17,7 +17,7 @@ class CreateArtikelsTable extends Migration
             $table->bigIncrements('id');
             $table->string('judul');
             $table->string('image');
-            $table->string('konten', 2000);
+            $table->string('konten', 5000);
             $table->string('bidang');
             $table->boolean('status');
             $table->string('penulis');

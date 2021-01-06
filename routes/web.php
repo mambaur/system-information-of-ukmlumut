@@ -112,3 +112,11 @@ Route::post('/pendaftaran-anggota', 'user\PendaftaranController@store');
 // Kritik dan saran
 Route::get('/kritik-dan-saran', 'user\PesanController@index');
 Route::post('/kritik-dan-saran', 'user\PesanController@store');
+
+// Kontak
+Route::get('/kontak', 'user\KontakController@index');
+
+
+// Bidang
+Route::get('/bidang/lukis', 'user\BidangController@lukis');
+Route::get('/bidang/lukis/detail/{artikel}', 'user\BidangController@lukisDetail');

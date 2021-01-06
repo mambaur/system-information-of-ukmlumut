@@ -82,7 +82,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a href="service.html" class="nav-link js-scroll-trigger">
+                            <a href="/bidang/lukis" class="nav-link js-scroll-trigger">
                                 Lukis
                             </a>
                         </li>
@@ -100,8 +100,8 @@
                         </li>
 
                         <li class="nav-item ">
-                            <a href="/tentang" class="nav-link">
-                                Tentang
+                            <a href="/kontak" class="nav-link">
+                                Kontak
                             </a>
                         </li>
 
