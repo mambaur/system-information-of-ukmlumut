@@ -100,6 +100,12 @@
                             Tari
                           </label>
                         </div>
+                        <div class="form-check">
+                          <input class="form-check-input" type="radio" name="bidang" id="semua" value="Semua">
+                          <label class="form-check-label" for="semua">
+                            Semua
+                          </label>
+                        </div>
                   </li>
                 </ul>
               </div>

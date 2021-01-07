@@ -249,6 +249,18 @@
     <script src="{{asset('assets/admin/scripts/extras.1.1.0.min.js')}}"></script>
     <script src="{{asset('assets/admin/scripts/shards-dashboards.1.1.0.min.js')}}"></script>
     <script src="{{asset('assets/admin/scripts/app/app-blog-overview.1.1.0.js')}}"></script>
+    <script>
+      setInterval(function(){
+        peminjamanTerlambat();
+      }, 5000);
+
+      function peminjamanTerlambat(){
+        var httpRequest = new XMLHttpRequest();
+        httpRequest.open("GET", "/admin/perlengkapan/check-peminjaman-terlambat", true);
+        httpRequest.send();
+      }
+    </script>
+
     @yield('script')
   </body>
 </html>

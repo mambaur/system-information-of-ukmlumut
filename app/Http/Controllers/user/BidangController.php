@@ -20,7 +20,7 @@ class BidangController extends Controller
 
     public function lukis()
     {
-        $artikel = Artikel::where('bidang', 'Lukis')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        $artikel = Artikel::where('bidang', 'Lukis')->orWhere('bidang', 'Semua')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
         return view('user.lukis.index',[
             'artikel' => $artikel
         ]);
@@ -33,7 +33,7 @@ class BidangController extends Controller
 
     public function musik()
     {
-        $artikel = Artikel::where('bidang', 'Musik')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        $artikel = Artikel::where('bidang', 'Musik')->orWhere('bidang', 'Semua')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
         return view('user.musik.index',[
             'artikel' => $artikel
         ]);
@@ -46,7 +46,7 @@ class BidangController extends Controller
     
     public function tari()
     {
-        $artikel = Artikel::where('bidang', 'Tari')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
+        $artikel = Artikel::where('bidang', 'Tari')->orWhere('bidang', 'Semua')->where('status', 1)->orderBy('id', 'DESC')->paginate(10);
         return view('user.tari.index',[
             'artikel' => $artikel
         ]);

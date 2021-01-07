@@ -126,3 +126,20 @@
         </div>
     </section>
 @endsection
+
+@section('script')
+<script>
+
+var tanggal_pinjam = document.getElementById('tanggal_pinjam');
+var tanggal_kembali = document.getElementById('tanggal_kembali');
+
+tanggal_kembali.addEventListener('change', (e)=>{
+    if(new Date(e.target.value).getTime() < new Date(tanggal_pinjam.value).getTime()){
+        tanggal_kembali.value = e.target.defaultValue;   
+        alert("Tanggal kembali tidak boleh kurang dari tanggal pinjam.");
+    }
+});
+
+</script>
+
+@endsection

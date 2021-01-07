@@ -238,7 +238,8 @@ class PerlengkapanController extends Controller
             $peminjaman = Peminjaman::where('status', 'selesai')->orWhere('status', 'ditolak')->orderBy('id', 'DESC')->paginate(20);
             return view('admin.perlengkapan.peminjaman', [
                 'peminjaman' => $peminjaman,
-                'detail_peminjaman' => $detail_peminjaman
+                'detail_peminjaman' => $detail_peminjaman,
+                'tipe' => 'riwayat'
             ]);
         }else{
             $detail_peminjaman = DB::table('detail_peminjamans')
@@ -246,7 +247,8 @@ class PerlengkapanController extends Controller
             $peminjaman = Peminjaman::where('status', $request->tipe)->orderBy('id', 'DESC')->paginate(20);
             return view('admin.perlengkapan.peminjaman', [
                 'peminjaman' => $peminjaman,
-                'detail_peminjaman' => $detail_peminjaman
+                'detail_peminjaman' => $detail_peminjaman,
+                'tipe' => $request->tipe
             ]);
         }
     }
@@ -290,6 +292,21 @@ class PerlengkapanController extends Controller
             Peminjaman::destroy($peminjaman->id);
             $message = 'Peminjaman berhasil dihapus';
             return redirect('admin/perlengkapan/peminjaman?tipe=semua')->with('status', $message);
+        }
+    }
+
+    public function peminjamanTerlambat()
+    {
+        $peminjaman = Peminjaman::where('status', 'dipinjam')->get();
+        foreach ($peminjaman as $key => $value) {
+            $date1 = date_create($value->tanggal_kembali);
+            $date2 = date_create(date('Y-m-d'));
+            $diff=date_diff($date1,$date2);
+            if ($diff->format("%d") || $diff->format("%m")) {
+                Peminjaman::where('id', $value->id)->update(['status' => 'terlambat']);
+                // echo $diff->format("%d days") . '<br/>';
+                // echo $diff->format("%m monts") . '<br/>';
+            }
         }
     }
 }

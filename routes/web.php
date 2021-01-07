@@ -34,6 +34,7 @@ Route::group(['middleware' => 'auth'], function () {
 
     // Perlengkapan
     Route::get('/admin/perlengkapan/kategori', 'admin\PerlengkapanController@category');
+    Route::get('/admin/perlengkapan/check-peminjaman-terlambat', 'admin\PerlengkapanController@peminjamanTerlambat');
     Route::get('admin/perlengkapan/cetak/tipe', 'admin\PerlengkapanController@cetak');
     Route::get('/admin/perlengkapan/peminjaman', 'admin\PerlengkapanController@peminjaman');
     Route::get('/admin/perlengkapan/tambah', 'admin\PerlengkapanController@create');
