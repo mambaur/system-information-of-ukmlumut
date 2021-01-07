@@ -27,13 +27,29 @@ class Home extends Controller
         $tari = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', 'Tari')->get();
 
         // Data artikel
-        $artikel = Artikel::where('status', 1)->orderBy('id', 'DESC')->paginate(3);
+        $artikel = Artikel::where('status', 1)->orderBy('id', 'DESC')->paginate(1);
 
         // Data message
         $pesan = Pesan::orderBy('id', 'DESC')->paginate(3);
 
         // Data peminjaman
         $peminjaman = Peminjaman::where('status', 'request')->count();
+
+        // Anggota per-tahun
+        $all = Anggota::whereNotIn('jenjang', ['Calon Anggota'])->orderBy('angkatan', 'ASC')->paginate(6);
+        $temp_total_anggota = null;
+        $temp_total_anggota2 = null;
+        $total_anggota = null;
+        foreach ($all as $key => $value) {
+            $temp_total_anggota[] = $value->angkatan;
+        }
+
+        if($temp_total_anggota){
+            $total_anggota = array_count_values($temp_total_anggota);
+            $key_total_anggota = collect($total_anggota)->keys();
+        }
+
+        // dd($total_anggota);
 
         return view('admin.home.index', [
             'anggota' => $anggota,
@@ -44,7 +60,9 @@ class Home extends Controller
             'tari' => $tari,
             'artikel' => $artikel,
             'pesan' => $pesan,
-            'peminjaman' => $peminjaman
+            'peminjaman' => $peminjaman,
+            'total_anggota' => $total_anggota,
+            'key_total_anggota' => $key_total_anggota
         ]);
     }
 

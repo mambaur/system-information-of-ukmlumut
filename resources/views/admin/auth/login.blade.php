@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>iofrm</title>
+    <title>Login SI UKM LUMUT - Politeknik Negeri Jember</title>
     <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://brandio.io/envato/iofrm/html/css/fontawesome-all.min.css">
@@ -33,7 +33,7 @@
         <div class="website-logo">
             <a href="index.html">
                 <div class="logo">
-                    <img class="logo-size" src="https://brandio.io/envato/iofrm/html/images/logo-light.svg" alt="">
+                    <img class="logo-size" src="/assets/admin/images/Ukmlumut.png" alt="Logo UKM LUMUT">
                 </div>
             </a>
         </div>
@@ -54,8 +54,16 @@
                         </div>
                         <form action="{{url('admin/auth/login')}}" method="post">
                             @csrf
-                            <input class="form-control" type="email" name="username" placeholder="E-mail Address" required>
-                            <input class="form-control" type="password" name="password" placeholder="Password" required>
+                            <input class="form-control my-0 @error('username') is-invalid @enderror" type="email" name="username" placeholder="E-mail">
+                            @error('username')
+                            <small class="form-text text-danger">{{$message}}</small>
+                            @enderror
+
+                            <input class="form-control mt-3 mb-0 @error('password') is-invalid @enderror" type="password" name="password" placeholder="Password">
+                            @error('password')
+                            <small class="form-text text-danger">{{$message}}</small>
+                            @enderror
+
                             <div class="form-button">
                                 <button id="submit" type="submit" class="ibtn">Login</button> Lupa password? <a href="forget4.html">Hubungi admin.</a>
                             </div>

@@ -17,11 +17,11 @@
         $greeting = '';
         $hour = date('H');
         if ($hour >= 18) {
-          $greeting = "Good Evening";
+          $greeting = "Selamat Malam";
         } elseif ($hour >= 12) {
-            $greeting = "Good Afternoon";
+            $greeting = "Selamat Sore";
         } elseif ($hour < 12) {
-          $greeting = "Good Morning";
+          $greeting = "Selamat Pagi";
         }
 
         echo $greeting.', '.$user_name;
@@ -44,7 +44,7 @@
               <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
-          <canvas height="120" class="blog-overview-stats-small-1"></canvas>
+          {{-- <canvas height="120" class="blog-overview-stats-small-1"></canvas> --}}
         </div>
       </div>
     </div>
@@ -60,7 +60,7 @@
               <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
-          <canvas height="120" class="blog-overview-stats-small-2"></canvas>
+          {{-- <canvas height="120" class="blog-overview-stats-small-2"></canvas> --}}
         </div>
       </div>
     </div>
@@ -76,7 +76,7 @@
               <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
-          <canvas height="120" class="blog-overview-stats-small-3"></canvas>
+          {{-- <canvas height="120" class="blog-overview-stats-small-3"></canvas> --}}
         </div>
       </div>
     </div>
@@ -92,7 +92,7 @@
               <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
-          <canvas height="120" class="blog-overview-stats-small-4"></canvas>
+          {{-- <canvas height="120" class="blog-overview-stats-small-4"></canvas> --}}
         </div>
       </div>
     </div>
@@ -108,7 +108,7 @@
               <span class="stats-small__percentage"><i class="material-icons">person</i> Orang</span>
             </div>
           </div>
-          <canvas height="120" class="blog-overview-stats-small-5"></canvas>
+          {{-- <canvas height="120" class="blog-overview-stats-small-5"></canvas> --}}
         </div>
       </div>
     </div>
@@ -119,25 +119,9 @@
     <div class="col-lg-8 col-md-12 col-sm-12 mb-4">
       <div class="card card-small">
         <div class="card-header border-bottom">
-          <h6 class="m-0">Users</h6>
+          <h6 class="m-0">Anggota per-tahun</h6>
         </div>
         <div class="card-body pt-0">
-          <div class="row border-bottom py-2 bg-light">
-            <div class="col-12 col-sm-6">
-              <div id="blog-overview-date-range" class="input-daterange input-group input-group-sm my-auto ml-auto mr-auto ml-sm-auto mr-sm-0" style="max-width: 350px;">
-                <input type="text" class="input-sm form-control" name="start" placeholder="Start Date" id="blog-overview-date-range-1">
-                <input type="text" class="input-sm form-control" name="end" placeholder="End Date" id="blog-overview-date-range-2">
-                <span class="input-group-append">
-                  <span class="input-group-text">
-                    <i class="material-icons"></i>
-                  </span>
-                </span>
-              </div>
-            </div>
-            <div class="col-12 col-sm-6 d-flex mb-2 mb-sm-0">
-              <button type="button" class="btn btn-sm btn-white ml-auto mr-auto ml-sm-auto mr-sm-0 mt-3 mt-sm-0">View Full Report &rarr;</button>
-            </div>
-          </div>
           <canvas height="130" style="max-width: 100% !important;" class="blog-overview-users"></canvas>
         </div>
       </div>
@@ -147,7 +131,7 @@
     <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <div class="card card-small h-100">
         <div class="card-header border-bottom">
-          <h6 class="m-0">Persentase per bidang</h6>
+          <h6 class="m-0">Persentase per-bidang</h6>
         </div>
         <div class="card-body d-flex py-0">
           <canvas height="220" class="blog-users-by-device m-auto"></canvas>
@@ -155,15 +139,9 @@
         <div class="card-footer border-top">
           <div class="row">
             <div class="col">
-              <select class="custom-select custom-select-sm" style="max-width: 130px;">
-                <option selected>Last Week</option>
-                <option value="1">Today</option>
-                <option value="2">Last Month</option>
-                <option value="3">Last Year</option>
-              </select>
             </div>
             <div class="col text-right view-report">
-              <a href="#">Full report &rarr;</a>
+              <a href="/admin/anggota">Lihat semua anggota &rarr;</a>
             </div>
           </div>
         </div>
@@ -308,5 +286,130 @@
         data: ubdData,
         options: ubdOptions
       });
+
+
+      //
+    // Blog Overview Users
+    //
+
+    var bouCtx = document.getElementsByClassName('blog-overview-users')[0];
+
+    // Data
+    var bouData = {
+      // Generate the days labels on the X axis.
+      labels: [
+        <?php
+          foreach($key_total_anggota as $item){
+            echo $item.', ' ;
+          }
+        ?>
+      ],
+      // labels: Array.from(new Array(3), function (_, i) {
+      //   return i === 0 ? 1 : i;
+      // }),
+      datasets: [{
+        label: 'Total anggota per-tahun',
+        fill: 'start',
+        data: [
+          <?php
+          foreach($total_anggota as $item){
+            echo $item.', ' ;
+          }
+        ?>
+        ],
+        backgroundColor: 'rgba(0,123,255,0.1)',
+        borderColor: 'rgba(0,123,255,1)',
+        pointBackgroundColor: '#ffffff',
+        pointHoverBackgroundColor: 'rgb(0,123,255)',
+        borderWidth: 1.5,
+        pointRadius: 0,
+        pointHoverRadius: 3
+      }, 
+      // {
+      //   label: 'Past Month',
+      //   fill: 'start',
+      //   data: [380, 430, 120, 230, 410, 740, 472, 219, 391, 229, 400, 203, 301, 380, 291, 620, 700, 300, 630, 402, 320, 380, 289, 410, 300, 530, 630, 720, 780, 1200],
+      //   backgroundColor: 'rgba(255,65,105,0.1)',
+      //   borderColor: 'rgba(255,65,105,1)',
+      //   pointBackgroundColor: '#ffffff',
+      //   pointHoverBackgroundColor: 'rgba(255,65,105,1)',
+      //   borderDash: [3, 3],
+      //   borderWidth: 1,
+      //   pointRadius: 0,
+      //   pointHoverRadius: 2,
+      //   pointBorderColor: 'rgba(255,65,105,1)'
+      // }
+    ]
+    };
+
+    // Options
+    var bouOptions = {
+      responsive: true,
+      legend: {
+        position: 'top'
+      },
+      elements: {
+        line: {
+          // A higher value makes the line look skewed at this ratio.
+          tension: 0.3
+        },
+        point: {
+          radius: 0
+        }
+      },
+      scales: {
+        xAxes: [{
+          gridLines: false,
+          ticks: {
+            callback: function (tick, index) {
+              // Jump every 7 values on the X axis labels to avoid clutter.
+              return index % 1 !== 0 ? '' : tick;
+            }
+          }
+        }],
+        yAxes: [{
+          ticks: {
+            suggestedMax: 45,
+            callback: function (tick, index, ticks) {
+              if (tick === 0) {
+                return tick;
+              }
+              // Format the amounts using Ks for thousands.
+              return tick > 999 ? (tick/ 1000).toFixed(1) + 'K' : tick;
+            }
+          }
+        }]
+      },
+      // Uncomment the next lines in order to disable the animations.
+      // animation: {
+      //   duration: 0
+      // },
+      hover: {
+        mode: 'nearest',
+        intersect: false
+      },
+      tooltips: {
+        custom: false,
+        mode: 'nearest',
+        intersect: false
+      }
+    };
+
+    // Generate the Analytics Overview chart.
+    window.BlogOverviewUsers = new Chart(bouCtx, {
+      type: 'LineWithLine',
+      data: bouData,
+      options: bouOptions
+    });
+
+    // Hide initially the first and last analytics overview chart points.
+    // They can still be triggered on hover.
+    var aocMeta = BlogOverviewUsers.getDatasetMeta(0);
+    aocMeta.data[0]._model.radius = 0;
+    aocMeta.data[bouData.datasets[0].data.length - 1]._model.radius = 0;
+
+    // Render the chart.
+    window.BlogOverviewUsers.render();
+
     </script>
 @endsection

@@ -36,8 +36,13 @@ class AuthController extends Controller
      */
     public function postLogin(Request $request)
     {
+
+        // Login validation
+        $request->validate([
+            'username' => 'required|email',
+            'password' => 'required'
+        ]);
         
-        // return bcrypt('admin');
         if(\Auth::attempt([
             'email' => $request->username, 
             'password' => $request->password,
