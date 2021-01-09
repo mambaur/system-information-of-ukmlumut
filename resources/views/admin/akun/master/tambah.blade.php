@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'kelola_admin'])
 
 @section('title', 'Tambah hak akses Admin')
 

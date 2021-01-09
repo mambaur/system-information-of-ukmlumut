@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'home'])
 
 @section('title', 'Halaman Admin Pengurus UKM LUMUT')
 

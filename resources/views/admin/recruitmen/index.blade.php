@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'recruitmen'])
 
 @section('title', 'Recruitmen UKM LUMUT')
 

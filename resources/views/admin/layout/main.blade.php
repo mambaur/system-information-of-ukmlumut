@@ -24,7 +24,7 @@
         <aside class="main-sidebar col-12 col-md-3 col-lg-2 px-0">
           <div class="main-navbar">
             <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
-              <a class="navbar-brand w-100 mr-0" href="#" style="line-height: 25px;">
+              <a class="navbar-brand w-100 mr-0" href="/admin" style="line-height: 25px;">
                 <div class="d-table m-auto">
                   <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard">
                   <span class="d-none d-md-inline ml-1">SI UKM LUMUT</span>
@@ -47,68 +47,68 @@
           <div class="nav-wrapper">
             <ul class="nav flex-column">
               <li class="nav-item">
-                <a class="nav-link active" href="{{url('/admin')}}">
+                <a class="nav-link {{$menu === 'home' ? 'active' : ''}}" href="{{url('/admin')}}">
                   <i class="material-icons">dashboard</i>
                   <span>LMT Dashboard</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/anggota')}}">
+                <a class="nav-link {{$menu === 'anggota' ? 'active' : ''}}" href="{{url('admin/anggota')}}">
                   <i class="material-icons">vertical_split</i>
                   <span>Anggota</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/perlengkapan')}}">
+                <a class="nav-link {{$menu === 'perlengkapan' ? 'active' : ''}}" href="{{url('admin/perlengkapan')}}">
                   <i class="material-icons">work_outline</i>
                   <span>Perlengkapan</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/alumni')}}">
+                <a class="nav-link {{$menu === 'alumni' ? 'active' : ''}}" href="{{url('admin/alumni')}}">
                   <i class="material-icons">view_module</i>
                   <span>Data Alumni</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/artikel')}}">
+                <a class="nav-link {{$menu === 'artikel' ? 'active' : ''}}" href="{{url('admin/artikel')}}">
                   <i class="material-icons">library_books</i>
                   <span>Artikel</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/recruitmen')}}">
+                <a class="nav-link {{$menu === 'recruitmen' ? 'active' : ''}}" href="{{url('admin/recruitmen')}}">
                   <i class="material-icons">addchart</i>
                   <span>Recruitmen</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/pesan')}}">
+                <a class="nav-link {{$menu === 'pesan' ? 'active' : ''}}" href="{{url('admin/pesan')}}">
                   <i class="material-icons">question_answer</i>
                   <span>Kritik & saran</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/akun')}}">
+                <a class="nav-link {{$menu === 'akun' ? 'active' : ''}}" href="{{url('admin/akun')}}">
                   <i class="material-icons">person</i>
                   <span>Akun</span>
                 </a>
               </li>
               @if (\Auth::user()->role === 'Master')
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/kelola-admin')}}">
+                <a class="nav-link {{$menu === 'kelola_admin' ? 'active' : ''}}" href="{{url('admin/kelola-admin')}}">
                   <i class="material-icons">supervisor_account</i>
                   <span>Kelola admin</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/log-login')}}">
+                <a class="nav-link {{$menu === 'log_user' ? 'active' : ''}}" href="{{url('admin/log-login')}}">
                   <i class="material-icons">hourglass_full</i>
                   <span>Log user</span>
                 </a>
               </li>
               <li class="nav-item">
-                <a class="nav-link " href="{{url('admin/pengaturan')}}">
+                <a class="nav-link {{$menu === 'pengaturan' ? 'active' : ''}}" href="{{url('admin/pengaturan')}}">
                   <i class="material-icons">settings</i>
                   <span>Pengaturan</span>
                 </a>

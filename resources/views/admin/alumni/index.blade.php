@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'alumni'])
 
 @section('title', 'Data Alumni UKM LUMUT')
 

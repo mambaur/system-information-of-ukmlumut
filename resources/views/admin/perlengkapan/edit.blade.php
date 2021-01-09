@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'perlengkapan'])
 
 @section('title', 'Ubah data Perlengkapan UKM LUMUT')
 

@@ -1,4 +1,4 @@
-@extends('admin.layout.main')
+@extends('admin.layout.main', ['menu' => 'log_user'])
 
 @section('title', 'Log user login UKM LUMUT')
 
