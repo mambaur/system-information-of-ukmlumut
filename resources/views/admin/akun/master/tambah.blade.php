@@ -38,15 +38,16 @@
                           <div class="form-group mt-2">
                             <div class="form-row">
                                 <div class="col-md-7">
-                                    <input type="text" class="form-control" name="nama" placeholder="Nama Depan" required>
+                                    <input type="text" class="form-control @error('nama') is-invalid @enderror" value="{{old('nama')}}" name="nama" placeholder="Nama Depan">
+                                    @error('nama') <div class="invalid-feedback">{{$message}}</div>@enderror
                                 </div>
                                 <div class="col-md-5">
-                                    <input type="text" class="form-control" name="nama_belakang" placeholder="Nama belakang" required>
+                                    <input type="text" class="form-control" name="nama_belakang" placeholder="Nama belakang">
                                 </div>
                               </div>
                           </div>
                           <div class="form-group w-50">
-                            <select name="jabatan" class="form-control" required>
+                            <select name="jabatan" class="form-control @error('jabatan') is-invalid @enderror">
                                 <option value="" disabled selected hidden>Jabatan</option>
                                 <option value="Ketua Umum">Ketua Umum</option>
                                 <option value="Sekretaris">Sekretaris</option>
@@ -64,19 +65,23 @@
                                 <option value="Wakabid Tari">Wakabid Tari</option>
                                 <option value="Lainnya">Lainnya</option>
                             </select>
+                            @error('jabatan') <div class="invalid-feedback">{{$message}}</div>@enderror
                           </div>
                           <div class="form-group w-50">
-                            <select name="role" class="form-control" required>
+                            <select name="role" class="form-control @error('role') is-invalid @enderror">
                                 <option value="" disabled selected hidden>Hak Akses</option>
                                 <option value="Master">Master</option>
                                 <option value="Admin">Admin</option>
                             </select>
+                            @error('role') <div class="invalid-feedback">{{$message}}</div>@enderror
                           </div>
                           <div class="form-group mt-2">
-                              <input type="email" class="form-control" name="email" placeholder="Email" required> 
+                              <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{old('email')}}" placeholder="Email"> 
+                              @error('email') <div class="invalid-feedback">{{$message}}</div>@enderror
                           </div>
                           <div class="form-group mt-2">
-                              <input type="password" class="form-control" name="password" placeholder="Password" required> 
+                              <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password"> 
+                              @error('password') <div class="invalid-feedback">{{$message}}</div>@enderror
                           </div>
                           <div class="form-group">
                             <label for="upload-foto">Upload foto</label>

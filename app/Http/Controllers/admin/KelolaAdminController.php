@@ -39,6 +39,14 @@ class KelolaAdminController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'email' => 'required|email|unique:users',
+            'role' => 'required',
+            'password' => 'required'
+        ]);
+
         $imageName = 'default.jpg';
         if($request->hasFile('upload')){
             $resource = $request->file('upload');
@@ -91,6 +99,13 @@ class KelolaAdminController extends Controller
      */
     public function update(Request $request, User $user)
     {
+        $request->validate([
+            'nama' => 'required',
+            'jabatan' => 'required',
+            'email' => 'required|email:rfc,dns|unique:users,email,'.$user->id,
+            'role' => 'required',
+        ]);
+
         $path = "/public/assets/admin/images/akun";
         $previousPath = "assets/admin/images/akun/";
         $imageName = $user->image;
