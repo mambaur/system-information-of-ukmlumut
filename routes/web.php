@@ -121,8 +121,9 @@ Route::get('/kontak', 'user\KontakController@index');
 
 // Bidang
 Route::get('/bidang/lukis', 'user\BidangController@lukis');
-Route::get('/bidang/lukis/detail/{artikel}', 'user\BidangController@lukisDetail');
+Route::get('/bidang/lukis/artikel/{artikel}', 'user\BidangController@lukisDetail');
 Route::get('/bidang/musik', 'user\BidangController@musik');
-Route::get('/bidang/musik/detail/{artikel}', 'user\BidangController@musikDetail');
+Route::get('/bidang/musik/artikel/{artikel}', 'user\BidangController@musikDetail');
 Route::get('/bidang/tari', 'user\BidangController@tari');
-Route::get('/bidang/tari/detail/{artikel}', 'user\BidangController@tariDetail');
+Route::get('/bidang/tari/artikel/{artikel}', 'user\BidangController@tariDetail');
+Route::get('/bidang/semua/artikel/{artikel}', 'user\BidangController@tariDetail');

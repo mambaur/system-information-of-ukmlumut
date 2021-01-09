@@ -82,7 +82,7 @@
                 <div class="col-lg-6 pl-4">
                     <div class="service-content">
                         <h1>Program Kerja UKM LUMUT</h1>
-                        <p>Program kerja wajib UKM LUMUT ada 5, yaitu Diklat, Aplikasi, Dies Natalis, Depresi, dan RAT.</p>
+                        <p>Program kerja wajib UKM LUMUT yaitu Diklat (Pendidikan dan Latihan), Aplikasi, Dies Natalis, Depresi (Demo Apresiasi Seni), dan RAT (Rapat Anggota Tahunan).</p>
                     </div>
                 </div>
             </div>
@@ -450,99 +450,67 @@
                 </div>
                 <div class="col-lg-9 col-sm-12 col-md-12">
                     <div class="row">
-                        @for ($i = 0; $i < 14; $i++)
+                        @foreach ($user as $item)
                         <div class="col-lg-4 ">
                             <div class="test-inner p-0">
                                 <div class="test-author-thumb d-flex">
-                                    <img src="/assets/user/images/client/test-1.jpg" alt="Testimonial author" class="img-fluid">
+                                    <img src="/assets/admin/images/akun/{{$item->image}}" alt="Testimonial author" class="img-fluid">
                                     <div class="test-author-info">
-                                        <h4>Will Barrow</h4>
-                                        <h6>{{($i == 0 ? 'Ketua Umum' : ($i == 1 ? 'Sekretaris' : ($i == 2) ? 'Bendahara' : 'Litbang'))}}</h6>
-                                        {{-- <h6>Ketua UMUM</h6> --}}
+                                        <h4>{{$item->name.' '.$item->nama_belakang}}</h4>
+                                        <h6>{{$item->jabatan}}</h6>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        @endfor
+                        @endforeach
                     </div>
                 </div>
             </div>
         </div>
     </section>
-<section class="section" id="blog">
+    @if (count($artikel))
+    <section class="section" id="blog">
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 text-center">
                     <div class="section-heading">
                         <!-- Heading -->
                         <h2 class="section-title">
-                            Read our latest news
+                            Artikel Terbaru UKM LUMUT
                         </h2>
 
                         <!-- Subheading -->
                         <p>
-                            Our duty towards you is to share our experience we're reaching in our work path with you.
+                            Informasi terbaru seputar UKM LUMUT
                         </p>
                     </div>
                 </div>
             </div> <!-- / .row -->
 
             <div class="row justify-content-center">
+                @foreach ($artikel as $item)
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-box">
                         <div class="blog-img-box">
-                            <img src="/assets/user/images/blog/blog-1.jpg" alt="" class="img-fluid blog-img">
+                            <img src="/assets/admin/images/artikel/{{$item->image}}" alt="" class="img-fluid blog-img">
                         </div>
                         <div class="single-blog">
                             <div class="blog-content">
-                                <h6> 17 October 2018</h6>
+                                <h6> {{$item->created_at}}</h6>
                                 <a href="#">
-                                    <h3 class="card-title">Top tips to speed up your site in a speedy time</h3>
+                                    <h3 class="card-title">{{$item->judul}}</h3>
                                 </a>
-                                <p>There are many variations of passages Lorem Ipsum available, but majority have ama suffered altratio. the lorem.</p>
-                                <a href="#" class="read-more">Read More</a>
+                                <p>
+                                    {!! \Illuminate\Support\Str::words($item->konten, 10,'....') !!}
+                                </p>
+                                <a href="/bidang/{{strtolower($item->bidang)}}/artikel/{{$item->id}}" class="read-more" target="_blank">Selengkapnya</a>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-4 col-md-6">
-                    <div class="blog-box">
-                        <div class="blog-img-box">
-                            <img src="/assets/user/images/blog/blog-2.jpg" alt="" class="img-fluid blog-img">
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-content">
-                                <h6> 17 October 2018</h6>
-                                <a href="#">
-                                    <h3 class="card-title">Brand your site value with marketing strategies</h3>
-                                </a>
-
-                                <p>There are many variations of passages Lorem Ipsum available, but majority have ama suffered altratio. the lorem.</p>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-md-8">
-                    <div class="blog-box">
-                        <div class="blog-img-box">
-                            <img src="/assets/user/images/blog/blog-3.jpg" alt="" class="img-fluid blog-img">
-                        </div>
-                        <div class="single-blog">
-                            <div class="blog-content">
-                                <h6> 17 October 2018</h6>
-                                <a href="#">
-                                    <h3 class="card-title">Website Optimization is very essential for site speed</h3>
-                                </a>
-                                <p>There are many variations of passages Lorem Ipsum available, but majority have ama suffered altratio. the lorem.</p>
-                                <a href="#" class="read-more">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
         </div>
     </section>
+    @endif
 @endsection

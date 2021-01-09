@@ -4,6 +4,8 @@ namespace App\Http\Controllers\user;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\User;
+use App\Artikel;
 
 class HomeController extends Controller
 {
@@ -14,7 +16,12 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('user.home.index');
+        $user = User::orderBy('id', 'ASC')->get();
+        $artikel = Artikel::orderBy('id', 'DESC')->paginate(3);
+        return view('user.home.index', [
+            'user' => $user,
+            'artikel' => $artikel
+        ]);
     }
 
     /**

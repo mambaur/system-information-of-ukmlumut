@@ -99,7 +99,7 @@
 
                     <li class="nav-item ">
                         <a href="/kontak" class="nav-link">
-                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mt-1 px-5 py-2">Daftar</a></li>
+                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-5 py-3">Daftar</a></li>
                         </a>
                     </li>
                 </ul>

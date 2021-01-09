@@ -32,13 +32,13 @@
                     <div class="single-blog">
                         <div class="blog-content">
                             <h6> {{$item->created_at}}</h6>
-                            <a href="/bidang/tari/detail/{{$item->id}}">
+                            <a href="/bidang/tari/artikel/{{$item->id}}">
                                 <h3 class="card-title">{{$item->judul}}</h3>
                             </a>
                             <p>
                                 {!! \Illuminate\Support\Str::words($item->konten, 10,'....') !!}
                             </p>
-                            <a href="/bidang/tari/detail/{{$item->id}}" class="read-more">Read More</a>
+                            <a href="/bidang/tari/artikel/{{$item->id}}" class="read-more">Read More</a>
                         </div>
                     </div>
                 </div>
