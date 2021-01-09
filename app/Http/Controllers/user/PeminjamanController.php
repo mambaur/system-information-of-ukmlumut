@@ -52,7 +52,8 @@ class PeminjamanController extends Controller
             'instansi' => 'required',
             'acara' => 'required',
             'tanggal_pinjam' => 'required',
-            'tanggal_kembali' => 'required'
+            'tanggal_kembali' => 'required',
+            'telp' => 'required|numeric'
         ]);
 
         if ($request->barang) {
@@ -78,7 +79,9 @@ class PeminjamanController extends Controller
             'tanggal_pinjam' => $request->tanggal_pinjam,
             'tanggal_kembali' => $request->tanggal_kembali,
             'status' => 'request',
-            'kode_pinjam' => $kode_pinjam
+            'kode_pinjam' => $kode_pinjam,
+            'telp' => $request->telp,
+            'dikembalikan' => ''
         ]);
 
         return redirect('/success')->with('status', 'Permintaan peminjaman berhasil dikirim. Mohon tunggu tim perlengkapan mengkonfirmasi permintaan anda.')->with('id', $kode_pinjam)->with('cetak', 'Cetak bukti peminjaman');

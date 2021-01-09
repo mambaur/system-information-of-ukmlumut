@@ -36,7 +36,7 @@
                     </div>
                 </div>
             </form>
-            <button class="btn btn-white" onclick="genPDF()">Save PDF</button>
+            {{-- <button class="btn btn-white" onclick="genPDF()">Save PDF</button> --}}
         </div>
     </section>
     <div id="editor"></div>

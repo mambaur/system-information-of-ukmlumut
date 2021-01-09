@@ -73,6 +73,13 @@
                     </div>
                     <div class="col-lg-6 col-sm-6 col-md-6">
                         <div class="form-group">
+                            <label for="telp">Nomor Telp (WA) <span class="text-danger">*</span></label>
+                            <input type="text" class="form-control @error('telp') is-invalid @enderror" value="{{old('telp')}}" id="telp" name="telp">
+                            @error('telp')
+                                <div class="invalid-feedback">{{$message}}</div>
+                            @enderror
+                        </div>
+                        <div class="form-group">
                             <label for="tanggal_pinjam">Tanggal peminjaman <span class="text-danger">*</span></label>
                             <input type="date" name="tanggal_pinjam" class="form-control @error('tanggal_pinjam') is-invalid @enderror" id="tanggal_pinjam" value="<?= date('Y-m-d', time()); ?>">
                             @error('tanggal_pinjam')

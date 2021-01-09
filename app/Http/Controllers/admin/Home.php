@@ -38,7 +38,7 @@ class Home extends Controller
         // Anggota per-tahun
         $all = Anggota::whereNotIn('jenjang', ['Calon Anggota'])->orderBy('angkatan', 'ASC')->paginate(6);
         $temp_total_anggota = null;
-        $temp_total_anggota2 = null;
+        $key_total_anggota = null;
         $total_anggota = null;
         foreach ($all as $key => $value) {
             $temp_total_anggota[] = $value->angkatan;

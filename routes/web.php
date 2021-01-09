@@ -25,6 +25,7 @@ Route::group(['middleware' => 'auth'], function () {
     // Anggota
     Route::get('/admin/anggota', 'admin\AnggotaController@index');
     Route::get('/admin/anggota/cetak', 'admin\AnggotaController@cetak');
+    Route::get('/admin/anggota/cetak-data', 'admin\AnggotaController@cetakData');
     Route::get('/admin/anggota/tambah', 'admin\AnggotaController@create');
     Route::post('/admin/anggota/', 'admin\AnggotaController@store');
     Route::get('/admin/anggota/{anggota}', 'admin\AnggotaController@show');

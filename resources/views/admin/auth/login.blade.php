@@ -54,7 +54,7 @@
                         </div>
                         <form action="{{url('admin/auth/login')}}" method="post">
                             @csrf
-                            <input class="form-control my-0 @error('username') is-invalid @enderror" type="email" name="username" placeholder="E-mail">
+                            <input class="form-control my-0 @error('username') is-invalid @enderror" type="text" name="username" value="{{old('username')}}" placeholder="E-mail">
                             @error('username')
                             <small class="form-text text-danger">{{$message}}</small>
                             @enderror

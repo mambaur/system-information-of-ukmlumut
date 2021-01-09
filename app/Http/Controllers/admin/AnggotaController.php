@@ -228,4 +228,51 @@ class AnggotaController extends Controller
         $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->orderBy('nama_anggota', 'ASC')->get();
         return view('admin.anggota.cetak-presensi', compact('anggota'));
     }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     */
+     public function cetakData(Request $request)
+     {
+         $data = $request->tipe;
+        if($data === 'lukis'){
+            $data = 'Lukis';
+        }elseif ($data === 'musik'){
+            $data = 'Musik';
+        }elseif ($data === 'tari'){
+            $data = 'Tari';
+        }elseif ($data === 'anggota_baru'){
+            $data = 'Anggota Baru';
+        }elseif ($data === 'anggota_muda'){
+            $data = 'Anggota Muda';    
+        }elseif ($data === 'anggota_biasa'){
+            $data = 'Anggota Biasa';
+        }elseif ($data === 'anggota_luar_biasa'){
+            $data = 'Anggota Luar Biasa';
+        }
+
+        if ($request->jenis === 'presensi') {
+            $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', $data)->orderBy('nama_anggota', 'ASC')->get();
+            return view('admin.anggota.cetak-data', [
+                'anggota' => $anggota,
+                'title' => $data
+            ]);
+        }elseif($request->jenis === 'bidang'){
+            $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('bidang', $data)->orderBy('nama_anggota', 'ASC')->get();
+            return view('admin.anggota.cetak-anggota', [
+                'anggota' => $anggota,
+                'title' => $data
+            ]);
+        }elseif($request->jenis === 'jenjang'){
+            $anggota = Anggota::whereNotIn('jenjang', ['Alumni', 'Calon Anggota'])->where('jenjang', $data)->orderBy('nama_anggota', 'ASC')->get();
+            return view('admin.anggota.cetak-anggota', [
+                'anggota' => $anggota,
+                'title' => $data
+            ]);
+        }else {
+            return redirect('/admin/anggota');
+        }
+     }
 }

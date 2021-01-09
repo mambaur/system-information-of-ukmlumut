@@ -279,7 +279,8 @@ class PerlengkapanController extends Controller
 
         }else if($request->submit === "pengembalian"){
             Peminjaman::where('id', $peminjaman->id)->update([
-                'status' => 'selesai'
+                'status' => 'selesai',
+                'dikembalikan' => date('d-m-Y')
             ]);
             foreach ($detail_peminjaman as $key => $item) {
                 Perlengkapan::where('id', $item->perlengkapans_id)->update([

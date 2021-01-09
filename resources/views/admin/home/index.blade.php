@@ -299,8 +299,10 @@
       // Generate the days labels on the X axis.
       labels: [
         <?php
-          foreach($key_total_anggota as $item){
+          if($key_total_anggota){
+            foreach($key_total_anggota as $item){
             echo $item.', ' ;
+          }
           }
         ?>
       ],
@@ -312,8 +314,10 @@
         fill: 'start',
         data: [
           <?php
-          foreach($total_anggota as $item){
-            echo $item.', ' ;
+          if ($total_anggota) {
+            foreach($total_anggota as $item){
+              echo $item.', ' ;
+            }
           }
         ?>
         ],
