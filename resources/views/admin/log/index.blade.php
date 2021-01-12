@@ -22,7 +22,7 @@
         </div>
     </div>
     <div class="row">
-        <div class="col-lg">
+        <div class="col-lg table-responsive">
             <table class="table table-dark">
                 {{-- <thead>
                   <tr>

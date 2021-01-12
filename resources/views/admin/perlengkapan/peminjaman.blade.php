@@ -45,7 +45,7 @@
                                 
                                 <br/>
                                 <span class="text-fiord-blue">
-                                    {{$item->nama_peminjam}} - 
+                                    {{$item->nama_peminjam}} ({{$item->telp}})- 
                                     <span class="badge rounded-pill bg-secondary text-white">
                                         {{$item->instansi}}</span> |  
                                     Tanggal pinjam : <span class="text-primary">{{$item->tanggal_pinjam}}</span> | 

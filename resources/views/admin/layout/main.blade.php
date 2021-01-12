@@ -94,6 +94,12 @@
                   <span>Akun</span>
                 </a>
               </li>
+              <li class="nav-item">
+                <a class="nav-link {{$menu === 'info-organisasi' ? 'active' : ''}}" href="{{url('admin/info-organisasi')}}">
+                  <i class="material-icons">info</i>
+                  <span>Info Organisasi</span>
+                </a>
+              </li>
               @if (\Auth::user()->role === 'Master')
               <li class="nav-item">
                 <a class="nav-link {{$menu === 'kelola_admin' ? 'active' : ''}}" href="{{url('admin/kelola-admin')}}">

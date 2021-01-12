@@ -95,35 +95,35 @@
       </div>
       <div class="card-body py-0">
         <div class="row mb-2 mt-1">
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=lukis&jenis=presensi" target="_blank"><button class="btn btn-white">Cetak presensi lukis</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=lukis&jenis=presensi" target="_blank"><button class="btn btn-white w-100">Cetak presensi lukis</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=musik&jenis=presensi" target="_blank"><button class="btn btn-white">Cetak presensi musik</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=musik&jenis=presensi" target="_blank"><button class="btn btn-white w-100">Cetak presensi musik</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=tari&jenis=presensi" target="_blank"><button class="btn btn-white">Cetak presensi tari</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=tari&jenis=presensi" target="_blank"><button class="btn btn-white w-100">Cetak presensi tari</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=lukis&jenis=bidang" target="_blank"><button class="btn btn-white">Cetak anggota lukis</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=lukis&jenis=bidang" target="_blank"><button class="btn btn-white w-100">Cetak anggota lukis</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=musik&jenis=bidang" target="_blank"><button class="btn btn-white">Cetak anggota musik</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=musik&jenis=bidang" target="_blank"><button class="btn btn-white w-100">Cetak anggota musik</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=tari&jenis=bidang" target="_blank"><button class="btn btn-white">Cetak anggota tari</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=tari&jenis=bidang" target="_blank"><button class="btn btn-white w-100">Cetak anggota tari</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=anggota_baru&jenis=jenjang" target="_blank"><button class="btn btn-white">Cetak anggota baru</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=anggota_baru&jenis=jenjang" target="_blank"><button class="btn btn-white w-100">Cetak anggota baru</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=anggota_muda&jenis=jenjang" target="_blank"><button class="btn btn-white">Cetak anggota muda</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=anggota_muda&jenis=jenjang" target="_blank"><button class="btn btn-white w-100">Cetak anggota muda</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=anggota_biasa&jenis=jenjang" target="_blank"><button class="btn btn-white">Cetak anggota biasa</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=anggota_biasa&jenis=jenjang" target="_blank"><button class="btn btn-white w-100">Cetak anggota biasa</button></a>
           </div>
-          <div class="col-lg-6 p-1 d-flex justify-content-center">
-            <a href="/admin/anggota/cetak-data?tipe=anggota_luar_biasa&jenis=jenjang" target="_blank"><button class="btn btn-white">Cetak anggota luar biasa</button></a>
+          <div class="col-lg-6 p-1">
+            <a href="/admin/anggota/cetak-data?tipe=anggota_luar_biasa&jenis=jenjang" target="_blank"><button class="btn btn-white w-100">Cetak anggota luar biasa</button></a>
           </div>
         </div>
       </div>

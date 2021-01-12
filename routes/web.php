@@ -92,6 +92,12 @@ Route::group(['middleware' => 'auth'], function () {
 
     // log
     Route::get('/admin/log-login', 'admin\logLoginController@index');
+
+    // Info Organisasi
+    Route::get('/admin/info-organisasi', 'admin\InfoOrganisasiController@index');
+    Route::get('/admin/info-organisasi/cetak', 'admin\InfoOrganisasiController@cetak');
+    Route::post('/admin/info-organisasi', 'admin\InfoOrganisasiController@store');
+    Route::delete('/admin/info-organisasi/{info_organisasi}', 'admin\InfoOrganisasiController@destroy');
 });
 
 

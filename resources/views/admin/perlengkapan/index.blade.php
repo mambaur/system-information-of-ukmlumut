@@ -25,16 +25,16 @@
 
 <div class="form-row">
   <a href="/admin/perlengkapan/peminjaman?tipe=request" class="col mb-4 nav-link">
-    <div class="bg-white rounded text-primary text-center p-3"><i class="material-icons">notification_important</i> Request Peminjaman ({{$totalRequest}})</div>
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">notification_important</i> Request Peminjaman ({{$totalRequest}})</div>
   </a>
   <a href="/admin/perlengkapan/peminjaman?tipe=terlambat" class="col mb-4 nav-link">
-    <div class="bg-white rounded text-danger text-center p-3"><i class="material-icons">watch_later</i> Terlambat kembali ({{$totalTerlambat}})</div>
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">watch_later</i> Terlambat kembali ({{$totalTerlambat}})</div>
   </a>
   <a href="/admin/perlengkapan/peminjaman?tipe=dipinjam" class="col mb-4 nav-link">
-    <div class="bg-white rounded text-warning text-center p-3"><i class="material-icons">hourglass_full</i> Barang Dipinjam ({{$totalDipinjam}})</div>
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">hourglass_full</i> Barang Dipinjam ({{$totalDipinjam}})</div>
   </a>
   <a href="/admin/perlengkapan/peminjaman?tipe=selesai" class="col mb-4 nav-link">
-    <div class="bg-white rounded text-success text-center p-3"><i class="material-icons">check_circle</i> Peminjaman Selesai ({{$totalSelesai}})</div>
+    <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">check_circle</i> Peminjaman Selesai ({{$totalSelesai}})</div>
   </a>
   <a href="/admin/perlengkapan/peminjaman?tipe=semua" class="col mb-4 nav-link">
     <div class="bg-white rounded text-dark text-center p-3"><i class="material-icons">find_in_page</i> Riwayat ({{$riwayat}})<i class="material-icons">keyboard_arrow_right</i></div>
