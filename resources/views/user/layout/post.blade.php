@@ -44,7 +44,8 @@
     <nav class="navbar navbar-expand-lg navbar-dark trans-navigation fixed-top navbar-togglable">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <h3>LUMUT</h3>
+                <img style="width:35px;height:35px" src="/assets/admin/images/lumut.png" alt="">
+                <h3 class="d-inline-block ml-1 align-self-center">LUMUT</h3>
             </a>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -55,35 +56,35 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <!-- Links -->
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item ">
+                    <li class="nav-item pt-2">
                         <a href="/" class="nav-link js-scroll-trigger">
                             Beranda
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item pt-2">
                         <a href="/bidang/lukis" class="nav-link js-scroll-trigger">
                             Lukis
                         </a>
                     </li>
-                    <li class="nav-item ">
+                    <li class="nav-item pt-2">
                         <a href="/bidang/musik" class="nav-link js-scroll-trigger">
                             Musik
                         </a>
                     </li>
 
-                    <li class="nav-item ">
+                    <li class="nav-item pt-2">
                         <a href="/bidang/tari" class="nav-link js-scroll-trigger">
                             Tari
                         </a>
                     </li>
 
-                    <li class="nav-item ">
+                    <li class="nav-item pt-2">
                         <a href="/kontak" class="nav-link">
                             Kontak
                         </a>
                     </li>
 
-                    <li class="nav-item dropdown">
+                    <li class="nav-item pt-2 dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Lainnya
                         </a>

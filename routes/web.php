@@ -108,6 +108,7 @@ Route::get('/', 'user\HomeController@index');
 Route::get('/tentang', 'user\TentangController@index');
 
 // Peminjaman Alat
+Route::get('/peminjaman-alat/cetak-bukti-peminjaman', 'user\PeminjamanController@cetak');
 Route::get('/peminjaman-alat', 'user\PeminjamanController@index');
 Route::post('/peminjaman-alat', 'user\PeminjamanController@store');
 Route::get('/success', function(){return view('user.success.index');});

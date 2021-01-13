@@ -25,9 +25,10 @@
           <div class="main-navbar">
             <nav class="navbar align-items-stretch navbar-light bg-white flex-md-nowrap border-bottom p-0">
               <a class="navbar-brand w-100 mr-0" href="/admin" style="line-height: 25px;">
-                <div class="d-table m-auto">
-                  <img id="main-logo" class="d-inline-block align-top mr-1" style="max-width: 25px;" src="{{asset('assets/admin/images/Lumut.png')}}" alt="Shards Dashboard">
-                  <span class="d-none d-md-inline ml-1">SI UKM LUMUT</span>
+                <div class="d-table m-auto d-flex">
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="width: 30px;height:30px" src="{{asset('assets/admin/images/lumut.png')}}" alt="Shards Dashboard">
+                  {{-- <span class="mr-1 text-secondary align-self-end">SIUKM</span> --}}
+                  <img id="main-logo" class="d-inline-block align-top mr-1" style="width: 70px;" src="{{asset('assets/admin/images/lmt-logo.jpg')}}" alt="Shards Dashboard">
                 </div>
               </a>
               <a class="toggle-sidebar d-sm-inline d-md-none d-lg-none">

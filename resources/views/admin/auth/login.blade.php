@@ -31,10 +31,8 @@
     @endif
     <div class="form-body">
         <div class="website-logo">
-            <a href="index.html">
-                <div class="logo">
-                    <img class="logo-size" src="/assets/admin/images/Ukmlumut.png" alt="Logo UKM LUMUT">
-                </div>
+            <a href="/admin">
+                <img class="logo-size" style="width:120px" src="/assets/admin/images/ukm-lumut.png" alt="Logo UKM LUMUT">
             </a>
         </div>
         <div class="row">
@@ -65,7 +63,7 @@
                             @enderror
 
                             <div class="form-button">
-                                <button id="submit" type="submit" class="ibtn">Login</button> Lupa password? <a href="forget4.html">Hubungi admin.</a>
+                                <button id="submit" type="submit" class="ibtn">Login</button>
                             </div>
                         </form>
                     </div>
