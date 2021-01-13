@@ -58,6 +58,18 @@
         <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Musik">
           <button type="button" class="mb-2 btn {{$tipe === 'Musik' ? 'btn-primary' : 'btn-outline-primary' }}">Musik</button>
         </a>
+        <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Tari">
+          <button type="button" class="mb-2 btn {{$tipe === 'Tari' ? 'btn-primary' : 'btn-outline-primary' }}">Tari</button>
+        </a>
+        <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Kesekretariatan">
+          <button type="button" class="mb-2 btn {{$tipe === 'Kesekretariatan' ? 'btn-primary' : 'btn-outline-primary' }}">Kesekretariatan</button>
+        </a>
+        <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Perkakas">
+          <button type="button" class="mb-2 btn {{$tipe === 'Perkakas' ? 'btn-primary' : 'btn-outline-primary' }}">Perkakas</button>
+        </a>
+        <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Pementasan">
+          <button type="button" class="mb-2 btn {{$tipe === 'Pementasan' ? 'btn-primary' : 'btn-outline-primary' }}">Pementasan</button>
+        </a>
       </div>
       <div>
         <a href="{{url('/admin/perlengkapan/tambah')}}">

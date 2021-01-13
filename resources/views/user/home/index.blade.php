@@ -37,32 +37,32 @@
         <div class="container">
             <div class="row justy-content-center">
                 <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center">
+                    <div class="text-center bg-transparent card mr-2 p-2">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-palette"></i>
+                            <i style="font-size:70px" class="fas fa-palette mt-3"></i>
                         </div>
-                        <h4 class="mb-2">Lukis</h4>
-                        <p>Realisme, Mural, Scribbe, Grafiti, Kartun.</p>
+                        <h2 class="mb-2 text-secondary">Lukis</h2>
+                        <p>Realisme, Mural, Scribbe,<br/>Grafiti, Kartun.</p>
                     </div>
                 </div>
 
                 <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center ">
+                    <div class="text-center bg-transparent card mr-2 p-2">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-guitar"></i>
+                            <i style="font-size:70px" class="fas fa-guitar mt-3"></i>
                         </div>
-                        <h4 class="mb-2">Musik</h4>
-                        <p>Jazz, Pop, Blues, Raggae, Hip Hop.</p>
+                        <h2 class="mb-2 text-secondary">Musik</h2>
+                        <p>Jazz, Pop, Blues, Raggae,<br/>Hip Hop, Klasik.</p>
                     </div>
                 </div>
                 
                 <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center">
+                    <div class="text-center bg-transparent card mr-2 p-2">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-users"></i>
+                            <i style="font-size:70px" class="fas fa-users mt-3"></i>
                         </div>
-                        <h4 class="mb-2">Tari</h4>
-                        <p>Tradisional, Modern, Kontemporer.</p>
+                        <h2 class="mb-2 text-secondary">Tari</h2>
+                        <p>Tradisional, Modern,<br/>Kontemporer.</p>
                     </div>
                 </div>
             </div>
@@ -81,8 +81,8 @@
 
                 <div class="col-lg-6 pl-4">
                     <div class="service-content">
-                        <h1>Program Kerja UKM LUMUT</h1>
-                        <p>Program kerja wajib UKM LUMUT antara lain Diklat (Pendidikan dan Latihan), Aplikasi, Dies Natalis, Depresi (Demo Apresiasi Seni), dan RAT (Rapat Anggota Tahunan).</p>
+                        <h1>Selamat Datang di Website Resmi UKM LUMUT</h1>
+                        <p>UKM LUMUT memiliki 5 (lima) Program kerja wajib antara lain Diklat (Pendidikan dan Latihan), Aplikasi, Dies Natalis, Depresi (Demo Apresiasi Seni), dan RAT (Rapat Anggota Tahunan).</p>
                     </div>
                 </div>
             </div>
@@ -272,7 +272,7 @@
 
 <section class="section" id="services-2">
         <div class="container">
-            <div class="row justify-content-center">
+            {{-- <div class="row justify-content-center">
                 <div class="col-md-8 col-lg-6 text-center">
                     <div class="section-heading">
                         <!-- Heading -->
@@ -286,50 +286,32 @@
                         </p>
                     </div>
                 </div>
-            </div> <!-- / .row -->
+            </div>  --}}
+            <!-- / .row -->
 
             <div class="row">
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
                         <i class="ti-light-bulb"></i>
-                        <h3>Creative Design</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
+                        <h3>Pendaftaran Anggota</h3>
+                        <p>Tertarik bergabung dengan UKM LUMUT? tunggu apa lagi, yuk klik link dibawah ini dan isi form pendaftaran langsung.</p>
+                        <a href="/pendaftaran-anggota" target="_blank"><button class="btn btn-white">Daftar sekarang</button></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
                         <i class="ti-desktop"></i>
-                        <h3>Web Development</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
+                        <h3>Peminjaman Alat</h3>
+                        <p>Kami menyediakan peminjaman alat untuk mendukung kesuksesan acara yang ingin kamu buat.</p>
+                        <a href="/peminjaman-alat" target="_blank"><button class="btn btn-white">Peminjaman alat</button></a>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6 mb-30">
                     <div class="web-service-block">
                         <i class="ti-announcement"></i>
-                        <h3>Digital Marketing</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
-                    </div>
-                </div>
-
-                <div class="col-lg-4 col-sm-6 col-md-6 ">
-                    <div class="web-service-block">
-                        <i class="ti-layers-alt"></i>
-                        <h3>Graphic Design</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6 ">
-                    <div class="web-service-block">
-                        <i class="ti-mobile"></i>
-                        <h3>App Development</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-6 col-md-6 ">
-                    <div class="web-service-block">
-                        <i class="ti-settings"></i>
-                        <h3>Wordpress Installation</h3>
-                        <p>Afraid we praise lively he suffer family estate is. Ample order up in of in ready. Timed blind had .</p>
+                        <h3>Kritik & Saran</h3>
+                        <p>Berikan pendapat dan aspirasimu tentang segala hal di UKM LUMUT, kami tunggu kritik dan saran kamu dengan senang hati.</p>
+                        <a href="/kritik-dan-saran" target="_blank"><button class="btn btn-white">Kritik & saran</button></a>
                     </div>
                 </div>
             </div>

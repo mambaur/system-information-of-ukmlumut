@@ -37,6 +37,9 @@
                         <div class="form-group col-md-7">
                         <select name="tipe" class="form-control" required>
                             <option value="" disabled selected hidden>Tipe barang</option>
+                            <option value="Kesekretariatan">Kesekretariatan</option>
+                            <option value="Perkakas">Perkakas</option>
+                            <option value="Pementasan">Pementasan</option>
                             <option value="Dapur">Dapur</option>
                             <option value="Lukis">Lukis</option>
                             <option value="Musik">Musik</option>

@@ -159,7 +159,9 @@
           @foreach ($pesan as $item)
           <div class="blog-comments__item d-flex p-1">
             <div class="blog-comments__content">
-              <p class="m-0 my-1 text-muted"><span class="badge badge-success mr-1">Pesan!</span>{{$item->isi_pesan}}</p>
+              <p class="m-0 my-1 text-muted"><span class="badge badge-success mr-1">Pesan!</span>
+                {!! \Illuminate\Support\Str::words($item->isi_pesan, 5,'....') !!}
+              </p>
             </div>
           </div>
           @endforeach
