@@ -149,12 +149,12 @@
                     <!-- Links -->
                     <ul class="footer-links ">
                         <li>
-                            <a href="#">
+                            <a href="/peminjaman-alat">
                                 Peminjaman alat
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/pendaftaran-anggota">
                                 Pendaftaran Anggota
                             </a>
                         </li>
@@ -169,17 +169,17 @@
                     <!-- Links -->
                     <ul class="footer-links ">
                         <li>
-                            <a href="#">
+                            <a href="/kontak">
                                 Tentang
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/peminjaman-alat/ketentuan" target="_blank">
                                 Ketentuan Peminjaman
                             </a>
                         </li>
                         <li>
-                            <a href="#">
+                            <a href="/kritik-dan-saran">
                                 Kritik & Saran
                             </a>
                         </li>

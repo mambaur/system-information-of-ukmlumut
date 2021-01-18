@@ -105,7 +105,7 @@
                             
                             <div class="form-check">
                                 <input type="checkbox" class="form-check-input" id="exampleCheck1" required>
-                                <label class="form-check-label" for="exampleCheck1">Saya setuju dengan ketentuan peminjaman alat di UKM LUMUT</label>
+                                <label class="form-check-label" for="exampleCheck1">Saya setuju dengan <a href="/peminjaman-alat/ketentuan" target="_blank">ketentuan</a> peminjaman alat di UKM LUMUT</label>
                             </div>
                             <button type="submit" class="btn btn-primary mt-3">Submit</button>
                         </div>

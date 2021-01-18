@@ -136,4 +136,9 @@ class PeminjamanController extends Controller
     {
         return view('user.peminjaman.cetak');
     }
+
+    public function ketentuanPeminjaman()
+    {
+        return view('user.peminjaman.ketentuan');
+    }
 }

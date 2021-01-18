@@ -302,11 +302,8 @@ class PerlengkapanController extends Controller
         foreach ($peminjaman as $key => $value) {
             $date1 = date_create($value->tanggal_kembali);
             $date2 = date_create(date('Y-m-d'));
-            $diff=date_diff($date1,$date2);
-            if ($diff->format("%d") || $diff->format("%m")) {
+            if ($date1 < $date2) {
                 Peminjaman::where('id', $value->id)->update(['status' => 'terlambat']);
-                // echo $diff->format("%d days") . '<br/>';
-                // echo $diff->format("%m monts") . '<br/>';
             }
         }
     }
