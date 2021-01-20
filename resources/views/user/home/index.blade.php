@@ -233,27 +233,35 @@
                   <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
                   <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                  <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="/assets/user/images/slider/diesnat.jpg" alt="First slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/pkkmb.jpg" alt="First slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">Acara UKM LUMUT</h1>
-                        <h4 class="text-light">Acara UKM LUMUT</h4>
+                        <h1 class="text-light">PKKMB UKM LUMUT 2021</h1>
+                        <h4 class="text-light">Membuat video karya seni gabungan lukis musik dan tari</h4>
                     </div>
                   </div>
                   <div class="carousel-item">
                     <img class="d-block w-100" src="/assets/user/images/slider/aplikasi.jpg" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">Acara UKM LUMUT</h1>
-                        <h4 class="text-light">Acara UKM LUMUT</h4>
+                        <h1 class="text-light">APLIKASI UKM LUMUT</h1>
+                        <h4 class="text-light">Acara Aplikasi UKM LUMUT Angkatan 23</h4>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/assets/user/images/slider/pkkmb.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/diesnat.jpg" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">Acara UKM LUMUT</h1>
-                        <h4 class="text-light">Acara UKM LUMUT</h4>
+                        <h1 class="text-light">Diesnatalis UKM LUMUT</h1>
+                        <h4 class="text-light">Diadakan di kafe kedai rilex Jember</h4>
+                    </div>
+                  </div>
+                  <div class="carousel-item">
+                    <img class="d-block w-100" src="/assets/user/images/slider/ngabuburit.jpg" alt="Fourth slide">
+                    <div class="carousel-caption d-none d-md-block bg-dark">
+                        <h1 class="text-light">Ngabuburit UKM LUMUT</h1>
+                        <h4 class="text-light">Setiap bulan puasa, UKM LUMUT selalu mengadakan ngabuburit</h4>
                     </div>
                   </div>
                 </div>
@@ -365,8 +373,8 @@
                     <div class="single-project">
                         <img src="/assets/user/images/projects/p-1.jpg" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Project: onepage</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eligendi consequuntur veniam quod</p>
+                            <h4>Lomba Lukis</h4>
+                            <p>Lomba lukis pada acara Musabaqah Tilawatil Quran</p>
                         </div>
                     </div>
                 </div>
@@ -374,8 +382,8 @@
                     <div class="single-project">
                         <img src="/assets/user/images/projects/p-4.jpg" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Project: business</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eligendi consequuntur veniam quod</p>
+                            <h4>Diesnatalis UKM LUMUT 2021</h4>
+                            <p>Tasyakuran memperingati hari lahir UKM LUMUT</p>
                         </div>
                     </div>
                 </div>
@@ -383,8 +391,8 @@
                     <div class="single-project">
                         <img src="/assets/user/images/projects/p-3.jpg" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Project : Marketing</h4>
-                            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Cupiditate eligendi consequuntur veniam quod</p>
+                            <h4>Sosialisasi</h4>
+                            <p>Sosialisasi RAT pada tahun 2020 di kafe Anglo</p>
                         </div>
                     </div>
                 </div>
@@ -400,7 +408,7 @@
                     <div class="project-content-block">
                         <h4>Jadi gimana di UKM LUMUT?</h4>
                         <h2>Kami lebih dari sekedar Organisasi</h2>
-                        <p>Explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and we will give you a complete account of the system.</p>
+                        <p>Anggota UKM Lumut selalu beraktifitas dalah kesenian dan keorganisasian yang tidak lepas dari nilai-nilai kekeluargaan, kreatifitas, dan solidaritas.</p>
                     </div>
                 </div>
             </div>

@@ -291,8 +291,13 @@ class PerlengkapanController extends Controller
             return redirect('admin/perlengkapan/peminjaman?tipe=dipinjam')->with('status', $message);
         }else if($request->submit === "hapus"){
             Peminjaman::destroy($peminjaman->id);
+            foreach ($detail_peminjaman as $key => $item) {
+                Perlengkapan::where('id', $item->perlengkapans_id)->update([
+                    'isDipinjam' => 0
+                ]);
+            }
             $message = 'Peminjaman berhasil dihapus';
-            return redirect('admin/perlengkapan/peminjaman?tipe=semua')->with('status', $message);
+            return redirect('admin/perlengkapan/')->with('status', $message);
         }
     }
 
