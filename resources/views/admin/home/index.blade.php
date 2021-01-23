@@ -149,7 +149,7 @@
     </div>
     <!-- End Users By Device Stats -->
     <!-- New Draft Component -->
-    <div class="col-lg-4 col-md-6 col-sm-12 mb-2">
+    <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
       <!-- Quick Post -->
       <div class="card card-small">
         <div class="card-header border-bottom">

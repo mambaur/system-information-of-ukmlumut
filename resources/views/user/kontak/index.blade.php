@@ -167,7 +167,7 @@
             <div class="col-lg-6 col-md-6">
                 <!-- START MAP -->
                 {{-- <div id="map" ></div> --}}
-                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15797.715304619993!2d113.7224597!3d-8.1594771!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf6c4437632474338!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1609948612201!5m2!1sid!2sid" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d15797.715304619993!2d113.7224597!3d-8.1594771!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xf6c4437632474338!2sPoliteknik%20Negeri%20Jember!5e0!3m2!1sid!2sid!4v1609948612201!5m2!1sid!2sid" class="w-100" height="300" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
                 <!-- END MAP -->
             </div>
         </div>
