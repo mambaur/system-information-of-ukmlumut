@@ -12,7 +12,7 @@
                 <div class="banner-content2 text-center style-2">
                         <!-- Heading -->
                         <h1 class="display-4 mb-4 ">
-                            Organisasi Kesenian Lukis Musik Tari
+                            Organisasi Kesenian Lukis Musik Tari Indonesia
                         </h1>
 
                         <!-- Subheading -->
