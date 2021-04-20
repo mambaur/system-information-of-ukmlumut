@@ -67,7 +67,7 @@
                       </div>
                       <div class="col-sm-6">
                           <div class="form-group">
-                              <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Tanggal lahir" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" id="tanggal_lahir">
+                              <input type="text" onfocus="(this.type='date')" onblur="(this.type='text')" placeholder="Tanggal lahir" value="{{old('tanggal_lahir')}}" class="form-control @error('tanggal_lahir') is-invalid @enderror" name="tanggal_lahir" id="tanggal_lahir">
                               @error('tanggal_lahir')
                                 <div class="invalid-feedback">{{ $message }}</div>
                               @enderror 

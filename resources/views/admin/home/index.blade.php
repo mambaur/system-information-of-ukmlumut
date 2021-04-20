@@ -302,9 +302,10 @@
       labels: [
         <?php
           if($key_total_anggota){
-            foreach($key_total_anggota as $item){
-            echo $item.', ' ;
-          }
+            foreach($key_total_anggota as $key => $item){
+              echo $item.', ' ;
+              // if($key ==  2){break;}
+            }
           }
         ?>
       ],
@@ -317,11 +318,12 @@
         data: [
           <?php
           if ($total_anggota) {
-            foreach($total_anggota as $item){
+            foreach($total_anggota as $key => $item){
               echo $item.', ' ;
+              // if($key ==  2){break;}
             }
           }
-        ?>
+          ?>
         ],
         backgroundColor: 'rgba(0,123,255,0.1)',
         borderColor: 'rgba(0,123,255,1)',

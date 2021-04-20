@@ -36,7 +36,7 @@ class Home extends Controller
         $peminjaman = Peminjaman::where('status', 'request')->count();
 
         // Anggota per-tahun
-        $all = Anggota::whereNotIn('jenjang', ['Calon Anggota'])->orderBy('angkatan', 'ASC')->paginate(6);
+        $all = Anggota::whereNotIn('jenjang', ['Calon Anggota'])->orderBy('angkatan', 'DESC')->get();
         $temp_total_anggota = null;
         $key_total_anggota = null;
         $total_anggota = null;
@@ -44,12 +44,22 @@ class Home extends Controller
             $temp_total_anggota[] = $value->angkatan;
         }
 
+        sort($temp_total_anggota);
+
         if($temp_total_anggota){
             $total_anggota = array_count_values($temp_total_anggota);
             $key_total_anggota = collect($total_anggota)->keys();
         }
 
-        // dd($total_anggota);
+        $key_total = null;
+        foreach ($key_total_anggota as $key => $value) {
+            $key_total[] = $value;
+        }
+
+        if(count($key_total) >= 5){
+            $total_anggota = array_slice($total_anggota, count($key_total) - 4);
+            $key_total = array_slice($key_total, count($key_total) - 4);
+        }
 
         return view('admin.home.index', [
             'anggota' => $anggota,
@@ -62,7 +72,7 @@ class Home extends Controller
             'pesan' => $pesan,
             'peminjaman' => $peminjaman,
             'total_anggota' => $total_anggota,
-            'key_total_anggota' => $key_total_anggota
+            'key_total_anggota' => $key_total
         ]);
     }
 
