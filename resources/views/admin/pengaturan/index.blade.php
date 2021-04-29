@@ -58,6 +58,21 @@
                     </div>
                 </span>
               </li>
+              <li class="list-group-item d-flex px-3">
+                <span class="text-semibold text-fiord-blue">Pesan (Kritik & Saran)</span>
+                <span class="ml-auto text-right text-semibold text-reagent-gray">
+                    <div class="custom-control custom-toggle custom-toggle-sm mb-1">
+
+                      <form action="/admin/pengaturan/pesan/{{$pesan->id}}" method="post" id="pesan-form">
+                        @csrf
+                        @method('patch')
+                        <input type="checkbox" id="pesan" name="pesan" class="custom-control-input" {{$pesan->value ? 'checked' : ''}}>
+                        <label class="custom-control-label" for="pesan"></label>
+                      </form>
+
+                    </div>
+                </span>
+              </li>
             </ul>
           </div>
         </div>
@@ -76,6 +91,11 @@
   var pendaftaranCheck = document.getElementById('pendaftaran');
   pendaftaranCheck.addEventListener('change', (event)=>{
     document.getElementById('pendaftaran-form').submit();
+  });
+  
+  var pesanCheck = document.getElementById('pesan');
+  pesanCheck.addEventListener('change', (event)=>{
+    document.getElementById('pesan-form').submit();
   });
 </script>    
 @endsection

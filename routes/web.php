@@ -85,6 +85,7 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/pengaturan', 'admin\PengaturanController@index');
     Route::patch('/admin/pengaturan/peminjaman/{pengaturan}', 'admin\PengaturanController@updatePeminjaman');
     Route::patch('/admin/pengaturan/pendaftaran/{pengaturan}', 'admin\PengaturanController@updatePendaftaran');
+    Route::patch('/admin/pengaturan/pesan/{pengaturan}', 'admin\PengaturanController@updatePesan');
 
     // Pesan
     Route::get('/admin/pesan', 'admin\PesanController@index');

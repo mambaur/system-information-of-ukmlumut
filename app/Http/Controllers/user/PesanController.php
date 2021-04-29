@@ -5,6 +5,7 @@ namespace App\Http\Controllers\user;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Pesan;
+use App\Pengaturan;
 
 class PesanController extends Controller
 {
@@ -15,7 +16,10 @@ class PesanController extends Controller
      */
     public function index()
     {
-        return view('user.pesan.index');
+        $pesan_setting = Pengaturan::where('name', 'pesan')->first();
+        return view('user.pesan.index', [
+            'pesan_setting' => $pesan_setting->value
+        ]);
     }
 
     /**

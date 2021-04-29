@@ -18,9 +18,11 @@ class PengaturanController extends Controller
     {
         $pendaftaran = Pengaturan::where('name', 'pendaftaran')->first();
         $peminjaman = Pengaturan::where('name', 'peminjaman')->first();
+        $pesan = Pengaturan::where('name', 'pesan')->first();
         return view('admin.pengaturan.index', [
             'pendaftaran' => $pendaftaran,
-            'peminjaman' => $peminjaman
+            'peminjaman' => $peminjaman,
+            'pesan' => $pesan
         ]);
     }
 
@@ -100,6 +102,15 @@ class PengaturanController extends Controller
     }
     
     public function updatePendaftaran(Request $request, Pengaturan $pengaturan)
+    {
+        Pengaturan::where('id', $pengaturan->id)->update([
+            'value' => !$pengaturan->value
+        ]);
+
+        return redirect('admin/pengaturan')->with('status', 'Pengaturan '.$pengaturan->name.' berhasil diubah.');
+    }
+    
+    public function updatePesan(Request $request, Pengaturan $pengaturan)
     {
         Pengaturan::where('id', $pengaturan->id)->update([
             'value' => !$pengaturan->value

@@ -21,6 +21,7 @@
     ================================================== -->
     <section id="contact-info">
         <div class="container mb-5" id="container-section">
+            @if ($pesan_setting)
             <form action="/kritik-dan-saran" method="post">
                 @csrf
                 <div class="row justify-content-center">
@@ -36,6 +37,15 @@
                     </div>
                 </div>
             </form>
+            @else
+            <div class="alert alert-success alert-dismissible fade show mb-0" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">×</span>
+                </button>
+                <i class="far fa-dizzy mx-2"></i>
+                Mohon maaf, untuk saat ini UKM LUMUT tidak membuka kritik dan saran.
+            </div>
+            @endif
             {{-- <button class="btn btn-white" onclick="genPDF()">Save PDF</button> --}}
         </div>
     </section>

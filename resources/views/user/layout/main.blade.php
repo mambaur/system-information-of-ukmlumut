@@ -25,6 +25,8 @@
   <link rel="stylesheet" href="/assets/user/plugins/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="plugins/slick-carousel/slick/slick-theme.css">
 
+  <link rel="icon" type="image/png" href="{{url('/')}}/assets/admin/images/lumut.png"/>
+
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="/assets/user/css/style.css">
 
