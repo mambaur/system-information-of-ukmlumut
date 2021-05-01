@@ -129,7 +129,6 @@
                         </a>
                     </li>
                 </ul>
-                </ul>
 
                 {{-- <ul class="ml-lg-auto list-unstyled m-0 nav-btn d-flex align-items-center">
                     <li>

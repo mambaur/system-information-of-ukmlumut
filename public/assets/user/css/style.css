@@ -1474,6 +1474,12 @@ CONTACT PAGE
     line-height: 62px;
     font-size: 30px;
   }
+  
+  .navbar-nav{
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+
   .main-nav .navbar-brand h4 {
     color: #fff;
   }
@@ -1669,6 +1675,12 @@ CONTACT PAGE
   .main-navigation {
     margin-top: 40px;
   }
+  .navbar-brand{
+    margin-left: 15px;
+  }
+  .navbar-toggler{
+    margin-right: 15px;
+  }
   a.navbar-brand h4 {
     color: #fff;
   }
@@ -1815,6 +1827,12 @@ CONTACT PAGE
 @media (max-width: 480px) {
   .bg-light {
     background: transparent !important;
+  }
+  .navbar-brand{
+    margin-left: 15px;
+  }
+  .navbar-toggler{
+    margin-right: 15px;
   }
   .main-navigation {
     margin-top: 40px;

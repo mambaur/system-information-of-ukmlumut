@@ -137,19 +137,19 @@ class PeminjamanController extends Controller
         //
     }
 
-    public function cetak()
+    public function cetak(Request $request)
     {
-        $data = [];
-        $pdf = PDF::loadView('user.peminjaman.cetak', $data);
+        $peminjaman = Peminjaman::where('kode_pinjam', $request->id)->first();
+        $pdf = PDF::loadView('user.peminjaman.cetak', compact('peminjaman'));
         $options = [
             'dpi' => 96, 
             'defaultFont' => 'Nunito',
-            // 'isRemoteEnabled' => true
+            'isRemoteEnabled' => true
         ];
 
         $pdf->setOptions($options);
         // $pdf->setPaper('a4', 'landscape');
-        return $pdf->stream('Download');
+        return $pdf->stream('Bukti peminjaman alat_'.$peminjaman->nama_peminjam.'_'.$request->id);
 
         // return view('user.peminjaman.cetak');
     }

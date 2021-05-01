@@ -14,5 +14,6 @@
         }
     @endphp
     {{session('status')}}
-    <a class="d-block mt-3" target="_blank" href="/user/cetak?bukti={{session('id')}}"><button class="p-2 btn btn-white"><i class="fa fa-print"></i> {{session('cetak')}}</button></a>
+    <a class="d-block mt-3" target="_blank" href="{{$route}}"><button class="p-2 btn btn-white"><i class="fa fa-print"></i> {{session('cetak')}}</button></a>
+    <a class="d-block mt-3" href="/"><button class="p-2 btn btn-white"><i class="fa fa-home"></i> Kembali ke beranda</button></a>
 @endsection

@@ -69,122 +69,118 @@
         </div> <!-- / .container -->
     </section>
 
-    <div class="bg-grey pb-5 pt-3">
-        <div class="container py-3 bg-white" style="border-radius:25px;box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144)">
-            <section id="service" class="p-3">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-4">
-                            <div class="service-img">
-                                <img src="/assets/user/images/{{@$component->widget_one_image}}" alt="" class="img-fluid">
-                            </div>
-                        </div>
-
-                        <div class="col-lg-6 pl-4">
-                            <div class="service-content">
-                                <h1>{{@$component->widget_one_title}}</h1>
-                                <p>{{@$component->widget_one_desc}}</p>
-                            </div>
-                        </div>
+    <section id="service" class="p-3">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-4">
+                    <div class="service-img">
+                        <img src="/assets/user/images/{{@$component->widget_one_image}}" alt="" class="img-fluid">
                     </div>
                 </div>
-            </section>
 
-            <section class="pt-5 service-wrap">
-                <div class="container">
-                    <div class="row ">
-                        <div class="col-lg-8 offset-lg-4">
-                            <div class="carousel slide " id="service-carousel" data-ride="carousel">
-                                <div class="carousel-inner">
-                                    <div class="carousel-item active">
-                                        <div class="col-lg-12">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="service-block media">
-                                                        <div class="service-icon">
-                                                            <i class="ti-world"></i>
-                                                        </div>
-                                                        <div class="service-inner-content media-body">
-                                                            <h4>Diklat</h4>
-                                                            <p>{{@$component->widget_one_oprec_desc}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="service-block media">
-                                                        <div class="service-icon">
-                                                            <i class="ti-world"></i>
-                                                        </div>
-                                                        <div class="service-inner-content media-body">
-                                                            <h4>Aplikasi</h4>
-                                                            <p>{{@$component->widget_one_aplikasi_desc}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-
-                                    <div class="carousel-item">
-                                        <div class="col-lg-12">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="service-block media">
-                                                        <div class="service-icon">
-                                                            <i class="ti-world"></i>
-                                                        </div>
-                                                        <div class="service-inner-content media-body">
-                                                            <h4>Dies Natalis</h4>
-                                                            <p>{{@$component->widget_one_diesnat_desc}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-lg-6">
-                                                    <div class="service-block media">
-                                                        <div class="service-icon">
-                                                            <i class="ti-world"></i>
-                                                        </div>
-                                                        <div class="service-inner-content media-body">
-                                                            <h4>Depresi</h4>
-                                                            <p>{{@$component->widget_one_depresi_desc}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    
-                                    <div class="carousel-item">
-                                        <div class="col-lg-12">
-                                            <div class="row">
-                                                <div class="col-lg-6">
-                                                    <div class="service-block media">
-                                                        <div class="service-icon">
-                                                            <i class="ti-world"></i>
-                                                        </div>
-                                                        <div class="service-inner-content media-body">
-                                                            <h4>RAT</h4>
-                                                            <p>{{@$component->widget_one_rat_desc}}</p>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="row">
-                                <div class="col-lg-12">
-                                    {{-- <p class="pl-3">Want to know more about this? <a href="#">Contact us</a></p> --}}
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-6 pl-4">
+                    <div class="service-content">
+                        <h1>{{@$component->widget_one_title}}</h1>
+                        <p>{{@$component->widget_one_desc}}</p>
                     </div>
                 </div>
-            </section>
+            </div>
         </div>
-    </div>
+    </section>
+
+    <section class="pt-5 service-wrap">
+        <div class="container">
+            <div class="row ">
+                <div class="col-lg-8 offset-lg-4">
+                    <div class="carousel slide " id="service-carousel" data-ride="carousel">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="service-block media">
+                                                <div class="service-icon">
+                                                    <i class="ti-world"></i>
+                                                </div>
+                                                <div class="service-inner-content media-body">
+                                                    <h4>Diklat</h4>
+                                                    <p>{{@$component->widget_one_oprec_desc}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="service-block media">
+                                                <div class="service-icon">
+                                                    <i class="ti-world"></i>
+                                                </div>
+                                                <div class="service-inner-content media-body">
+                                                    <h4>Aplikasi</h4>
+                                                    <p>{{@$component->widget_one_aplikasi_desc}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="carousel-item">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="service-block media">
+                                                <div class="service-icon">
+                                                    <i class="ti-world"></i>
+                                                </div>
+                                                <div class="service-inner-content media-body">
+                                                    <h4>Dies Natalis</h4>
+                                                    <p>{{@$component->widget_one_diesnat_desc}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-6">
+                                            <div class="service-block media">
+                                                <div class="service-icon">
+                                                    <i class="ti-world"></i>
+                                                </div>
+                                                <div class="service-inner-content media-body">
+                                                    <h4>Depresi</h4>
+                                                    <p>{{@$component->widget_one_depresi_desc}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="carousel-item">
+                                <div class="col-lg-12">
+                                    <div class="row">
+                                        <div class="col-lg-6">
+                                            <div class="service-block media">
+                                                <div class="service-icon">
+                                                    <i class="ti-world"></i>
+                                                </div>
+                                                <div class="service-inner-content media-body">
+                                                    <h4>RAT</h4>
+                                                    <p>{{@$component->widget_one_rat_desc}}</p>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-lg-12">
+                            {{-- <p class="pl-3">Want to know more about this? <a href="#">Contact us</a></p> --}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
     <section class="section" id="process">
         <div class="container">

@@ -3,63 +3,132 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cetak data Alumni</title>
-    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <title>Cetak Bukti Peminjaman</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-    <link rel="stylesheet" id="main-stylesheet" data-version="1.1.0" href="{{ asset('assets/admin/styles/shards-dashboards.1.1.0.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/admin/styles/extras.1.1.0.min.css') }}">
-    <script async defer src="https://buttons.github.io/buttons.js"></script>
+    <style type="text/css">
+      body{
+        color: rgba(0, 0, 0, 0.836)
+      }
+      .container{
+        min-width: 720px;
+        margin: 0 auto;
+      }
+      .card{
+        /* box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.479); */
+        border-radius: 10px;
+        padding-top: 3px;
+        padding-bottom: 3px;
+        padding-left: 15px;
+        padding-right: 15px;
+        background-color: rgba(0, 0, 0, 0.075);
+      }
+      .m-1{
+        margin:10px;
+      }
+      .p-1{
+        padding: 10px;
+      }
+      .mb-1{
+        margin-bottom: 10px;
+      }
+      .h1{
+        font-size: 18px;
+        font-style: bold;
+      }
+
+      #customers {
+        font-family: Arial, Helvetica, sans-serif;
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      #customers td, #customers th {
+        border: 1px solid #ddd;
+        padding: 8px;
+      }
+
+      /* #customers tr:nth-child(even){background-color: #f2f2f2;} */
+
+      #customers tr:hover {background-color: #ddd;}
+
+      #customers th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4CAF50;
+        color: white;
+      }
+      .float-right{
+        float: right;
+      }
+      .text-success{
+        color:green;
+      }
+    </style>
   </head>
-  <body class="h-100 bg-light">
-
-
-    <div class="container my-5 bg-light">
-        <div class="cetak mx-5 px-4 py-5 bg-light" id="cetak-pdf">
-            <div class="font-weight-bold mb-5">
-                <h3 class="text-dark">CALON ANGOTA</h3>
-                <h5 class="text-dark">UKM LUMUT - POLITEKNIK NEGERI  {{date('Y')}}</h5>
-            </div>
-            <table class="table text-dark">
-                <thead>
-                  <tr>
-                    <th scope="col">No</th>
-                    <th scope="col">Nama Calon Anggota</th>
-                    <th scope="col">Email</th>
-                    <th scope="col">Bidang</th>
-                    <th scope="col">Asal</th>
-                  </tr>
-                </thead>
-                <tbody>
-                    {{-- @foreach ($anggota as $item)
-                        <tr>
-                            <th scope="row" style="width:5%">{{$loop->iteration}}</th>
-                            <td>{{$item->nama_anggota}}</td>
-                            <td style="width:15%">{{$item->email}}</td>
-                            <td style="width:15%">{{$item->bidang}}</td>
-                            <td style="width:15%">{{$item->kota}}</td>
-                        </tr>
-                    @endforeach --}}
-                </tbody>
-            </table>
+  <body>
+    <div class="container">
+      <div class="mb-1 p-1">
+        <div class="float-right">{{@$peminjaman->created_at}}</div>
+        <div>
+          <img style="width:50px" src="https://ukmlumut.com/assets/admin/images/lumut.png" alt="">
+          <div class="" style="display: inline-block; margin-left:10px">
+            <div class="h1 text-success">Bukti Peminjaman</div>
+            <div class="h1">Perlengkapan UKM LUMUT</div>
+          </div>
         </div>
-        
+        <hr>
+        <div>
+          <b>Kode pinjam</b> : {{@$peminjaman->kode_pinjam}}
+        </div>
+        <div>
+          <b>Tanggal pinjam</b> : {{@$peminjaman->tanggal_pinjam}}
+        </div>
+      </div>
+
+      <div class="" style="margin:10px;">
+        <table id="customers">
+          {{-- <tr>
+            <th>Company</th>
+            <th>Contact</th>
+            <th>Country</th>
+          </tr> --}}
+          <tr>
+            <td style="width: 30%">Nama Peminjam</td>
+            <td>{{@$peminjaman->nama_peminjam}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Email</td>
+            <td>{{@$peminjaman->email}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Instansi</td>
+            <td>{{@$peminjaman->instansi}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Acara</td>
+            <td>{{@$peminjaman->acara}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Tanggal pinjam</td>
+            <td>{{@$peminjaman->tanggal_pinjam}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Tanggal kembali</td>
+            <td>{{@$peminjaman->tanggal_kembali}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Keterangan</td>
+            <td>{{@$peminjaman->tanggal_keterangan}}</td>
+          </tr>
+        </table>
+      </div>
+
+      <div>
+        <div class="" style="float: right; margin-top:50px; border-bottom:2px solid black;padding-bottom:80px;">
+          {{date('l, d-m-Y')}}
+        </div>
+      </div>
     </div>
-
-    <script>
-
-    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
-    <script src="https://unpkg.com/shards-ui@latest/dist/js/shards.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/Sharrre/2.0.1/jquery.sharrre.min.js"></script>
-    <script src="{{asset('assets/admin/scripts/extras.1.1.0.min.js')}}"></script>
-    <script src="{{asset('assets/admin/scripts/shards-dashboards.1.1.0.min.js')}}"></script>
-    <script src="{{asset('assets/admin/scripts/app/app-blog-overview.1.1.0.js')}}"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
   </body>
 </html>
