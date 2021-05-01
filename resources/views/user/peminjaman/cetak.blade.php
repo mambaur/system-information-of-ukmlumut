@@ -49,16 +49,6 @@
     </div>
 
     <script>
-    printDiv();
-
-    function printDiv(){
-        var printContents = document.getElementById('cetak').innerHTML;
-        var originalContents = document.body.innerHTML;
-        document.body.innerHTML = printContents;
-        window.print();
-        document.body.innerHTML = originalContents;
-    }
-    </script>
 
     <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
@@ -71,23 +61,5 @@
     <script src="{{asset('assets/admin/scripts/app/app-blog-overview.1.1.0.js')}}"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.5.3/jspdf.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/0.4.1/html2canvas.js"></script>
-
-
-    <script>
-        let doc = new jsPDF('p','pt','a4');
-        doc.addHTML($('#cetak-pdf')[0],function() {
-            doc.save('Bukti peminjaman perlengkapan UKM LUMUT.pdf');
-        });
-
-        // html2canvas($('#cetak-pdf')[0],{
-        //     onrendered:function(canvas){
-
-        //     var img=canvas.toDataURL("image/png");
-        //     var doc = new jsPDF('p','pt','a4');
-        //     doc.addImage(img,'JPEG', 0,0);
-        //     doc.save('test.pdf');
-        //     }
-        // });
-    </script>
   </body>
 </html>

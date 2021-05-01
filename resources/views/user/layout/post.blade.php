@@ -44,10 +44,10 @@
 
     <!-- NAVBAR
     ================================================= -->
-    <nav class="navbar navbar-expand-lg navbar-dark trans-navigation fixed-top navbar-togglable">
+    <nav class="navbar navbar-expand-lg navbar-dark trans-navigation fixed-top navbar-togglable p-0">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img style="width:35px;height:35px" src="/assets/admin/images/lumut.png" alt="">
+                <img style="width:35px;height:35px;margin-top:-3px" src="/assets/admin/images/lumut.png" alt="">
                 <h3 class="d-inline-block ml-1 align-self-center">LUMUT</h3>
             </a>
             <!-- Toggler -->
@@ -58,36 +58,36 @@
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <!-- Links -->
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item pt-2">
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    <li class="nav-item">
                         <a href="/" class="nav-link js-scroll-trigger">
                             Beranda
                         </a>
                     </li>
-                    <li class="nav-item pt-2">
+                    <li class="nav-item">
                         <a href="/bidang/lukis" class="nav-link js-scroll-trigger">
                             Lukis
                         </a>
                     </li>
-                    <li class="nav-item pt-2">
+                    <li class="nav-item">
                         <a href="/bidang/musik" class="nav-link js-scroll-trigger">
                             Musik
                         </a>
                     </li>
 
-                    <li class="nav-item pt-2">
+                    <li class="nav-item">
                         <a href="/bidang/tari" class="nav-link js-scroll-trigger">
                             Tari
                         </a>
                     </li>
 
-                    <li class="nav-item pt-2">
+                    <li class="nav-item">
                         <a href="/kontak" class="nav-link">
                             Kontak
                         </a>
                     </li>
 
-                    <li class="nav-item pt-2 dropdown">
+                    <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                             Lainnya
                         </a>
@@ -101,9 +101,9 @@
                         </div>
                     </li>
 
-                    <li class="nav-item ">
-                        <a href="/kontak" class="nav-link">
-                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-5 py-3">Daftar</a></li>
+                    <li class="nav-item">
+                        <a href="/pendaftaran-anggota" class="nav-link">
+                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-3 py-2"><i class="fas fa-user-alt mr-2"></i>Daftar</a></li>
                         </a>
                     </li>
                 </ul>
@@ -143,6 +143,12 @@
                         UKM LUMUT
                     </a>
                     <p>UKM LUMUT adalah organsisasi kesenian yang bergerak di bidang Lukis, Musik, dan Tari yang berada dibawah naungan <a href="https://www.polije.ac.id/" target="_blank">Politeknik Negeri Jember</a></p>
+                    
+                    <div class="row px-3">
+                        <a href="https://www.polije.ac.id/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="https://akupintar.id/documents/20143/0/PN+JEMBER.png" alt=""></a>
+                        <a href="/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/admin/images/lumut.png" alt=""></a>
+                        <a href="{{url('/')}}/bidang/lukis"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/user/images/merch.png" alt=""></a>
+                    </div>
                 </div>
             </div>
 

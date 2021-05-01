@@ -347,7 +347,8 @@ a:hover, a:focus {
 ---------------------------*/
 .header-white {
   background: #21c87a;
-  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.08);
+  background-image: linear-gradient(to right, #40969B, #22AF6E);
+  box-shadow: 0 7px 22px rgba(0, 0, 0, 0.178);
   border-radius: 0px;
 }
 

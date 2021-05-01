@@ -8,6 +8,7 @@ use App\Perlengkapan;
 use App\Peminjaman;
 use App\Detail_peminjaman;
 use App\Pengaturan;
+use PDF;
 
 class PeminjamanController extends Controller
 {
@@ -84,7 +85,11 @@ class PeminjamanController extends Controller
             'dikembalikan' => ''
         ]);
 
-        return redirect('/success')->with('status', 'Permintaan peminjaman berhasil dikirim. Mohon tunggu tim perlengkapan mengkonfirmasi permintaan anda.')->with('id', $kode_pinjam)->with('cetak', 'Cetak bukti peminjaman');
+        return redirect('/success')
+            ->with('status', 'Permintaan peminjaman berhasil dikirim. Mohon tunggu tim perlengkapan mengkonfirmasi permintaan anda.')
+            ->with('id', $kode_pinjam)
+            ->with('type', 'peminjaman')
+            ->with('cetak', 'Cetak bukti peminjaman');
     }
 
     /**
@@ -134,7 +139,19 @@ class PeminjamanController extends Controller
 
     public function cetak()
     {
-        return view('user.peminjaman.cetak');
+        $data = [];
+        $pdf = PDF::loadView('user.peminjaman.cetak', $data);
+        $options = [
+            'dpi' => 96, 
+            'defaultFont' => 'Nunito',
+            // 'isRemoteEnabled' => true
+        ];
+
+        $pdf->setOptions($options);
+        // $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('Download');
+
+        // return view('user.peminjaman.cetak');
     }
 
     public function ketentuanPeminjaman()

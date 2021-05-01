@@ -9,8 +9,16 @@ class TestingController extends Controller
 {
     public function index(Request $request)
     {
-        $pdf = \App::make('dompdf.wrapper');
-        $pdf->loadHTML('<h1>Test</h1>');
-        return $pdf->stream();
+        $data = [];
+        $pdf = PDF::loadView('test', $data);
+        $options = [
+            'dpi' => 96, 
+            'defaultFont' => 'Nunito',
+            'isRemoteEnabled' => true
+        ];
+
+        $pdf->setOptions($options);
+        // $pdf->setPaper('a4', 'landscape');
+        return $pdf->stream('Download');
     }
 }

@@ -88,7 +88,11 @@ class PendaftaranController extends Controller
             'sertifikat' => $request->sertifikat
         ]);
 
-        return redirect('/success')->with('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar, SALAM BUDAYA!')->with('id', $request->email)->with('cetak', 'Cetak bukti pendaftaran');
+        return redirect('/success')
+            ->with('status', 'Pendaftaran berhasil, tunggu informasi selanjutnya dari UKM LUMUT. Pastikan nomor yang kamu masukkan sudah benar, SALAM BUDAYA!')
+            ->with('id', $request->email)
+            ->with('cetak', 'Cetak bukti pendaftaran')
+            ->with('type', 'pendaftaran');
     }
 
     /**

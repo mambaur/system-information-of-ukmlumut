@@ -46,11 +46,11 @@
      <!-- NAVBAR
     ================================================= -->
         
-    <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navigation main-nav navbar-togglable">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top site-navigation main-nav navbar-togglable p-0">
         <div class="container">
             <a class="navbar-brand" href="/">
-                <img style="width:35px;height:35px" src="/assets/admin/images/lumut.png" alt="">
-                <h3 class="d-inline-block ml-1 align-self-center">LUMUT</h3>
+                <img style="width:35px;height:35px;margin-top:-3px" src="/assets/admin/images/lumut.png" alt="">
+                <h3 class="d-inline-block ml-2 align-self-center">LUMUT</h3>
             </a>
             <!-- Toggler -->
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -60,73 +60,82 @@
             <!-- Collapse -->
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <!-- Links -->
-                <ul class="navbar-nav ml-auto">
-                        {{-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Home
+                <ul class="navbar-nav ml-auto d-flex align-items-center">
+                    {{-- <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Home
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                                <a class="dropdown-item " href="index.html">
+                                Home-1
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                 <a class="dropdown-item " href="index.html">
-                                    Home-1
-                                </a>
-                                <a class="dropdown-item " href="index-2.html">
-                                    Home-2
-                                </a> 
-                                <a class="dropdown-item " href="index-3.html">
-                                    Home-3
-                                </a>
-                                <a class="dropdown-item " href="index-4.html">
-                                    Home-4
-                                </a>
-                            </div>
-                        </li> --}}
-                        <li class="nav-item pt-1">
-                            <a href="/" class="nav-link js-scroll-trigger">
-                                Beranda
+                            <a class="dropdown-item " href="index-2.html">
+                                Home-2
+                            </a> 
+                            <a class="dropdown-item " href="index-3.html">
+                                Home-3
                             </a>
-                        </li>
-                        <li class="nav-item pt-1">
-                            <a href="/bidang/lukis" class="nav-link js-scroll-trigger">
-                                Lukis
+                            <a class="dropdown-item " href="index-4.html">
+                                Home-4
                             </a>
-                        </li>
+                        </div>
+                    </li> --}}
+                    <li class="nav-item">
+                        <a href="/" class="nav-link js-scroll-trigger">
+                            Beranda
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/bidang/lukis" class="nav-link js-scroll-trigger">
+                            Lukis
+                        </a>
+                    </li>
 
-                        <li class="nav-item pt-1">
-                            <a href="/bidang/musik" class="nav-link js-scroll-trigger">
-                                Musik
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="/bidang/musik" class="nav-link js-scroll-trigger">
+                            Musik
+                        </a>
+                    </li>
 
-                        <li class="nav-item pt-1">
-                            <a href="/bidang/tari" class="nav-link js-scroll-trigger">
-                                Tari
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="/bidang/tari" class="nav-link js-scroll-trigger">
+                            Tari
+                        </a>
+                    </li>
 
-                        <li class="nav-item pt-1">
-                            <a href="/kontak" class="nav-link">
-                                Kontak
-                            </a>
-                        </li>
+                    <li class="nav-item">
+                        <a href="/kontak" class="nav-link">
+                            Kontak
+                        </a>
+                    </li>
 
-                        <li class="nav-item dropdown pt-1">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                Lainnya
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarWelcome" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Lainnya
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarWelcome">
+                                <a class="dropdown-item " href="/peminjaman-alat">
+                                Peminjaman Alat
                             </a>
-                            <div class="dropdown-menu" aria-labelledby="navbarWelcome">
-                                 <a class="dropdown-item " href="/peminjaman-alat">
-                                    Peminjaman Alat
-                                </a>
-                                <a class="dropdown-item " href="/kritik-dan-saran">
-                                    Kritik & saran
-                                </a> 
-                            </div>
-                        </li>
-                    </ul>
+                            <a class="dropdown-item " href="/kritik-dan-saran">
+                                Kritik & saran
+                            </a> 
+                        </div>
+                    </li>
 
-                <ul class="ml-lg-auto list-unstyled m-0 nav-btn">
-                    <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled px-5 py-3">Daftar</a></li>
+                    <li class="nav-item">
+                        <a href="/pendaftaran-anggota" class="nav-link">
+                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-3 py-2"><i class="fas fa-user-alt mr-2"></i>Daftar</a></li>
+                        </a>
+                    </li>
                 </ul>
+                </ul>
+
+                {{-- <ul class="ml-lg-auto list-unstyled m-0 nav-btn d-flex align-items-center">
+                    <li>
+                        <a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled px-3 py-2">Daftar</a>
+                    </li>
+                </ul> --}}
             </div> <!-- / .navbar-collapse -->
         </div> <!-- / .Container -->
     </nav>
@@ -145,6 +154,11 @@
                             UKM LUMUT
                         </a>
                         <p>UKM LUMUT adalah organsisasi kesenian yang bergerak di bidang Lukis, Musik, dan Tari yang berada dibawah naungan <a href="https://www.polije.ac.id/" target="_blank">Politeknik Negeri Jember</a></p>
+                        <div class="row px-3">
+                            <a href="https://www.polije.ac.id/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="https://akupintar.id/documents/20143/0/PN+JEMBER.png" alt=""></a>
+                            <a href="/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/admin/images/lumut.png" alt=""></a>
+                            <a href="{{url('/')}}/bidang/lukis"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/user/images/merch.png" alt=""></a>
+                        </div>
                     </div>
                 </div>
 
@@ -215,7 +229,7 @@
                 <div class="col-lg-12">
                     <!-- Copyright -->
                     <p class="footer-copy ">
-                        &copy; Copyright <span class="current-year">UKM LUMUT</span> All rights reserved.
+                        &copy; Copyright <a href="/" class="current-year">UKM LUMUT {{date('Y')}}</a> All rights reserved.
                     </p>
                 </div>
             </div> <!-- / .row -->
