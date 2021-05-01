@@ -16,6 +16,9 @@ Route::get('/admin/auth/login', 'admin\AuthController@index')->middleware('guest
 Route::post('/admin/auth/login', 'admin\AuthController@postLogin')->middleware('guest');
 Route::get('/admin/logout', 'admin\AuthController@logout')->middleware('auth');
 
+// Test
+Route::get('/master/test', 'TestingController@index');
+
 // Authenticate user
 Route::group(['middleware' => 'auth'], function () {
 

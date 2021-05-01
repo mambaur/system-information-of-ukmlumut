@@ -36,32 +36,32 @@
 <section class="section bg-grey" id="feature">
         <div class="container">
             <div class="row justy-content-center">
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center bg-transparent card mr-2 p-2">
+                <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                    <div class="text-center bg-transparent card mr-2 p-2" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144)">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-palette mt-3"></i>
+                            <i style="font-size:70px" class="fas fa-palette text-success mt-3"></i>
                         </div>
-                        <h2 class="mb-2 text-secondary">Lukis</h2>
+                        <h2 class="mb-2">Lukis</h2>
                         <p>Realisme, Mural, Scribbe,<br/>Grafiti, Kartun.</p>
                     </div>
                 </div>
 
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center bg-transparent card mr-2 p-2">
+                <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                    <div class="text-center bg-transparent card mr-2 p-2" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144)">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-guitar mt-3"></i>
+                            <i style="font-size:70px" class="fas fa-guitar text-warning mt-3"></i>
                         </div>
-                        <h2 class="mb-2 text-secondary">Musik</h2>
+                        <h2 class="mb-2">Musik</h2>
                         <p>Jazz, Pop, Blues, Raggae,<br/>Hip Hop, Klasik.</p>
                     </div>
                 </div>
                 
-                <div class="col-lg-4 col-sm-6 col-md-6">
-                    <div class="text-center bg-transparent card mr-2 p-2">
+                <div class="col-lg-4 col-sm-6 col-md-6 mb-3">
+                    <div class="text-center bg-transparent card mr-2 p-2" style="box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.144)">
                         <div class="mb-4">
-                            <i style="font-size:70px" class="fas fa-users mt-3"></i>
+                            <i style="font-size:70px" class="fas fa-users text-info mt-3"></i>
                         </div>
-                        <h2 class="mb-2 text-secondary">Tari</h2>
+                        <h2 class="mb-2">Tari</h2>
                         <p>Tradisional, Modern,<br/>Kontemporer.</p>
                     </div>
                 </div>
