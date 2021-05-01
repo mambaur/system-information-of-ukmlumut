@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\User;
 use App\Artikel;
+use App\Component;
 
 class HomeController extends Controller
 {
@@ -16,11 +17,13 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $user = User::orderBy('id', 'ASC')->get();
+        $user = User::whereNotIn('jabatan', ['Superadmin'])->orderBy('id', 'ASC')->get();
         $artikel = Artikel::orderBy('id', 'DESC')->paginate(3);
+        $component = Component::first();
         return view('user.home.index', [
             'user' => $user,
-            'artikel' => $artikel
+            'artikel' => $artikel,
+            'component' => $component
         ]);
     }
 

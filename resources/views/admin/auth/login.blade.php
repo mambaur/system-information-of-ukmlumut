@@ -9,6 +9,8 @@
     <link rel="stylesheet" type="text/css" href="https://brandio.io/envato/iofrm/html/css/fontawesome-all.min.css">
     <link rel="stylesheet" type="text/css" href="https://brandio.io/envato/iofrm/html/css/iofrm-style.css">
     <link rel="stylesheet" type="text/css" href="https://brandio.io/envato/iofrm/html/css/iofrm-theme4.css">
+    
+    <link rel="icon" type="image/png" href="{{url('/')}}/assets/admin/images/lumut-admin.png"/>
 </head>
 <body>
     @if (session('status'))

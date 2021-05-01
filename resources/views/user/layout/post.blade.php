@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="UKM LUMUT adalah organisasi kesenian yang bergerak dibidang Lukis, Musik, dan Tari dibawah naungan Politeknik Negeri Jember.">
   <meta name="keywords" content="ukm, organisasi, ukmlumut, ukm lumut, lumut, ukm seni, politeknik negeri jember, lukis, musik, tari, event, acara.">
+  <meta name="google-site-verification" content="fWUq8TfBu4b-lxnE8T8U_93VBnTbG8lp9f-wkr-_PAI" />
   
   <meta name="author" content="UKM LUMUT">
 
@@ -24,6 +25,8 @@
   <!-- Slick Carousel CSS -->
   <link rel="stylesheet" href="/assets/user/plugins/slick-carousel/slick/slick.css">
   <link rel="stylesheet" href="/assets/user/plugins/slick-carousel/slick/slick-theme.css">
+
+  <link rel="icon" type="image/png" href="{{url('/')}}/assets/admin/images/lumut.png"/>
 
   <!-- Main Stylesheet -->
   <link rel="stylesheet" href="/assets/user/css/style.css">

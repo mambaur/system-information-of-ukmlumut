@@ -7,6 +7,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="UKM LUMUT adalah organisasi kesenian yang bergerak dibidang Lukis, Musik, dan Tari dibawah naungan Politeknik Negeri Jember.">
   <meta name="keywords" content="ukm, organisasi, ukmlumut, ukm lumut, lumut, ukm seni, politeknik negeri jember, lukis, musik, tari, event, acara.">
+  <meta name="google-site-verification" content="fWUq8TfBu4b-lxnE8T8U_93VBnTbG8lp9f-wkr-_PAI" />
   
   <meta name="author" content="UKM LUMUT">
 
@@ -224,7 +225,7 @@
 
     <!--  Page Scroll to Top  -->
 
-    <a class="scroll-to-top js-scroll-trigger" href="#top-header">
+    <a class="scroll-to-top js-scroll-trigger" id="scroll-top" href="#top-header">
         <i class="fa fa-angle-up"></i>
     </a>
 

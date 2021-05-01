@@ -4,7 +4,8 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>@yield('title')</title>
-    <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
+    <meta name="description" content="UKM LUMUT adalah organisasi kesenian yang bergerak di bidang lukis, musik, dan tari dan berada dibawah naungan Politeknik Negeri Jember">
+
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
@@ -102,6 +103,12 @@
                 <a class="nav-link {{$menu === 'info-organisasi' ? 'active' : ''}}" href="{{url('admin/info-organisasi')}}">
                   <i class="material-icons">info</i>
                   <span>Info Organisasi</span>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link {{$menu === 'component' ? 'active' : ''}}" href="{{url('admin/component')}}">
+                  <i class="material-icons">extension</i>
+                  <span>Component</span>
                 </a>
               </li>
               @if (\Auth::user()->role === 'Master')

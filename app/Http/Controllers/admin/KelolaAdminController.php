@@ -17,7 +17,7 @@ class KelolaAdminController extends Controller
      */
     public function index()
     {
-        $user = User::paginate(10);
+        $user = User::whereNotIn('jabatan', ['Superadmin'])->paginate(10);
         return view('admin.akun.master.index', compact('user'));
     }
 

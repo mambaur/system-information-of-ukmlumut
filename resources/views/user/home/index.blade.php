@@ -12,12 +12,12 @@
                 <div class="banner-content2 text-center style-2">
                         <!-- Heading -->
                         <h1 class="display-4 mb-4 ">
-                            Organisasi Kesenian Lukis Musik Tari
+                            {{@$component->jumbotron_title}}
                         </h1>
 
                         <!-- Subheading -->
                         <p class="lead mb-5 pr-0">
-                            UKM LUMUT merupakan organisasi yang bergerak dibidang kesenian yang berada dibawah naungan Politeknik Negeri Jember.
+                            {{@$component->jumbotron_desc}}
                         </p>
 
                         <!-- Button -->
@@ -75,14 +75,14 @@
             <div class="row ">
                 <div class="col-lg-4">
                     <div class="service-img">
-                        <img src="/assets/user/images/blog-lg.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/{{@$component->widget_one_image}}" alt="" class="img-fluid">
                     </div>
                 </div>
 
                 <div class="col-lg-6 pl-4">
                     <div class="service-content">
-                        <h1>Selamat Datang di Website Resmi UKM LUMUT</h1>
-                        <p>UKM LUMUT memiliki 5 (lima) Program kerja wajib antara lain Diklat (Pendidikan dan Latihan), Aplikasi, Dies Natalis, Depresi (Demo Apresiasi Seni), dan RAT (Rapat Anggota Tahunan).</p>
+                        <h1>{{@$component->widget_one_title}}</h1>
+                        <p>{{@$component->widget_one_desc}}</p>
                     </div>
                 </div>
             </div>
@@ -105,7 +105,7 @@
                                                 </div>
                                                 <div class="service-inner-content media-body">
                                                     <h4>Diklat</h4>
-                                                    <p>Pendidikan dan pelatihan untuk calon anggota baru UKM LUMUT.</p>
+                                                    <p>{{@$component->widget_one_oprec_desc}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -116,7 +116,7 @@
                                                 </div>
                                                 <div class="service-inner-content media-body">
                                                     <h4>Aplikasi</h4>
-                                                    <p>Penampilan lukis, musik, dan tari anggota baru UKM LUMUT.</p>
+                                                    <p>{{@$component->widget_one_aplikasi_desc}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -134,7 +134,7 @@
                                                 </div>
                                                 <div class="service-inner-content media-body">
                                                     <h4>Dies Natalis</h4>
-                                                    <p>Merayakan hari lahir UKM Lumut yang jatuh pada tanggal 20 Juni 1996.</p>
+                                                    <p>{{@$component->widget_one_diesnat_desc}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -145,7 +145,7 @@
                                                 </div>
                                                 <div class="service-inner-content media-body">
                                                     <h4>Depresi</h4>
-                                                    <p>Depresi merupakan Demo Apresiasi Seni, acara besar penampilan lukis, musik, dan tari UKM LUMUT.</p>
+                                                    <p>{{@$component->widget_one_depresi_desc}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -163,7 +163,7 @@
                                                 </div>
                                                 <div class="service-inner-content media-body">
                                                     <h4>RAT</h4>
-                                                    <p>Rapat Anggota Tahunan.</p>
+                                                    <p>{{@$component->widget_one_rat_desc}}</p>
                                                 </div>
                                             </div>
                                         </div>
@@ -204,26 +204,26 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-sm-6 col-md-6">
                     <div class="process-block">
-                        <img src="/assets/user/images/pkkmb.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/{{@$component->widget_two_list_1_image}}" alt="" class="img-fluid">
 
-                        <h3>PKKMB Polije</h3>
-                        <p>Mengisi acara Demo UKM di PKKMB Politeknik Negeri Jember.</p>
+                        <h3>{{@$component->widget_two_list_1_title}}</h3>
+                        <p>{{@$component->widget_two_list_1_desc}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6">
                     <div class="process-block">
-                        <img src="/assets/user/images/tmii.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/{{@$component->widget_two_list_2_image}}" alt="" class="img-fluid">
 
-                        <h3>TMII Jakarta</h3>
-                        <p>Penampilan acara kesenian di Taman Mini Indonesia Indah.</p>
+                        <h3>{{@$component->widget_two_list_2_title}}</h3>
+                        <p>{{@$component->widget_two_list_2_desc}}</p>
                     </div>
                 </div>
                 <div class="col-lg-4 col-sm-6 col-md-6">
                     <div class="process-block">
-                        <img src="/assets/user/images/depresi.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/{{@$component->widget_two_list_3_image}}" alt="" class="img-fluid">
 
-                        <h3>Depresi UKM LUMUT</h3>
-                        <p>Proses acara Demo Apresiasi Seni di Gor Perjuangan'45 Politeknik Negeri Jember.</p>
+                        <h3>{{@$component->widget_two_list_3_title}}</h3>
+                        <p>{{@$component->widget_two_list_3_desc}}</p>
                     </div>
                 </div>
             </div>
@@ -237,31 +237,31 @@
                 </ol>
                 <div class="carousel-inner">
                   <div class="carousel-item active">
-                    <img class="d-block w-100" src="/assets/user/images/slider/pkkmb.jpg" alt="First slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/{{@$component->widget_two_slider_1_image}}" alt="First slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">PKKMB UKM LUMUT 2021</h1>
-                        <h4 class="text-light">Membuat video karya seni gabungan lukis musik dan tari</h4>
+                        <h1 class="text-light">{{@$component->widget_two_slider_1_title}}</h1>
+                        <h4 class="text-light">{{@$component->widget_two_slider_1_desc}}</h4>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/assets/user/images/slider/aplikasi.jpg" alt="Second slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/{{@$component->widget_two_slider_2_image}}" alt="Second slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">APLIKASI UKM LUMUT</h1>
-                        <h4 class="text-light">Acara Aplikasi UKM LUMUT Angkatan 23</h4>
+                        <h1 class="text-light">{{@$component->widget_two_slider_2_title}}</h1>
+                        <h4 class="text-light">{{@$component->widget_two_slider_2_desc}}</h4>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/assets/user/images/slider/diesnat.jpg" alt="Third slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/{{@$component->widget_two_slider_3_image}}" alt="Third slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">Diesnatalis UKM LUMUT</h1>
-                        <h4 class="text-light">Diadakan di kafe kedai rilex Jember</h4>
+                        <h1 class="text-light">{{@$component->widget_two_slider_3_title}}</h1>
+                        <h4 class="text-light">{{@$component->widget_two_slider_3_desc}}</h4>
                     </div>
                   </div>
                   <div class="carousel-item">
-                    <img class="d-block w-100" src="/assets/user/images/slider/ngabuburit.jpg" alt="Fourth slide">
+                    <img class="d-block w-100" src="/assets/user/images/slider/{{@$component->widget_two_slider_4_image}}" alt="Fourth slide">
                     <div class="carousel-caption d-none d-md-block bg-dark">
-                        <h1 class="text-light">Ngabuburit UKM LUMUT</h1>
-                        <h4 class="text-light">Setiap bulan puasa, UKM LUMUT selalu mengadakan ngabuburit</h4>
+                        <h1 class="text-light">{{@$component->widget_two_slider_4_title}}</h1>
+                        <h4 class="text-light">{{@$component->widget_two_slider_4_desc}}</h4>
                     </div>
                   </div>
                 </div>
@@ -345,7 +345,7 @@
             </div> <!-- / .row -->
 
             <div class="row justify-content-center">
-                <iframe class="w-100" height="640" src="https://www.youtube.com/embed/QAAnBEEcXn4" frameborder="0" allowfullscreen></iframe>
+                <iframe class="w-100" height="640" src="{{@$component->youtube_url}}" frameborder="0" allowfullscreen></iframe>
             </div>
         </div>
     </section>
@@ -356,11 +356,11 @@
             <div class="row">
                 <div class="col-lg-6">
                     <div class="section-heading">
-                        <h1 class="text-white">"Seni adalah hidupku, Hidupku adalah seni"</h1>
+                        <h1 class="text-white">{{@$component->widget_three_title}}</h1>
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <p class="lead text-white">Kami adalah salah satu Organisasi Kesenian di Politeknik Negeri Jember yang bergerak dalam pengembangan kesenian lukis musik tari. Selain itu, kami juga selalu menjunjung tinggi nilai kekeluargaan dan kebersamaan.</p>
+                    <p class="lead text-white">{{@$component->widget_three_desc}}</p>
                 </div>
             </div>
         </div>
@@ -371,28 +371,28 @@
             <div class="row justify-content-center">
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
                     <div class="single-project">
-                        <img src="/assets/user/images/projects/p-1.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/projects/{{@$component->widget_three_list_1_image}}" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Lomba Lukis</h4>
-                            <p>Lomba lukis pada acara Musabaqah Tilawatil Quran</p>
+                            <h4>{{@$component->widget_three_list_1_title}}</h4>
+                            <p>{{@$component->widget_three_list_1_desc}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-6 mb-5">
                     <div class="single-project">
-                        <img src="/assets/user/images/projects/p-4.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/projects/{{@$component->widget_three_list_2_image}}" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Diesnatalis UKM LUMUT 2021</h4>
-                            <p>Tasyakuran memperingati hari lahir UKM LUMUT</p>
+                            <h4>{{@$component->widget_three_list_2_title}}</h4>
+                            <p>{{@$component->widget_three_list_2_desc}}</p>
                         </div>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-6 col-sm-8 ">
                     <div class="single-project">
-                        <img src="/assets/user/images/projects/p-3.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/projects/{{@$component->widget_three_list_3_image}}" alt="" class="img-fluid">
                         <div class="project-content">
-                            <h4>Sosialisasi</h4>
-                            <p>Sosialisasi RAT pada tahun 2020 di kafe Anglo</p>
+                            <h4>{{@$component->widget_three_list_3_title}}</h4>
+                            <p>{{@$component->widget_three_list_3_desc}}</p>
                         </div>
                     </div>
                 </div>
@@ -401,14 +401,14 @@
             <div class="row py-4">
                 <div class="col-lg-7 col-md-12 col-sm-12 ">
                     <div class="single-project">
-                        <img src="/assets/user/images/bg/banner_bg.jpg" alt="" class="img-fluid">
+                        <img src="/assets/user/images/bg/{{@$component->widget_three_main_image}}" alt="" class="img-fluid">
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 ">
                     <div class="project-content-block">
                         <h4>Jadi gimana di UKM LUMUT?</h4>
-                        <h2>Kami lebih dari sekedar Organisasi</h2>
-                        <p>Anggota UKM Lumut selalu beraktifitas dalah kesenian dan keorganisasian yang tidak lepas dari nilai-nilai kekeluargaan, kreatifitas, dan solidaritas.</p>
+                        <h2>{{@$component->widget_three_main_title}}</h2>
+                        <p>{{@$component->widget_three_main_desc}}</p>
                     </div>
                 </div>
             </div>

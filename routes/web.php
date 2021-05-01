@@ -99,6 +99,10 @@ Route::group(['middleware' => 'auth'], function () {
     Route::get('/admin/info-organisasi/cetak', 'admin\InfoOrganisasiController@cetak');
     Route::post('/admin/info-organisasi', 'admin\InfoOrganisasiController@store');
     Route::delete('/admin/info-organisasi/{info_organisasi}', 'admin\InfoOrganisasiController@destroy');
+
+    // Component
+    Route::get('/admin/component', 'admin\ComponentController@index');
+    Route::patch('/admin/component/update/{component}', 'admin\ComponentController@store');
 });
 
 
