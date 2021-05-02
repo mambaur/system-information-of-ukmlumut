@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cetak Bukti Peminjaman</title>
+    <title>Cetak Bukti Pendaftaran Calon Anggota</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <style type="text/css">
       body{
@@ -65,7 +65,8 @@
         color:green;
       }
 
-      .footer {
+      
+    .footer {
         position: fixed;
         left: 0;
         bottom: 10px;
@@ -80,24 +81,29 @@
     <div class="container">
       <div class="mb-1 p-1">
         <div class="float-right" style="color:grey; font-style:italic; font-size:12px">
-          {{Carbon\Carbon::parse(date(@$peminjaman->created_at))->translatedFormat('d F Y')}}
+            {{Carbon\Carbon::parse(date(@$pendaftaran->created_at))->translatedFormat('d F Y')}}
+            {{-- {{@$pendaftaran->created_at}} --}}
         </div>
         <div>
+          {{-- <img style="width:50px" src="https://akupintar.id/documents/20143/0/PN+JEMBER.png" alt=""> --}}
           <img style="width:50px" src="https://ukmlumut.com/assets/admin/images/lumut.png" alt="">
           <div class="" style="display: inline-block; margin-left:10px;">
-            <div class="h1 text-success" style="font-size:18px">BUKTI PEMINJAMAN PERLENGKAPAN</div>
+            <div class="h1 text-success" style="font-size:18px">BUKTI PENDAFTARAN CALON ANGGOTA {{date('Y')}}</div>
             <div class="h1" style="font-size:15px">UKM LUMUT - POLITEKNIK NEGERI JEMBER</div>
             <div style="font-size:8px; color:grey">Jl. Mastrip No.164, Krajan Timur, Sumbersari, Kec. Sumbersari, Kabupaten Jember, Jawa Timur 68121</div>
           </div>
         </div>
         <hr style="color:rgba(0, 0, 0, 0.116)">
         <div class="" style="margin-top:15px">
-          <div>
-            <b>Kode pinjam</b> : {{@$peminjaman->kode_pinjam}}
-          </div>
-          <div>
-            <b>Tanggal pinjam</b> : {{@$peminjaman->tanggal_pinjam}}
-          </div>
+            <div class="" style="display:inline-block; margin-right: 10px; margin-top:25px">
+                <img style="width:80px" src="https://ukmlumut.com/assets/admin/images/anggota/{{@$pendaftaran->foto}}" alt="">
+            </div>
+            <div class="" style="display:inline-block">
+                <div><b>Nama</b> : {{@$pendaftaran->nama_anggota}}</div>
+                <div><b>NIM</b> : {{@$pendaftaran->nim}}</div>
+                <div><b>Jurusan</b> : {{@$pendaftaran->jurusan}}</div>
+                <div><b>Program studi</b> : {{@$pendaftaran->prodi}}</div>
+            </div>
         </div>
       </div>
 
@@ -109,48 +115,56 @@
             <th>Country</th>
           </tr> --}}
           <tr>
-            <td style="width: 30%">Nama Peminjam</td>
-            <td>{{@$peminjaman->nama_peminjam}}</td>
+            <td style="width: 30%">Nama</td>
+            <td>{{@$pendaftaran->nama_anggota}}</td>
           </tr>
           <tr>
             <td style="width: 30%">Email</td>
-            <td>{{@$peminjaman->email}}</td>
+            <td>{{@$pendaftaran->email}}</td>
           </tr>
           <tr>
-            <td style="width: 30%">Instansi</td>
-            <td>{{@$peminjaman->instansi}}</td>
+            <td style="width: 30%">Alamat</td>
+            <td>{{@$pendaftaran->alamat}}</td>
           </tr>
           <tr>
-            <td style="width: 30%">Acara</td>
-            <td>{{@$peminjaman->acara}}</td>
+            <td style="width: 30%">Kota</td>
+            <td>{{@$pendaftaran->kota}}</td>
           </tr>
           <tr>
-            <td style="width: 30%">Tanggal pinjam</td>
-            <td>{{@$peminjaman->tanggal_pinjam}}</td>
+            <td style="width: 30%">Bidang</td>
+            <td>{{@$pendaftaran->bidang}} - {{@$pendaftaran->kategori_bidang}}</td>
           </tr>
           <tr>
-            <td style="width: 30%">Tanggal kembali</td>
-            <td>{{@$peminjaman->tanggal_kembali}}</td>
+            <td style="width: 30%">No Telp</td>
+            <td>{{@$pendaftaran->telp}}</td>
           </tr>
           <tr>
-            <td style="width: 30%">Keterangan</td>
-            <td>{{@$peminjaman->keterangan}}</td>
+            <td style="width: 30%">Tempat, tanggal lahir</td>
+            <td>{{@$pendaftaran->tempat_lahir}}, {{@$pendaftaran->tanggal_lahir}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Semester</td>
+            <td>{{@$pendaftaran->semester}}</td>
+          </tr>
+          <tr>
+            <td style="width: 30%">Sertifikat</td>
+            <td>{{@$pendaftaran->sertifikat}}</td>
           </tr>
         </table>
       </div>
 
       <div class=""  style="margin:10px;font-size:12px">
-        * Dengan ini saya setuju dengan <a href="https://ukmlumut.com/peminjaman-alat/ketentuan">ketentuan</a> peminjaman alat di UKM LUMUT.
+          * Dengan ini saya menyatakan bersedia menjadi calon anggota dan sanggup mematuhi segala ketentuan yang ada di UKM LUMUT.
       </div>
 
       <div>
         <div class="" style="float: right; margin-top:50px; border-bottom:2px solid black;padding-bottom:80px;">
+            
           {{Carbon\Carbon::parse(date('Y-m-d'))->translatedFormat('l, d F Y')}}
-          <div class="">Peminjam,</div>
+          <div class="">Calon Anggota,</div>
         </div>
       </div>
 
-      
       <div class="footer">
         <hr style="color:rgba(0, 0, 0, 0.116)">
         Untuk info lebih lanjut, silahkan kunjungi <a href="https://ukmlumut.com">www.ukmlumut.com</a>

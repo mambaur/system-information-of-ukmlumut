@@ -126,6 +126,7 @@ Route::post('/user/peminjaman/coba', 'user\PeminjamanController@coba');
 // Pendaftaran Calon Anggota
 Route::get('/pendaftaran-anggota', 'user\PendaftaranController@index');
 Route::post('/pendaftaran-anggota', 'user\PendaftaranController@store');
+Route::get('/pendaftaran-anggota/cetak', 'user\PendaftaranController@cetak');
 
 // Kritik dan saran
 Route::get('/kritik-dan-saran', 'user\PesanController@index');

@@ -153,7 +153,7 @@
                             UKM LUMUT
                         </a>
                         <p>UKM LUMUT adalah organsisasi kesenian yang bergerak di bidang Lukis, Musik, dan Tari yang berada dibawah naungan <a href="https://www.polije.ac.id/" target="_blank">Politeknik Negeri Jember</a></p>
-                        <div class="row px-3">
+                        <div class="row px-3 mb-4">
                             <a href="https://www.polije.ac.id/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="https://akupintar.id/documents/20143/0/PN+JEMBER.png" alt=""></a>
                             <a href="/"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/admin/images/lumut.png" alt=""></a>
                             <a href="{{url('/')}}/bidang/lukis"><img class="p-1 mr-2 bg-white" style="width: 50px; height:50px; border-radius:10px" src="/assets/user/images/merch.png" alt=""></a>

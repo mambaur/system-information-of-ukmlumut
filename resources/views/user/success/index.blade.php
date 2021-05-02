@@ -7,7 +7,7 @@
 @section('description')
 
     @php
-        $route = "/user/cetak?id=".session('id');
+        $route = "/pendaftaran-anggota/cetak?id=".session('id');
 
         if(session('type') == 'peminjaman'){
             $route = "/peminjaman-alat/cetak-bukti-peminjaman?id=".session('id');

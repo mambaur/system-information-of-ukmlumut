@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Anggota;
 use App\Pengaturan;
+use PDF;
 
 class PendaftaranController extends Controller
 {
@@ -160,5 +161,25 @@ class PendaftaranController extends Controller
             }
         }
         return $returnValue;
+    }
+
+    public function cetak(Request $request)
+    {
+        $pendaftaran = Anggota::where('email', $request->id)->first();
+        if($pendaftaran && $pendaftaran->jenjang == 'Calon Anggota'){
+            $pdf = PDF::loadView('user.pendaftaran.cetak', compact('pendaftaran'));
+            $options = [
+                'dpi' => 96, 
+                'defaultFont' => 'Nunito',
+                'isRemoteEnabled' => true
+            ];
+    
+            $pdf->setOptions($options);
+            // $pdf->setPaper('a4', 'landscape');
+            // return view('user.pendaftaran.cetak', compact('pendaftaran'));
+            return $pdf->stream('Bukti pendaftaran_'.$pendaftaran->nama_anggota.'_'.$request->id);
+        }else{
+            return back();
+        }
     }
 }
