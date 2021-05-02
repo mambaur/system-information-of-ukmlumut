@@ -136,6 +136,14 @@
             <td style="width: 30%">Keterangan</td>
             <td>{{@$peminjaman->keterangan}}</td>
           </tr>
+          <tr>
+            <td style="width: 30%">Perlengkapan</td>
+            <td>
+              @foreach ($perkap as $item)
+                  {{@$item->nama_barang}}<br
+              @endforeach
+            </td>
+          </tr>
         </table>
       </div>
 

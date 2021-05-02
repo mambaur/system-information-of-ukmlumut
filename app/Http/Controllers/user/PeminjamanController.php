@@ -140,7 +140,8 @@ class PeminjamanController extends Controller
     public function cetak(Request $request)
     {
         $peminjaman = Peminjaman::where('kode_pinjam', $request->id)->first();
-        $pdf = PDF::loadView('user.peminjaman.cetak', compact('peminjaman'));
+        $perkap = Peminjaman::select('nama_barang')->join('detail_peminjamans', 'peminjamans.kode_pinjam', 'detail_peminjamans.peminjamans_kode_pinjam')->join('perlengkapans', 'perlengkapans.id', 'detail_peminjamans.perlengkapans_id')->get();
+        $pdf = PDF::loadView('user.peminjaman.cetak', compact('peminjaman', 'perkap'));
         $options = [
             'dpi' => 96, 
             'defaultFont' => 'Nunito',
