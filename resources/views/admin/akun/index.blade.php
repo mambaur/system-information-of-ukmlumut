@@ -29,7 +29,7 @@
         <div class="card card-small mb-4 pt-3">
         <div class="card-header border-bottom text-center">
             <div class="mb-3 mx-auto">
-            <img style="object-position: center;" class="rounded-circle" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar" width="110" height="110"> </div>
+            <img style="object-position: center;object-fit: cover;width:110px;height:110px" class="rounded-circle" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar"> </div>
             <h4 class="mb-0">{{\Auth::user()->name}}</h4>
             <span class="text-muted d-block mb-2">{{\Auth::user()->jabatan}}</span>
             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary mr-2">

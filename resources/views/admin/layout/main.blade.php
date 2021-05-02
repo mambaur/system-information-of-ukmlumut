@@ -186,7 +186,7 @@
                 </li> --}}
                 <li class="nav-item dropdown">
                   <a class="nav-link dropdown-toggle text-nowrap px-3" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
-                    <img style="object-position: center;width:40px;height: 40px;" class="user-avatar rounded-circle mr-2" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar">
+                    <img style="object-position: center;object-fit: cover;width:40px;height: 40px;" class="user-avatar rounded-circle mr-2" src="/assets/admin/images/akun/{{\Auth::user()->image}}" alt="User Avatar">
                     <span class="d-none d-md-inline-block">
                       {{\Auth::user()->name .' '. \Auth::user()->nama_belakang}}
                     </span>
