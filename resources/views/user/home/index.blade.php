@@ -430,7 +430,7 @@
                         <div class="col-lg-4 ">
                             <div class="test-inner p-0">
                                 <div class="test-author-thumb d-flex">
-                                    <img src="/assets/admin/images/akun/{{$item->image}}" alt="Testimonial author" class="img-fluid">
+                                    <img style="object-position: center;" src="/assets/admin/images/akun/{{$item->image}}" alt="Testimonial author" class="img-fluid">
                                     <div class="test-author-info">
                                         <h4>{{$item->name.' '.$item->nama_belakang}}</h4>
                                         <h6>{{$item->jabatan}}</h6>

