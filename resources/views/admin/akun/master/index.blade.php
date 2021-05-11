@@ -34,7 +34,8 @@
                     @foreach ($user as $item)
                         <div class="blog-comments__item d-flex p-3">
                             <div class="blog-comments__avatar mr-3">
-                            <img src="/assets/admin/images/akun/{{$item->image}}" alt="User avatar" /> </div>
+                                <img style="object-position: center;object-fit: cover;width: 70px; height: 70px" src="/assets/admin/images/akun/{{$item->image}}" alt="User avatar" /> 
+                            </div>
                             <div class="blog-comments__content">
                             <div class="blog-comments__meta text-muted">
                                 <a class="text-secondary" href="#">{{$item->name.' '.$item->nama_belakang}}</a> -

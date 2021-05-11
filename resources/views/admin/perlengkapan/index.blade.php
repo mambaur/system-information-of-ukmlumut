@@ -70,6 +70,9 @@
         <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Pementasan">
           <button type="button" class="mb-2 btn {{$tipe === 'Pementasan' ? 'btn-primary' : 'btn-outline-primary' }}">Pementasan</button>
         </a>
+        <a class="text-decoration-none" href="/admin/perlengkapan/kategori?tipe=Lainnya">
+          <button type="button" class="mb-2 btn {{$tipe === 'Lainnya' ? 'btn-primary' : 'btn-outline-primary' }}">Lainnya</button>
+        </a>
       </div>
       <div>
         <a href="{{url('/admin/perlengkapan/tambah')}}">
@@ -88,7 +91,7 @@
         <table class="table mb-0">
           <thead class="bg-light">
             <tr>
-              <th scope="col" class="border-0">#</th>
+              <th scope="col" class="border-0">#ID</th>
               <th scope="col" class="border-0">Nama Barang</th>
               <th scope="col" class="border-0">Kondisi</th>
               <th scope="col" class="border-0">Tipe</th>
@@ -102,7 +105,7 @@
           <tbody>
             @foreach ($perlengkapan as $item)
             <tr>
-              <td>{{$loop->iteration}}</td>
+              <td>{{$item->id}}</td>
               <td>{{$item->nama_barang}}</td>
               <td>{{$item->kondisi}}</td>
               <td>{{$item->tipe}}</td>
@@ -142,6 +145,6 @@
   </div>
 </div>
 <!-- End Default Light Table -->
-{{ $perlengkapan->links() }}
+{{ $perlengkapan->appends(request()->input())->links() }}
 </div>
 @endsection

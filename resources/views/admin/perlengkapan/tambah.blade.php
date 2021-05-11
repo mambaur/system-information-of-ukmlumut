@@ -44,6 +44,7 @@
                             <option value="Lukis">Lukis</option>
                             <option value="Musik">Musik</option>
                             <option value="Tari">Tari</option>
+                            <option value="Lainnya">Lainnya</option>
                         </select>
                         </div>
                         <div class="form-group col-md-5">

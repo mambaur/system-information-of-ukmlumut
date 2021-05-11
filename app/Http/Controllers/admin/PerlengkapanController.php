@@ -23,7 +23,7 @@ class PerlengkapanController extends Controller
         $totalDipinjam = Peminjaman::where('status', 'dipinjam')->count();
         $totalSelesai = Peminjaman::where('status', 'selesai')->count();
         $riwayat = Peminjaman::where('status', 'selesai')->orWhere('status', 'ditolak')->count();
-        $perlengkapan = Perlengkapan::orderBy('id', 'DESC')->paginate(10);
+        $perlengkapan = Perlengkapan::orderBy('id', 'ASC')->paginate(10);
         return view('admin.perlengkapan.index', [
             'perlengkapan' => $perlengkapan,
             'tipe' => 'Semua',

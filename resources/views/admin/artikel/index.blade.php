@@ -67,7 +67,7 @@
       </div>
       @endforeach
     </div>
-    {{ $artikel->links() }}
+    {{ $artikel->appends(request()->input())->links() }}
 
     
     @if (!count($artikel))

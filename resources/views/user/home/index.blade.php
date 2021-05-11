@@ -338,7 +338,7 @@
 
                         <!-- Subheading -->
                         <p>
-                            Jangan lupa subscribe dan ikuti terus channel youtube UKM LUMUT agar kamu tidak ketinggalan update dan info terbaru dari UKM lUMUT.
+                            Jangan lupa subscribe dan ikuti terus channel youtube UKM LUMUT agar kamu tidak ketinggalan update dan info terbaru dari UKM LUMUT.
                         </p>
                     </div>
                 </div>

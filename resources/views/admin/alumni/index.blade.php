@@ -86,7 +86,7 @@
       </div>
       @endif
     
-    {{ $alumni->links() }}
+    {{ $alumni->appends(request()->input())->links() }}
 </div>
 @endsection
 
