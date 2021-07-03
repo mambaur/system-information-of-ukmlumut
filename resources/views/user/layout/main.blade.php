@@ -38,9 +38,9 @@
 
 
 <!-- LOADER TEMPLATE -->
-<div id="page-loader">
+{{-- <div id="page-loader">
     <div class="loader-icon fa fa-spin colored-border"></div>
-</div>
+</div> --}}
 <!-- /LOADER TEMPLATE -->
 
      <!-- NAVBAR
@@ -125,7 +125,7 @@
 
                     <li class="nav-item">
                         <a href="/pendaftaran-anggota" class="nav-link">
-                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-3 py-2"><i class="fas fa-user-alt mr-2"></i>Daftar</a></li>
+                            <li><a href="/pendaftaran-anggota" class="btn btn-trans-white btn-circled mb-1 px-3 py-2">Daftar</a></li>
                         </a>
                     </li>
                 </ul>

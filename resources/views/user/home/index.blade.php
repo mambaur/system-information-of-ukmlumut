@@ -468,12 +468,12 @@
                 <div class="col-lg-4 col-md-6">
                     <div class="blog-box">
                         <div class="blog-img-box">
-                            <img src="/assets/admin/images/artikel/{{$item->image}}" alt="" class="img-fluid blog-img">
+                            <img style="object-fit: cover;object-position:center; height:300px" src="/assets/admin/images/artikel/{{$item->image}}" alt="" class="img-fluid blog-img">
                         </div>
                         <div class="single-blog">
                             <div class="blog-content">
                                 <h6> {{$item->created_at}}</h6>
-                                <a href="#">
+                                <a href="/bidang/{{strtolower($item->bidang)}}/artikel/{{$item->id}}">
                                     <h3 class="card-title">{{$item->judul}}</h3>
                                 </a>
                                 <p>
