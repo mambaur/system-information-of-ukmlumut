@@ -46,6 +46,7 @@
             @if (!count($pesan))
                 <div class="text-center m-5">Belum ada pesan kritik dan saran.</div>
             @endif
+            {{$pesan->links()}}
         </div>
     </div>
 </div>
