@@ -244,11 +244,11 @@ const jurusan = {
     "results" : [
         {
             "nama_jurusan" : "Produksi Pertanian",
-            "prodi" : ["Produksi Tanaman Holtikultura (PTH)", "Produksi Tanaman Perkebunan (PTP)", "Teknik Produksi Benih (TPB)", "Teknologi Produksi Tanaman Pangan (TPP)", "Budidaya Tanaman Perkebunan (BTP)"]
+            "prodi" : ["Produksi Tanaman Holtikultura (PTH)", "Produksi Tanaman Perkebunan (PTP)", "Teknik Produksi Benih (TPB)", "Teknologi Produksi Tanaman Pangan (TPP)", "Budidaya Tanaman Perkebunan (BTP)", "Pengelola Perkebunan Kopi"]
         }, 
         {
             "nama_jurusan" : "Teknologi Pertanian",
-            "prodi" : ["Keteknikan Pertanian (TEP)", "Teknologi Industri Pangan (TIP)"]
+            "prodi" : ["Keteknikan Pertanian (TEP)", "Teknologi Industri Pangan (TIP)", "Teknologi Rekayasa Pangan"]
         }, 
         {
             "nama_jurusan" : "Peternakan",
@@ -256,7 +256,7 @@ const jurusan = {
         }, 
         {
             "nama_jurusan" : "Manajemen Agribisnis",
-            "prodi" : ["Manajemen Agribisnis (MNA)", "Manajemen Agroindustri (MID)"]
+            "prodi" : ["Manajemen Agribisnis (MNA)", "Manajemen Agroindustri (MID)", "Akuntansi Sektor Publik"]
         }, 
         {
             "nama_jurusan" : "Teknologi Informasi",
@@ -264,7 +264,7 @@ const jurusan = {
         }, 
         {
             "nama_jurusan" : "Bahasa, Komunikasi dan Pariwisata",
-            "prodi" : ["Bahasa Inggris Terapan (BIG)"]
+            "prodi" : ["Bahasa Inggris Terapan (BIG)", "Destinasi Pariwisata", "Manajemen Pemasaran Internasional"]
         }, 
         {
             "nama_jurusan" : "Kesehatan",
@@ -272,7 +272,7 @@ const jurusan = {
         }, 
         {
             "nama_jurusan" : "Teknik",
-            "prodi" : ["Teknik Energi Terbarukan (TET)", "Mesin Otomotif(MOT)"]
+            "prodi" : ["Teknik Energi Terbarukan (TET)", "Mesin Otomotif(MOT)", "Teknologi Rekayasa Mekatronika"]
         }, 
     ]
 };

@@ -23,7 +23,7 @@
                     <div class="mb-4 pt-3">
                         <div class="text-center">
                             <div class="mb-3 mx-auto">
-                            <img class="rounded-circle" src="/assets/admin/images/anggota/{{$anggota->foto}}" alt="User Avatar" width="110"> </div>
+                            <img width="140" height="140" style="object-fit: cover" class="rounded-circle" src="/assets/admin/images/anggota/{{$anggota->foto}}" alt="User Avatar" width="110"> </div>
                             <h4 class="mb-0">{{$anggota->nama_anggota}}</h4>
                             <span class="text-muted d-block mb-2">{{$anggota->jenjang}}</span>
                             <button type="button" class="mb-2 btn btn-sm btn-pill btn-outline-primary px-4">
