@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Cetak presensi calon anggota</title>
+    <title>Cetak Presensi Calon Anggota</title>
     <meta name="description" content="A high-quality &amp; free Bootstrap admin dashboard template pack that comes with lots of templates and components.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link href="https://use.fontawesome.com/releases/v5.0.6/css/all.css" rel="stylesheet">
@@ -38,6 +38,8 @@
                     <th scope="col">No</th>
                     <th scope="col">Nama Calon Anggota</th>
                     <th scope="col">Bidang</th>
+                    <th scope="col">Jurusan</th>
+                    <th scope="col">No Telp</th>
                     <th scope="col">Tanda Tangan</th>
                   </tr>
                 </thead>
@@ -47,6 +49,8 @@
                             <th scope="row" style="width:5%">{{$loop->iteration}}</th>
                             <td>{{$item->nama_anggota}}</td>
                             <td style="width:15%">{{$item->bidang}}</td>
+                            <td style="width:15%">{{$item->jurusan}}, {{$item->prodi}}</td>
+                            <td style="width:15%">{{$item->telp}}</td>
                             <td style="width:15%"></td>
                         </tr>
                     @endforeach

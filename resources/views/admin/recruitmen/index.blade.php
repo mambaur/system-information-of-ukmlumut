@@ -60,7 +60,9 @@
           </ul>
         </div>
       </div>
-      {{$anggota->links()}}
+      <div class="mt-3">
+        {{$anggota->links()}}
+      </div>
     </div>
     @if ($asal)
     <div class="col-lg-4 col-md-12 col-sm-12 mb-4">
